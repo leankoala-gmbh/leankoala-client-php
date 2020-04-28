@@ -6,8 +6,7 @@ use Leankoala\LeankoalaClient\Repository\CheckRepository;
 
 include_once __DIR__ . '/../vendor/autoload.php';
 
-$dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . '/../');
-$dotenv->load();
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . '/../')->load();
 
 $client = new Client(getenv('username'), getenv('password'), getenv('environment'));
 
