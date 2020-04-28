@@ -1,0 +1,22 @@
+{
+  "name": "leankoala/leankoalaclient",
+  "description": "description",
+  "minimum-stability": "dev",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Nils Langner",
+      "email": "nils.langner@leankoala.com"
+    }
+  ],
+  "require": {
+    "ext-json": "*",
+    "guzzlehttp/guzzle": "6.5.2",
+    "vlucas/phpdotenv": "4.1.4"
+  },
+  "autoload": {
+    "psr-4": {
+      "Leankoala\\LeankoalaClient\\": "src/"
+    }
+  }
+}
