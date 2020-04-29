@@ -27,25 +27,6 @@ class Client
     const ENVIRONMENT_DEVELOPMENT = 'develop';
 
     /**
-     * List of allowed environments.
-     * Stage and development environment is only used by the Leankoala team.
-     *
-     * @var string[]
-     */
-    private $allowedEnvironments = [
-        self::ENVIRONMENT_PRODUCTION,
-        self::ENVIRONMENT_STAGE,
-        self::ENVIRONMENT_DEVELOPMENT
-    ];
-
-    /**
-     * The current environment.
-     *
-     * @var string
-     */
-    private $environment;
-
-    /**
      * The open connection to the Leankoala API server.
      *
      * @var Connection
@@ -55,18 +36,11 @@ class Client
     /**
      * Client constructor.
      *
-     * @param string $username
-     * @param string $password
-     * @param string $environment
+     * @param Connection $connection
      */
-    public function __construct($username, $password, $environment = self::ENVIRONMENT_PRODUCTION)
+    private function __construct(Connection $connection)
     {
-        $this->assertValidEnvironment($environment);
-        $this->environment = $environment;
-
-        $httpClient = new GuzzleClient();
-
-        $this->connection = new Connection($httpClient, $this->getApiServer(), $username, $password);
+        $this->connection = $connection;
     }
 
     /**
@@ -94,11 +68,13 @@ class Client
     /**
      * Get the API server for the current environment.
      *
+     * @param string $environment
+     *
      * @return string
      */
-    private function getApiServer()
+    static private function getApiServer($environment)
     {
-        switch ($this->environment) {
+        switch ($environment) {
             case self::ENVIRONMENT_PRODUCTION:
                 return self::API_SERVER_PRODUCTION;
             case self::ENVIRONMENT_STAGE:
@@ -111,15 +87,31 @@ class Client
     }
 
     /**
-     * Throws an exception if the given environment is not valid.
-     *
+     * @param $username
+     * @param $password
      * @param string $environment
-     * @throws \RuntimeException
+     *
+     * @return Client
+     *
+     * @throws Client\ApiError
      */
-    private function assertValidEnvironment($environment)
+    static public function createByCredentials($username, $password, $environment = self::ENVIRONMENT_PRODUCTION)
     {
-        if (!in_array($environment, $this->allowedEnvironments)) {
-            throw new \RuntimeException('The given environment is not allowed. Allowed values are ' . implode(', ', $this->allowedEnvironments) . '.');
-        }
+        $connection = new Connection(new GuzzleClient(), self::getApiServer($environment), $username, $password);
+        return new self($connection);
+    }
+
+    /**
+     * @param $token
+     * @param string $environment
+     *
+     * @return Client
+     *
+     * @throws Client\ApiError
+     */
+    static public function createByJwt($token, $environment = self::ENVIRONMENT_PRODUCTION)
+    {
+        $connection = new Connection(new GuzzleClient(), self::getApiServer($environment), $token);
+        return new self($connection);
     }
 }

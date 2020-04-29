@@ -1,14 +1,9 @@
 <?php
 
-use Leankoala\LeankoalaClient\Client;
 use Leankoala\LeankoalaClient\Client\ApiError;
 use Leankoala\LeankoalaClient\Repository\CheckRepository;
 
-include_once __DIR__ . '/../vendor/autoload.php';
-
-$dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . '/../')->load();
-
-$client = new Client(getenv('username'), getenv('password'), getenv('environment'));
+include_once __DIR__ . '/_includes/autoload.php';
 
 if (count($argv) !== 3) {
     echo "\n Usage: php " . $argv[0] . " systemId checklistName \n\n";
