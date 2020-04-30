@@ -15,6 +15,8 @@ use Leankoala\LeankoalaClient\Client\ApiError;
 class UserRepository extends BaseRepository
 {
     const ENDPOINT_USER_CREATE = '/v1/user/users/{{provider}}';
+    const ENDPOINT_USER_EXISTS = '/v1/user/users/exists';
+    const ENDPOINT_USER_FIND = '/v1/user/users/find';
 
     const ENDPOINT_USER_CONNECT_OAUTH = '/v1/user/oauth/{{user_id}}/connect';
 
@@ -72,5 +74,27 @@ class UserRepository extends BaseRepository
         $this->getConnection()->sendPut(self::ENDPOINT_USER_CONNECT_OAUTH, $payload);
 
         return true;
+    }
+
+    public function findUser($query)
+    {
+        $payload = [
+            'query' => $query
+        ];
+
+        $result = $this->getConnection()->sendGet(self::ENDPOINT_USER_FIND, $payload);
+
+        return $result['user_id'];
+    }
+
+    public function userExists($query)
+    {
+        $payload = [
+            'query' => $query
+        ];
+
+        $result = $this->getConnection()->sendGet(self::ENDPOINT_USER_EXISTS, $payload);
+
+        return $result['exists'];
     }
 }
