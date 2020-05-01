@@ -91,6 +91,11 @@ class Connection
     {
         return $this->sendRequest('PUT', $endpoint, $payload, $withAccessToken);
     }
+    
+    public function sendGet($endpoint, $payload, $withAccessToken = true)
+    {
+        return $this->sendRequest('GET', $endpoint, $payload, $withAccessToken);
+    }
 
     /**
      * Send the actual request via the given method
