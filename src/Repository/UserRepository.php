@@ -3,6 +3,7 @@
 namespace Leankoala\LeankoalaClient\Repository;
 
 use Leankoala\LeankoalaClient\Client\ApiError;
+use Leankoala\LeankoalaClient\Client\NotFoundApiError;
 
 /**
  * Class UserRepository
@@ -75,7 +76,11 @@ class UserRepository extends BaseRepository
             'query' => $query
         ];
 
-        $result = $this->getConnection()->sendGet(self::ENDPOINT_USER_FIND, $payload);
+        try {
+            $result = $this->getConnection()->sendGet(self::ENDPOINT_USER_FIND, $payload);
+        } catch (NotFoundApiError $e) {
+            return false;
+        }
 
         return $result['user_id'];
     }

@@ -91,7 +91,17 @@ class Connection
     {
         return $this->sendRequest('PUT', $endpoint, $payload, $withAccessToken);
     }
-    
+
+    /**
+     * Send a GET request to the given Leankoala API endpoint.
+     *
+     * @param string $endpoint
+     * @param array $payload
+     * @param bool $withAccessToken
+     * @return array
+     *
+     * @throws ApiError
+     */
     public function sendGet($endpoint, $payload, $withAccessToken = true)
     {
         return $this->sendRequest('GET', $endpoint, $payload, $withAccessToken);
@@ -132,6 +142,7 @@ class Connection
         }
 
         $body = (string)$response->getBody();
+        $statusCode = $response->getStatusCode();
 
         if (is_null($body) || $body == '') {
             $e = new ApiError('The Leankoala API responded with an empty body.');
@@ -147,9 +158,15 @@ class Connection
         }
 
         if ($responseArray[self::RESPONSE_STATUS] === 'error') {
-            $e = new ApiError($responseArray['message']);
+            if ($statusCode == '404') {
+                $e = new NotFoundApiError($responseArray['message']);
+            } else {
+                $e = new ApiError($responseArray['message']);
+            }
+
             $e->setPayload($payload);
             $e->setUrl($endpoint);
+
             throw $e;
         }
 
