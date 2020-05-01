@@ -112,7 +112,7 @@ class Client
     static public function createByJwt($token, $environment = self::ENVIRONMENT_PRODUCTION)
     {
         if (!$token) {
-            throw new \RuntimeException("The token must not be null");
+            throw new \RuntimeException("The token must not be null.");
         }
 
         $connection = new Connection(new GuzzleClient(), self::getApiServer($environment), $token);

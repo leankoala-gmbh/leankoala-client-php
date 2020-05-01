@@ -23,17 +23,6 @@ class UserRepository extends BaseRepository
     const DATA_USER_ID = 'user_id';
 
     /**
-     * @param $oauthProvider
-     * @param $oauthId
-     *
-     * @return int
-     */
-    public function addOauthToUser($oauthProvider, $oauthId)
-    {
-        return 42;
-    }
-
-    /**
      * Create a new user.
      *
      * This api endpoint needs special authorization.
@@ -50,6 +39,10 @@ class UserRepository extends BaseRepository
      */
     public function createUser($provider, $username, $password, $email, array $optionalFields = [])
     {
+        if (!$provider) {
+            throw new \RuntimeException('The provider must not be emtpty or null.');
+        }
+
         $connection = $this->getConnection();
 
         $payload = array_merge(
