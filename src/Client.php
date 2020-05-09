@@ -26,6 +26,8 @@ class Client
     const ENVIRONMENT_STAGE = 'stage';
     const ENVIRONMENT_DEVELOPMENT = 'develop';
 
+    private $registeredRepositories = [];
+
     /**
      * The open connection to the Leankoala API server.
      *
@@ -51,18 +53,40 @@ class Client
      */
     public function getRepository($repositoryName)
     {
-        $interfaceReflection = new \ReflectionClass(Repository::class);
-        $className = $interfaceReflection->getNamespaceName() . '\\' . $repositoryName . 'Repository';
+        if (array_key_exists($repositoryName, $this->registeredRepositories)) {
+            $className = $this->registeredRepositories[$repositoryName];
+        } else {
+            $interfaceReflection = new \ReflectionClass(Repository::class);
+            $className = $interfaceReflection->getNamespaceName() . '\\' . $repositoryName . 'Repository';
+        }
 
         if (!class_exists($className)) {
             // @todo get a list of all possible repositories
-            throw new \RuntimeException('No repository found with name "' . $className . '".');
+            throw new \RuntimeException('No repository found with name "' . $className . '". Did you forget to register it using the registerRepositoryByClass() method?');
         }
 
         /** @var Repository $repository */
         $repository = new $className($this->connection);
 
+        if (!$repository instanceof Repository) {
+            throw new \RuntimeException('The class with name "' . $className . '" does not implement the Repository interface.');
+        }
+
         return $repository;
+    }
+
+    /**
+     * Every user can register own repository classes to the client.
+     *
+     * This can be used to create easy to use wrapper that feel like native Leankoala API
+     * calls.
+     *
+     * @param string $name
+     * @param string $className
+     */
+    public function registerRepositoryByClass($name, $className)
+    {
+        $this->registeredRepositories[$name] = $className;
     }
 
     /**
