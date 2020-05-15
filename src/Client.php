@@ -22,6 +22,7 @@ class Client
     const API_SERVER_DEVELOPMENT = 'http://localhost:8081/kapi/';
 
     /** List of all environments */
+    const ENVIRONMENT_CUSTOM = 'custom';
     const ENVIRONMENT_PRODUCTION = 'production';
     const ENVIRONMENT_STAGE = 'stage';
     const ENVIRONMENT_DEVELOPMENT = 'develop';
@@ -93,12 +94,19 @@ class Client
      * Get the API server for the current environment.
      *
      * @param string $environment
+     * @param string $apiServer
      *
      * @return string
      */
-    static private function getApiServer($environment)
+    static private function getApiServer($environment, $apiServer = null)
     {
         switch ($environment) {
+            case self::ENVIRONMENT_CUSTOM:
+                if ($apiServer) {
+                    return $apiServer;
+                } else {
+                    throw new \RuntimeException('If the environment is set to custom the apiSever parameter must be set.');
+                }
             case self::ENVIRONMENT_PRODUCTION:
                 return self::API_SERVER_PRODUCTION;
             case self::ENVIRONMENT_STAGE:
@@ -111,35 +119,37 @@ class Client
     }
 
     /**
-     * @param $username
-     * @param $password
+     * @param string $username
+     * @param string $password
      * @param string $environment
+     * @param static $apiServer
      *
      * @return Client
      *
      * @throws Client\ApiError
      */
-    static public function createByCredentials($username, $password, $environment = self::ENVIRONMENT_PRODUCTION)
+    static public function createByCredentials($username, $password, $environment = self::ENVIRONMENT_PRODUCTION, $apiServer = null)
     {
-        $connection = new Connection(new GuzzleClient(), self::getApiServer($environment), $username, $password);
+        $connection = new Connection(new GuzzleClient(), self::getApiServer($environment, $apiServer), $username, $password);
         return new self($connection);
     }
 
     /**
-     * @param $token
+     * @param string $token
      * @param string $environment
+     * @param static $apiServer
      *
      * @return Client
      *
      * @throws Client\ApiError
      */
-    static public function createByJwt($token, $environment = self::ENVIRONMENT_PRODUCTION)
+    static public function createByJwt($token, $environment = self::ENVIRONMENT_PRODUCTION, $apiServer = null)
     {
         if (!$token) {
             throw new \RuntimeException("The token must not be null.");
         }
 
-        $connection = new Connection(new GuzzleClient(), self::getApiServer($environment), $token);
+        $connection = new Connection(new GuzzleClient(), self::getApiServer($environment, $apiServer), $token);
         return new self($connection);
     }
 }
