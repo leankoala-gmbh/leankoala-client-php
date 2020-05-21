@@ -114,7 +114,7 @@ class Client
             case self::ENVIRONMENT_DEVELOPMENT:
                 return self::API_SERVER_DEVELOPMENT;
             default:
-                throw new \RuntimeException('No API server for this environment found.');
+                throw new \RuntimeException('No API server for the environment "' . $environment . '" found.');
         }
     }
 

@@ -23,6 +23,9 @@ class Connection
 
     const ENDPOINT_PARAMETER_PATTERN = '/{{(.*?)}}/';
 
+    /**
+     * @var string
+     */
     private $apiServer;
 
     /**
@@ -41,9 +44,9 @@ class Connection
      * Connection constructor.
      *
      * @param Client $httpClient
-     * @param $apiServer
-     * @param $usernameOrJwt
-     * @param null $password
+     * @param string $apiServer
+     * @param string $usernameOrJwt
+     * @param string $password
      *
      * @throws ApiError
      */
@@ -60,8 +63,8 @@ class Connection
     }
 
     /**
-     * @param $username
-     * @param $password
+     * @param string $username
+     * @param string $password
      *
      * @throws ApiError
      */
@@ -87,6 +90,17 @@ class Connection
         return $this->sendRequest('POST', $endpoint, $payload, $withAccessToken);
     }
 
+    /**
+     * Send a PUT request to the Leankoala API.
+     *
+     * @param string $endpoint
+     * @param array $payload
+     * @param bool $withAccessToken
+     *
+     * @return array
+     *
+     * @throws ApiError
+     */
     public function sendPut($endpoint, $payload, $withAccessToken = true)
     {
         return $this->sendRequest('PUT', $endpoint, $payload, $withAccessToken);
@@ -177,6 +191,14 @@ class Connection
         }
     }
 
+    /**
+     * Enrich the the endpoint with all parameters with the payload data.
+     *
+     * @param string $endpoint
+     * @param array $payload
+     *
+     * @return string
+     */
     private function getProcessEndpoint($endpoint, $payload)
     {
         preg_match_all(self::ENDPOINT_PARAMETER_PATTERN, $endpoint, $matches);
