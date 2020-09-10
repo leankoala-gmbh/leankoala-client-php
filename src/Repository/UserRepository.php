@@ -51,7 +51,8 @@ class UserRepository extends BaseRepository
                 'provider' => $provider,
                 'username' => $username,
                 'password' => $password,
-                'email' => $email
+                'email' => $email,
+                'create_company' => true
             ],
             $optionalFields
         );
