@@ -11,19 +11,53 @@ use Leankoala\ApiClient\Repository\Repository;
  *
  * @created 2021-05-06
  */
-class CompanyRepository extends Repository implements \Leankoala\ApiClient\Repository\MasterConnectionRepository {
+class CompanyRepository extends Repository  {
 
   /**
-   * @param application
-   * @param company
+   * Create a new company
+   *
+   * @param providerIdentifier
    * @param {Object} args
-   * @param {Number} args.cluster 
+   * @param {String} args.name The companies name
    */
-  public function setCluster($application, $company, $args)
+  public function create($providerIdentifier, $args)
   {
-    $route = ['path' => '/api/{application}/company/{company}', 'method' => 'POST', 'version' =>  1];
-    $argList = array_merge(['application' => $application, 'company' => $company], $args);
-    $requiredArguments = ['cluster'];
+    $route = ['path' => 'user/companies/{providerIdentifier}', 'method' => 'POST', 'version' =>  1];
+    $argList = array_merge(['providerIdentifier' => $providerIdentifier], $args);
+    $requiredArguments = ['name'];
+    $this->assertValidArguments($requiredArguments, $argList);
+
+    return $this->connection->send($route, $argList);
+  }
+
+  /**
+   * Check if the given company name already exists
+   *
+   * @param {Object} args
+   * @param {String} args.company_name The companies name
+   */
+  public function exists($args)
+  {
+    $route = ['path' => 'user/companies/exists', 'method' => 'GET', 'version' =>  1];
+    $argList = array_merge([], $args);
+    $requiredArguments = ['company_name'];
+    $this->assertValidArguments($requiredArguments, $argList);
+
+    return $this->connection->send($route, $argList);
+  }
+
+  /**
+   * Search for a given company by provider and name
+   *
+   * @param providerIdentifier
+   * @param {Object} args
+   * @param {String} args.company_name The companies name
+   */
+  public function search($providerIdentifier, $args)
+  {
+    $route = ['path' => 'user/companies/search/{providerIdentifier}', 'method' => 'POST', 'version' =>  1];
+    $argList = array_merge(['providerIdentifier' => $providerIdentifier], $args);
+    $requiredArguments = ['company_name'];
     $this->assertValidArguments($requiredArguments, $argList);
 
     return $this->connection->send($route, $argList);

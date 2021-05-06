@@ -76,6 +76,11 @@ class Client
     private $connectedCluster;
 
     /**
+     * @var array
+     */
+    private $masterUser;
+
+    /**
      * The possible servers.
      *
      * @var string[]
@@ -85,8 +90,6 @@ class Client
         self::ENVIRONMENT_STAGE => 'https://stage.monitor.leankoala.com/kapi/',
         self::ENVIRONMENT_PRODUCTION => 'https://api.cluster1.koalityengine.com/'
     ];
-
-    private $clusterEndpoint;
 
     /**
      * The connection status.
@@ -110,8 +113,15 @@ class Client
             "version" => 1,
             "path" => '/{application}/auth/login',
             "method" => 'POST'
+        ],
+        "authenticateAtCluster" => [
+            "version" => 1,
+            "path" => '/auth/tokens/token/{masterUserId}',
+            "method" => 'POST'
         ]
     ];
+
+    private $clusterUser;
 
     /**
      * Client constructor.
@@ -194,12 +204,34 @@ class Client
     private function switchCluster($cluster)
     {
         $this->connectedCluster = $cluster['id'];
-        $this->clusterEndpoint = $cluster['apiEndpoint'];
 
         $this->clusterConnection = new Connection($this->client);
-        $this->clusterConnection->setApiServer($this->clusterEndpoint);
+        $this->clusterConnection->setApiServer($cluster['apiEndpoint']);
+
+        // login into cluster
+        $tokens = $this->clusterConnection->send($this->routes['authenticateAtCluster'], [
+            'access_token' => $this->masterConnection->getAccessToken(),
+            'masterUserId' => $this->getMasterUser()['id']
+        ]);
+
+        $this->clusterUser = $tokens['user'];
+
+        $this->clusterConnection->setAccessToken($tokens['token']);
 
         $this->repositoryCollection->setClusterConnection($this->clusterConnection);
+    }
+
+    /**
+     * @return array
+     */
+    public function getMasterUser()
+    {
+        return $this->masterUser;
+    }
+
+    public function getClusterUser()
+    {
+        return $this->clusterUser;
     }
 
     /**
@@ -232,7 +264,7 @@ class Client
 
         $accessToken = $result['token'];
 
-        $this->user = $result['user'];
+        $this->masterUser = $result['user'];
         $this->companies = $result['companies'];
 
         $this->masterConnection->setAccessToken($accessToken);

@@ -5,6 +5,7 @@ namespace Leankoala\ApiClient\Connection;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\Exception\GuzzleException;
+use GuzzleHttp\Exception\ServerException;
 use GuzzleHttp\Psr7\Response;
 use GuzzleHttp\RequestOptions;
 use Leankoala\ApiClient\Exception\BadRequestException;
@@ -100,6 +101,17 @@ class Connection
         $this->addDefaultParameter('access_token', $accessToken);
     }
 
+
+    /**
+     * Get the access token for JWT handling.
+     *
+     * @return string
+     */
+    public function getAccessToken()
+    {
+        return $this->accessToken;
+    }
+
     /**
      * @param $route
      * @param $data
@@ -131,6 +143,8 @@ class Connection
             ]);
         } catch (ClientException $exception) {
             $response = $exception->getResponse();
+        } catch (ServerException $exception) {
+            $response = $exception->getResponse();
         }
 
         $this->assertValidResponse($response, $url, $method, $fullData);
@@ -153,7 +167,7 @@ class Connection
     {
         $path = $route['path'];
 
-        if(strpos($path, '/') === 0) {
+        if (strpos($path, '/') === 0) {
             $path = substr($path, 1);
         }
 
