@@ -5,10 +5,10 @@ namespace Leankoala\ApiClient\Repository;
 use Leankoala\ApiClient\Connection\Connection;
 use Leankoala\ApiClient\Exception\UnknownRepositoryException;
 
-use Leankoala\ApiClient\Repository\Entity\Auth2ApplicationRepository;
-use Leankoala\ApiClient\Repository\Entity\Auth2AuthRepository;
-use Leankoala\ApiClient\Repository\Entity\Auth2CompanyRepository;
-use Leankoala\ApiClient\Repository\Entity\Auth2UserRepository;
+use Leankoala\ApiClient\Repository\Entity\ApplicationRepository;
+use Leankoala\ApiClient\Repository\Entity\Auth2Repository;
+use Leankoala\ApiClient\Repository\Entity\CompanyRepository;
+use Leankoala\ApiClient\Repository\Entity\UserRepository;
 
 /**
  * Class RepositoryCollection
@@ -41,10 +41,10 @@ class RepositoryCollection
     {
         $this->connection = $connection;
 
-        $this->repositories['auth2application'] = new Auth2ApplicationRepository();
-        $this->repositories['auth2auth'] = new Auth2AuthRepository();
-        $this->repositories['auth2company'] = new Auth2CompanyRepository();
-        $this->repositories['auth2user'] = new Auth2UserRepository();
+        $this->repositories['application'] = new ApplicationRepository();
+        $this->repositories['auth2'] = new Auth2Repository();
+        $this->repositories['company'] = new CompanyRepository();
+        $this->repositories['user'] = new UserRepository();
     }
 
     /**

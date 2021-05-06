@@ -7,6 +7,7 @@ use GuzzleHttp\Client as GuzzleClient;
 use GuzzleHttp\Exception\GuzzleException;
 use Leankoala\ApiClient\Connection\Connection;
 use Leankoala\ApiClient\Exception\BadRequestException;
+use Leankoala\ApiClient\Exception\CompanySelectionFailedException;
 use Leankoala\ApiClient\Exception\MissingArgumentException;
 use Leankoala\ApiClient\Exception\NotConnectedException;
 use Leankoala\ApiClient\Exception\UnknownRepositoryException;
@@ -37,9 +38,20 @@ class Client
     const STATUS_DISCONNECTED = 'disconnected';
 
     /**
+     * The standard application
+     */
+    const APPLICATION_KOALITY = 'koality';
+    const APPLICATION_LEANKOALA = 'leankoala';
+
+    /**
      * @var Connection
      */
-    private $connection;
+    private $masterConnection;
+
+    /**
+     * @var Connection
+     */
+    private $clusterConnection;
 
     /**
      * @var string
@@ -50,6 +62,18 @@ class Client
      * @var GuzzleClient
      */
     private $client;
+
+    private $companies;
+
+    /**
+     * @var int
+     */
+    private $connectedCompany;
+
+    /**
+     * @var int
+     */
+    private $connectedCluster;
 
     /**
      * The possible servers.
@@ -62,6 +86,8 @@ class Client
         self::ENVIRONMENT_PRODUCTION => 'https://api.cluster1.koalityengine.com/'
     ];
 
+    private $clusterEndpoint;
+
     /**
      * The connection status.
      *
@@ -73,6 +99,19 @@ class Client
      * @var RepositoryCollection
      */
     private $repositoryCollection;
+
+    /**
+     * Mandatory routes that are needed before the repositories are initialized.
+     *
+     * @var array[]
+     */
+    private $routes = [
+        "authenticateByPassword" => [
+            "version" => 1,
+            "path" => '/{application}/auth/login',
+            "method" => 'POST'
+        ]
+    ];
 
     /**
      * Client constructor.
@@ -109,15 +148,58 @@ class Client
      * @throws Exception
      * @throws GuzzleException
      */
-    public function connect($username, $password)
+    public function connect($username, $password, $autoSelectCompany = false)
     {
-        try {
-            $this->initConnection($username, $password);
-        } catch (Exception $exception) {
-            throw $exception;
+        $this->initConnection($username, $password);
+
+        $this->repositoryCollection = new RepositoryCollection($this->masterConnection);
+
+        if ($autoSelectCompany) {
+            $this->autoSelectCompany();
+        }
+    }
+
+    /**
+     *
+     * @throws CompanySelectionFailedException
+     */
+    private function autoSelectCompany()
+    {
+        if (count($this->companies) == 0) {
+            throw new CompanySelectionFailedException('The user is not connected to a company yet');
         }
 
-        $this->repositoryCollection = new RepositoryCollection($this->connection);
+        $company = $this->companies[0];
+        $this->switchCompany($company['id']);
+    }
+
+    /**
+     * @throws CompanySelectionFailedException
+     */
+    public function switchCompany($companyId)
+    {
+        foreach ($this->companies as $company) {
+            if ($company['id'] === $companyId) {
+                $this->connectedCompany = $companyId;
+                $cluster = $company['cluster'];
+                $this->switchCluster($cluster);
+
+                return true;
+            }
+        }
+
+        throw new CompanySelectionFailedException('No company with ID ' . $companyId . 'found.');
+    }
+
+    private function switchCluster($cluster)
+    {
+        $this->connectedCluster = $cluster['id'];
+        $this->clusterEndpoint = $cluster['apiEndpoint'];
+
+        $this->clusterConnection = new Connection($this->client);
+        $this->clusterConnection->setApiServer($this->clusterEndpoint);
+
+        $this->repositoryCollection->setClusterConnection($this->clusterConnection);
     }
 
     /**
@@ -130,8 +212,30 @@ class Client
      */
     private function initConnection($username, $password)
     {
-        $this->connection = new Connection($this->servers[$this->environment], $this->client);
-        $this->connection->connect($username, $password, []);
+        $this->masterConnection = new Connection(
+            $this->client,
+            ['application' => self::APPLICATION_KOALITY]
+        );
+
+        $this->masterConnection->setApiServer($this->servers[$this->environment]);
+
+        $route = $this->routes['authenticateByPassword'];
+
+        $result = $this->masterConnection->send(
+            $route,
+            [
+                'emailOrUserName' => $username,
+                'password' => $password,
+                'withMemories' => true
+            ]
+        );
+
+        $accessToken = $result['token'];
+
+        $this->user = $result['user'];
+        $this->companies = $result['companies'];
+
+        $this->masterConnection->setAccessToken($accessToken);
 
         $this->connectionStatus = self::STATUS_CONNECTED;
     }

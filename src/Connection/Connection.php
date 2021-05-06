@@ -57,94 +57,47 @@ class Connection
     private $httpClient;
 
     /**
-     * Mandatory routes that are needed before the repositories are initialized.
-     *
-     * @var array[]
+     * @var array
      */
-    private $routes = [
-        "authenticateByPassword" => [
-            "version" => 1,
-            "path" => 'auth/tokens/access',
-            "method" => 'POST'
-        ],
-        "refresh" => [
-            "version" => 1,
-            "path" => 'auth/tokens/refresh/{user_id}',
-            "method" => 'POST'
-        ]
-    ];
+    private $defaultParameters = [];
 
     /**
      * Init routes and set default values
      *
-     * @param string $apiServer
      * @param Client $httpClient
+     * @param array $defaultParameters
      */
-    public function __construct($apiServer, Client $httpClient)
+    public function __construct(Client $httpClient, $defaultParameters = [])
+    {
+        $this->httpClient = $httpClient;
+        $this->defaultParameters = $defaultParameters;
+    }
+
+    public function setApiServer($apiServer)
     {
         $this->apiServer = $apiServer;
-        $this->httpClient = $httpClient;
     }
 
     /**
-     * Connect to the KoalityEngine server and fetch the tokens and user information.
+     * Add a new default parameter that will be added to every request that is send.
      *
-     * @param string $username
-     * @param string $password
-     * @param array $args
-     *
-     * @throws BadRequestException
-     * @throws GuzzleException
-     * @throws MissingArgumentException
+     * @param string $parameter
+     * @param string $value
      */
-    public function connect($username, $password, $args)
+    public function addDefaultParameter($parameter, $value)
     {
-        if (array_key_exists('language', $args)) {
-            $this->setLanguage($args['language']);
-        }
-
-        if (array_key_exists('withMemories', $args)) {
-            $withMemories = $args['withMemories'];
-        } else {
-            $withMemories = false;
-        }
-
-        $this->authenticate($username, $password, $withMemories);
+        $this->defaultParameters[$parameter] = $value;
     }
 
     /**
-     * Set the preferred language for the API results
+     * Register the access token for JWT handling.
      *
-     * @param string $language
+     * @param $accessToken
      */
-    public function setLanguage($language)
+    public function setAccessToken($accessToken)
     {
-        $this->preferredLanguage = $language;
-    }
-
-    /**
-     * Authenticate the user using username and password.
-     *
-     * This function will set the access and refresh tokens that are used afterwards for authentication.
-     *
-     * @param string $username
-     * @param string $password
-     * @param bool $withMemories
-     *
-     * @throws BadRequestException
-     * @throws GuzzleException
-     * @throws MissingArgumentException
-     */
-    private function authenticate($username, $password, $withMemories)
-    {
-        $tokens = $this->send($this->routes['authenticateByPassword'], [
-            'username' => $username,
-            'password' => $password,
-            'with_memories' => $withMemories
-        ], true);
-
-        $this->accessToken = $tokens->token;
-        $this->user = $tokens->user;
+        $this->accessToken = $accessToken;
+        $this->addDefaultParameter('access_token', $accessToken);
     }
 
     /**
@@ -153,36 +106,39 @@ class Connection
      * @param bool $withoutToken
      *
      * @return mixed
+     *
      * @throws BadRequestException
      * @throws GuzzleException
      * @throws MissingArgumentException
      */
     public function send($route, $data, $withoutToken = false)
     {
+        $fullData = array_merge($this->defaultParameters, $data);
+
         $method = strtoupper($route['method']);
-        $url = $this->getUrl($route, $data);
+        $url = $this->getUrl($route, $fullData);
 
         $headers = ['accept-language' => $this->preferredLanguage];
 
-        if ($withoutToken !== true) {
+        if ($withoutToken !== true && $this->accessToken) {
             $headers['Authorization'] = 'Bearer ' . $this->accessToken;
         }
 
         try {
             $response = $this->httpClient->request($method, $url, [
-                'headers' => $headers,
-                RequestOptions::JSON => $data
+                RequestOptions::HEADERS => $headers,
+                RequestOptions::JSON => $fullData
             ]);
         } catch (ClientException $exception) {
             $response = $exception->getResponse();
         }
 
-        $this->assertValidResponse($response, $url, $method, $data);
+        $this->assertValidResponse($response, $url, $method, $fullData);
 
         $responseJson = (string)$response->getBody();
-        $responseObject = json_decode($responseJson);
+        $responseObject = json_decode($responseJson, true);
 
-        return $responseObject->data;
+        return $responseObject['data'];
     }
 
     /**
@@ -196,9 +152,20 @@ class Connection
     private function getUrl($route, $data)
     {
         $path = $route['path'];
+
+        if(strpos($path, '/') === 0) {
+            $path = substr($path, 1);
+        }
+
         preg_match_all('/{(.*)}/', $path, $matches);
 
-        $url = $this->apiServer . 'v' . $route['version'] . '/' . $path;
+        if (array_key_exists('server', $route)) {
+            $apiServer = $route['server'];
+        } else {
+            $apiServer = $this->apiServer;
+        }
+
+        $url = $apiServer . 'v' . $route['version'] . '/' . $path;
 
         foreach ($matches[1] as $match) {
             if (!array_key_exists($match, $data)) {
@@ -228,7 +195,7 @@ class Connection
         if (is_null($responseData)) {
             throw new BadRequestException(
                 "The servers response is not valid JSON. \n\n" . substr((string)$response->getBody(), 0, 200),
-                $url, $method, $data);
+                $url, $method, $data, $response);
         }
 
         if ($responseData->status !== 'success') {

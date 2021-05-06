@@ -10,8 +10,8 @@ try {
     $client = new Client(Client::ENVIRONMENT_DEVELOP);
     $client->connect('nils', 'nils', false);
     /** @var ApplicationRepository $repo */
-    $repo = $client->getRepository('project');
-
+    $repo = $client->getRepository('application');
+    $cluster = $repo->getPrimaryCluster('koality', []);
 } catch (BadRequestException $e) {
     if ($e->hasResponse()) {
         // echo "\n\n" . $e->getResponse()->getBody();

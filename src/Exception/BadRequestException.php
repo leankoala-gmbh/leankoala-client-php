@@ -2,6 +2,8 @@
 
 namespace Leankoala\ApiClient\Exception;
 
+use GuzzleHttp\Psr7\Response;
+
 /**
  * Class BadRequestException
  *
@@ -15,14 +17,16 @@ class BadRequestException extends \Exception
     private $url;
     private $method;
     private $data;
+    private $response;
 
-    public function __construct($message, $url, $method, $data)
+    public function __construct($message, $url, $method, $data, Response $response = null)
     {
         parent::__construct($message);
 
         $this->url = $url;
         $this->method = $method;
         $this->data = $data;
+        $this->response = $response;
     }
 
     /**
@@ -49,5 +53,21 @@ class BadRequestException extends \Exception
         return $this->data;
     }
 
+    /**
+     * Return true if a response hat been attached.
+     *
+     * @return bool
+     */
+    public function hasResponse()
+    {
+        return !is_null($this->response);
+    }
 
+    /**
+     * @return Response
+     */
+    public function getResponse()
+    {
+        return $this->response;
+    }
 }

@@ -11,7 +11,7 @@ use Leankoala\ApiClient\Repository\Repository;
  *
  * @created 2021-05-06
  */
-class Auth2AuthRepository extends Repository {
+class Auth2Repository extends Repository implements \Leankoala\ApiClient\Repository\MasterConnectionRepository {
 
   /**
    * @param application
@@ -21,7 +21,7 @@ class Auth2AuthRepository extends Repository {
    */
   public function loginWithCredentials($application, $args)
   {
-    $route = ['path' => '/v1/{application}/auth/login', 'method' => 'POST', 'version' =>  1];
+    $route = ['path' => '/{application}/auth/login', 'method' => 'POST', 'version' =>  1];
     $argList = array_merge(['application' => $application], $args);
     $requiredArguments = ['emailOrUserName', 'password'];
     $this->assertValidArguments($requiredArguments, $argList);

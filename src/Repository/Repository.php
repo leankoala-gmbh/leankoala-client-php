@@ -2,6 +2,7 @@
 
 namespace Leankoala\ApiClient\Repository;
 
+use Leankoala\ApiClient\Connection\Connection;
 use Leankoala\ApiClient\Exception\MissingArgumentException;
 
 /**
@@ -13,8 +14,16 @@ use Leankoala\ApiClient\Exception\MissingArgumentException;
  */
 abstract class Repository
 {
+    /**
+     * @var Connection
+     */
     protected $connection;
 
+    /**
+     * Initialize the repository
+     *
+     * @param $connection
+     */
     public function init($connection)
     {
         $this->connection = $connection;

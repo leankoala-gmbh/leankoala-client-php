@@ -9,9 +9,9 @@ use Leankoala\ApiClient\Repository\Repository;
  *
  * All changes made in this file will be overwritten by the next create run.
  *
- * @created 2021-05-05
+ * @created 2021-05-06
  */
-class Auth2UserRepository extends Repository {
+class UserRepository extends Repository implements \Leankoala\ApiClient\Repository\MasterConnectionRepository {
 
   /**
    * @param application

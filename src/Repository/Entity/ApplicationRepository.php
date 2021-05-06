@@ -9,9 +9,9 @@ use Leankoala\ApiClient\Repository\Repository;
  *
  * All changes made in this file will be overwritten by the next create run.
  *
- * @created 2021-05-05
+ * @created 2021-05-06
  */
-class Auth2ApplicationRepository extends Repository {
+class ApplicationRepository extends Repository implements \Leankoala\ApiClient\Repository\MasterConnectionRepository {
 
   /**
    * @param {Object} args
@@ -34,7 +34,7 @@ class Auth2ApplicationRepository extends Repository {
    */
   public function getPrimaryCluster($application, $args)
   {
-    $route = ['path' => '/api/{application}/cluster/primary', 'method' => 'POST', 'version' =>  1];
+    $route = ['path' => '/{application}/cluster/primary', 'method' => 'POST', 'version' =>  1];
     $argList = array_merge(['application' => $application], $args);
 
     return $this->connection->send($route, $argList);
