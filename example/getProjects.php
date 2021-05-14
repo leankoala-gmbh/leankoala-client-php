@@ -26,4 +26,6 @@ try {
     echo $exception->getMessage();
 }
 
-var_dump($projects);
+foreach($projects['projects'] as $project) {
+    var_dump($project['name']);
+}
