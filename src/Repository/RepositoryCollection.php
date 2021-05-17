@@ -42,6 +42,8 @@ use Leankoala\ApiClient\Repository\Entity\SystemRepository;
 use Leankoala\ApiClient\Repository\Entity\ToolRepository;
 use Leankoala\ApiClient\Repository\Entity\UserRepository;
 use Leankoala\ApiClient\Repository\Entity\WebsocketRepository;
+use Leankoala\ApiClient\Repository\Entity\ClusterUserRepository;
+use Leankoala\ApiClient\Repository\Entity\ClusterCompanyRepository;
 
 /**
  * Class RepositoryCollection
@@ -84,6 +86,8 @@ class RepositoryCollection
         $this->repositories['company'] = new CompanyRepository();
         $this->repositories['user'] = new UserRepository();
 
+        $this->repositories['clustercompany'] = new ClusterCompanyRepository();
+        $this->repositories['clusteruser'] = new ClusterUserRepository();
         $this->repositories['marketplace'] = new MarketplaceRepository();
         $this->repositories['subscription'] = new SubscriptionRepository();
         $this->repositories['crawler'] = new CrawlerRepository();
