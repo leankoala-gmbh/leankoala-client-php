@@ -222,6 +222,14 @@ class Client
     }
 
     /**
+     * @param Connection $clusterConnection
+     */
+    public function setClusterConnection(Connection $clusterConnection): void
+    {
+        $this->clusterConnection = $clusterConnection;
+    }
+
+    /**
      * @return array
      */
     public function getMasterUser()
