@@ -9,7 +9,7 @@ use Leankoala\ApiClient\Repository\Repository;
  *
  * All changes made in this file will be overwritten by the next create run.
  *
- * @created 2021-05-17
+ * @created 2021-05-20
  */
 class ClusterCompanyRepository extends Repository  {
 
@@ -19,12 +19,13 @@ class ClusterCompanyRepository extends Repository  {
    * @param providerIdentifier
    * @param {Object} args
    * @param {String} args.name The companies name
+   * @param {Number} args.master_id The master id from the auth2 server
    */
   public function create($providerIdentifier, $args)
   {
     $route = ['path' => 'user/companies/{providerIdentifier}', 'method' => 'POST', 'version' =>  1];
     $argList = array_merge(['providerIdentifier' => $providerIdentifier], $args);
-    $requiredArguments = ['name'];
+    $requiredArguments = ['name', 'master_id'];
     $this->assertValidArguments($requiredArguments, $argList);
 
     return $this->connection->send($route, $argList);
@@ -59,6 +60,21 @@ class ClusterCompanyRepository extends Repository  {
     $argList = array_merge(['providerIdentifier' => $providerIdentifier], $args);
     $requiredArguments = ['company_name'];
     $this->assertValidArguments($requiredArguments, $argList);
+
+    return $this->connection->send($route, $argList);
+  }
+
+  /**
+   * Connect a given user to a company
+   *
+   * @param company
+   * @param user
+   * @param {Object} args
+   */
+  public function connectUser($company, $user, $args)
+  {
+    $route = ['path' => 'user/companies/connect/{company}/{user}', 'method' => 'POST', 'version' =>  1];
+    $argList = array_merge(['company' => $company, 'user' => $user], $args);
 
     return $this->connection->send($route, $argList);
   }
