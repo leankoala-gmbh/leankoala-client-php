@@ -213,7 +213,7 @@ class Connection
         }
 
         if ($responseData->status !== 'success') {
-            throw new BadRequestException($responseData->message, $url, $method, $data);
+            throw new BadRequestException($responseData->message . '(' . $url . ')', $url, $method, $data);
         }
     }
 

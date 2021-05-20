@@ -27,7 +27,8 @@ class Client
     /**
      * The environments
      */
-    const ENVIRONMENT_DEVELOP = 'dev';
+    const ENVIRONMENT_DEV = 'dev';
+    const ENVIRONMENT_LOCAL = 'local';
     const ENVIRONMENT_STAGE = 'stage';
     const ENVIRONMENT_PRODUCTION = 'prod';
 
@@ -86,7 +87,8 @@ class Client
      * @var string[]
      */
     private $servers = [
-        self::ENVIRONMENT_DEVELOP => 'http://localhost:8082/',
+        self::ENVIRONMENT_DEV => 'http://localhost:8082/',
+        self::ENVIRONMENT_LOCAL => 'http://localhost/',
         self::ENVIRONMENT_STAGE => 'https://stage.monitor.leankoala.com/kapi/',
         self::ENVIRONMENT_PRODUCTION => 'https://api.cluster1.koalityengine.com/'
     ];
@@ -112,6 +114,10 @@ class Client
         "authenticateByPassword" => [
             "version" => 1,
             "path" => '/{application}/auth/login',
+            "method" => 'POST'
+        ], "authenticateByToken" => [
+            "version" => 1,
+            "path" => '/{application}/auth/login/token',
             "method" => 'POST'
         ],
         "authenticateAtCluster" => [
@@ -169,6 +175,18 @@ class Client
         }
     }
 
+    public function connectByToken($user, $token)
+    {
+        $this->masterUser = $user;
+
+        $this->masterConnection = new Connection($this->client);
+        $this->masterConnection->setAccessToken($token);
+
+        $this->repositoryCollection = new RepositoryCollection($this->masterConnection);
+
+        $this->connectionStatus = self::STATUS_CONNECTED;
+    }
+
     /**
      *
      * @throws CompanySelectionFailedException
@@ -201,7 +219,7 @@ class Client
         throw new CompanySelectionFailedException('No company with ID ' . $companyId . 'found.');
     }
 
-    private function switchCluster($cluster)
+    public function switchCluster($cluster)
     {
         $this->connectedCluster = $cluster['id'];
 
@@ -226,6 +244,7 @@ class Client
      */
     public function setClusterConnection(Connection $clusterConnection): void
     {
+        $this->connectionStatus = self::STATUS_CONNECTED;
         $this->clusterConnection = $clusterConnection;
     }
 
@@ -250,7 +269,7 @@ class Client
      * @throws MissingArgumentException
      * @throws GuzzleException
      */
-    private function initConnection($username, $password)
+    private function initConnection($username = null, $password = null, $token = null)
     {
         $this->masterConnection = new Connection(
             $this->client,
@@ -259,14 +278,21 @@ class Client
 
         $this->masterConnection->setApiServer($this->servers[$this->environment]);
 
-        $route = $this->routes['authenticateByPassword'];
+        if ($username) {
+            $route = $this->routes['authenticateByPassword'];
+        } else if ($token) {
+            $route = $this->routes['authenticateByToken'];
+        } else {
+            throw new \BadMethodCallException('Nether user name nor token is set. At least one of them is mandatory.');
+        }
 
         $result = $this->masterConnection->send(
             $route,
             [
                 'emailOrUserName' => $username,
                 'password' => $password,
-                'withMemories' => true
+                'withMemories' => true,
+                'token' => $token
             ]
         );
 
