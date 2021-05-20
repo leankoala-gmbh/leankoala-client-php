@@ -175,6 +175,14 @@ class Client
         }
     }
 
+    /**
+     * @return Connection
+     */
+    public function getClusterConnection(): Connection
+    {
+        return $this->clusterConnection;
+    }
+
     public function connectByToken($user, $token)
     {
         $this->masterUser = $user;
