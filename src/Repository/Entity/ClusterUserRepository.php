@@ -18,7 +18,7 @@ class ClusterUserRepository extends Repository  {
    * be logged in without re-entering username and password.
    *
    * @param {Object} args
-   * @param {String} args.activation_key 
+   * @param {String} args.activation_key
    */
   public function activate($args)
   {
@@ -44,7 +44,7 @@ class ClusterUserRepository extends Repository  {
    * @param {String} args.full_name The users full name. (optional)
    * @param {String} args.first_name The users first name. (optional)
    * @param {String} args.last_name The users last name. (optional)
-   * @param {String} args.password 
+   * @param {String} args.password
    */
   public function create($provider, $args)
   {
@@ -191,8 +191,8 @@ class ClusterUserRepository extends Repository  {
    *
    * @param user
    * @param {Object} args
-   * @param {String} args.password_old 
-   * @param {String} args.password_new 
+   * @param {String} args.password_old
+   * @param {String} args.password_new
    */
   public function changePassword($user, $args)
   {
@@ -205,6 +205,7 @@ class ClusterUserRepository extends Repository  {
   }
 
   /**
+   * Request password change e-mail.
    * Request password change e-mail.
    *
    * @param {Object} args

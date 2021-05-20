@@ -171,7 +171,7 @@ class Connection
             $path = substr($path, 1);
         }
 
-        preg_match_all('/{(.*)}/', $path, $matches);
+        preg_match_all('/{(.*?)}/', $path, $matches);
 
         if (array_key_exists('server', $route)) {
             $apiServer = $route['server'];
