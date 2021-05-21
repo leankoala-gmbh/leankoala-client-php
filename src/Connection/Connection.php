@@ -152,6 +152,10 @@ class Connection
         $responseJson = (string)$response->getBody();
         $responseObject = json_decode($responseJson, true);
 
+        if(!array_key_exists('data', $responseObject)) {
+            return true;
+        }
+
         return $responseObject['data'];
     }
 

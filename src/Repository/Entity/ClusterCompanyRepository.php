@@ -64,19 +64,19 @@ class ClusterCompanyRepository extends Repository  {
     return $this->connection->send($route, $argList);
   }
 
-  /**
-   * Connect a given user to a company
-   *
-   * @param company
-   * @param user
-   * @param {Object} args
-   */
-  public function connectUser($company, $user, $args)
-  {
-    $route = ['path' => 'user/companies/connect/{company}/{user}', 'method' => 'POST', 'version' =>  1];
-    $argList = array_merge(['company' => $company, 'user' => $user], $args);
+    /**
+     * Connect a given user to a company
+     *
+     * @param company
+     * @param user
+     * @param {Object} args
+     * @param {String} args.user_role The users company role (default: employee)
+     */
+    public function connectUser($company, $user, $args)
+    {
+        $route = ['path' => 'user/companies/connect/{company}/{user}', 'method' => 'POST', 'version' =>  1];
+        $argList = array_merge(['company' => $company, 'user' => $user], $args);
 
-    return $this->connection->send($route, $argList);
-  }
-
+        return $this->connection->send($route, $argList);
+    }
 }
