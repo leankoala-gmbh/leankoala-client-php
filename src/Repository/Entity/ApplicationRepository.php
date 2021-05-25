@@ -9,7 +9,7 @@ use Leankoala\ApiClient\Repository\Repository;
  *
  * All changes made in this file will be overwritten by the next create run.
  *
- * @created 2021-05-06
+ * @created 2021-05-25
  */
 class ApplicationRepository extends Repository implements \Leankoala\ApiClient\Repository\MasterConnectionRepository {
 
