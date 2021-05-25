@@ -22,9 +22,10 @@ class UserRepository extends Repository implements \Leankoala\ApiClient\Reposito
    * @param {String} args.email 
    * @param {String} args.password 
    * @param {Number} args.company  (optional)
-   * @param {String} args.full_name The users full name. (optional)
-   * @param {String} args.first_name The users first name. (optional)
-   * @param {String} args.last_name The users last name. (optional)
+   * @param {String} args.fullName The users full name. (optional)
+   * @param {String} args.firstName The users first name. (optional)
+   * @param {String} args.lastName The users last name. (optional)
+   * @param {Boolean} args.suppressActivation  (default: false)
    */
   public function createUser($application, $args)
   {
@@ -150,15 +151,16 @@ class UserRepository extends Repository implements \Leankoala\ApiClient\Reposito
    * This endpoint connects an OAuth provider with the current user.
    *
    * @param application
+   * @param user
    * @param {Object} args
    * @param {*} args.provider The OAuth provider.
-   * @param {String} args.provider_user_id The OAuth provider user id.
+   * @param {String} args.providerUserId The OAuth provider user id.
    */
-  public function connectOAuthAccount($application, $args)
+  public function connectAuthAccount($application, $user, $args)
   {
-    $route = ['path' => '/{application}/user/connect', 'method' => 'POST', 'version' =>  1];
-    $argList = array_merge(['application' => $application], $args);
-    $requiredArguments = ['provider', 'provider_user_id'];
+    $route = ['path' => '/{application}/user/{user}/connect', 'method' => 'POST', 'version' =>  1];
+    $argList = array_merge(['application' => $application, 'user' => $user], $args);
+    $requiredArguments = ['provider', 'providerUserId'];
     $this->assertValidArguments($requiredArguments, $argList);
 
     return $this->connection->send($route, $argList);
