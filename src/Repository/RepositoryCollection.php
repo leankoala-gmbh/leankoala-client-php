@@ -150,7 +150,7 @@ class RepositoryCollection
             throw new UnknownRepositoryException('No repository with name ' . $repositoryName . ' found. Registered repositories are: ' . implode(', ', array_keys($this->repositories)) . '.');
         }
 
-        $repo = $this->repositories[$entityType];
+        $repo = $this->repositories[$repositoryName];
 
         if ($repo instanceof MasterConnectionRepository) {
             $repo->init($this->masterConnection);
