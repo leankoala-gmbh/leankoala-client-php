@@ -9,7 +9,7 @@ use Leankoala\ApiClient\Repository\Repository;
  *
  * All changes made in this file will be overwritten by the next create run.
  *
- * @created 2021-05-17
+ * @created 2021-06-02
  */
 class ClusterUserRepository extends Repository  {
 
@@ -18,7 +18,7 @@ class ClusterUserRepository extends Repository  {
    * be logged in without re-entering username and password.
    *
    * @param {Object} args
-   * @param {String} args.activation_key
+   * @param {String} args.activation_key 
    */
   public function activate($args)
   {
@@ -36,7 +36,9 @@ class ClusterUserRepository extends Repository  {
    * @param provider
    * @param {Object} args
    * @param {String} args.username The new users name. (optional)
+   * @param {Number} args.master_id The users id on the master server. (default: -1)
    * @param {Boolean} args.suppress_activation If true no activation mail will be send.. (default: false)
+   * @param {Boolean} args.activate If true no activation mail will be send.. (default: true)
    * @param {String} args.email The email address of the new user.
    * @param {String} args.preferred_language The users preferred interface language. (optional)
    * @param {Number} args.company_id The companies numeric id of the new user. (optional)
@@ -44,7 +46,7 @@ class ClusterUserRepository extends Repository  {
    * @param {String} args.full_name The users full name. (optional)
    * @param {String} args.first_name The users first name. (optional)
    * @param {String} args.last_name The users last name. (optional)
-   * @param {String} args.password
+   * @param {String} args.password 
    */
   public function create($provider, $args)
   {
@@ -187,12 +189,26 @@ class ClusterUserRepository extends Repository  {
   }
 
   /**
+   * Return a list of all users for the given company.
+   *
+   * @param providerIdentifier
+   * @param {Object} args
+   */
+  public function findAll($providerIdentifier, $args)
+  {
+    $route = ['path' => 'user/users/find/all/{providerIdentifier}', 'method' => 'POST', 'version' =>  1];
+    $argList = array_merge(['providerIdentifier' => $providerIdentifier], $args);
+
+    return $this->connection->send($route, $argList);
+  }
+
+  /**
    * Change the users password.
    *
    * @param user
    * @param {Object} args
-   * @param {String} args.password_old
-   * @param {String} args.password_new
+   * @param {String} args.password_old 
+   * @param {String} args.password_new 
    */
   public function changePassword($user, $args)
   {
@@ -205,7 +221,6 @@ class ClusterUserRepository extends Repository  {
   }
 
   /**
-   * Request password change e-mail.
    * Request password change e-mail.
    *
    * @param {Object} args
