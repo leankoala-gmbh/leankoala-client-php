@@ -210,6 +210,12 @@ class Connection
     {
         $responseData = json_decode((string)$response->getBody());
 
+        if($response->getStatusCode() === 500) {
+            throw new BadRequestException(
+                "The servers responded with an internal server error (HTTP 500)). \n\n" . substr((string)$response->getBody(), 0, 200),
+                $url, $method, $data, $response);
+        }
+
         if (is_null($responseData)) {
             throw new BadRequestException(
                 "The servers response is not valid JSON. \n\n" . substr((string)$response->getBody(), 0, 200),
