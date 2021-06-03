@@ -9,7 +9,7 @@ use Leankoala\ApiClient\Repository\Repository;
  *
  * All changes made in this file will be overwritten by the next create run.
  *
- * @created 2021-06-02
+ * @created 2021-06-03
  */
 class ClusterCompanyRepository extends Repository  {
 
@@ -65,7 +65,7 @@ class ClusterCompanyRepository extends Repository  {
   }
 
   /**
-   * Return a list of all companies.
+   * Return a list of all companies for the given provider.
    *
    * @param providerIdentifier
    * @param {Object} args
@@ -90,6 +90,23 @@ class ClusterCompanyRepository extends Repository  {
   {
     $route = ['path' => 'user/companies/connect/{company}/{user}', 'method' => 'POST', 'version' =>  1];
     $argList = array_merge(['company' => $company, 'user' => $user], $args);
+
+    return $this->connection->send($route, $argList);
+  }
+
+  /**
+   * This endpoint updates an existing companies master id.
+   *
+   * @param company
+   * @param {Object} args
+   * @param {Number} args.master_id The users master id.
+   */
+  public function updateMasterId($company, $args)
+  {
+    $route = ['path' => 'user/companies/{company}/masterId', 'method' => 'PUT', 'version' =>  1];
+    $argList = array_merge(['company' => $company], $args);
+    $requiredArguments = ['master_id'];
+    $this->assertValidArguments($requiredArguments, $argList);
 
     return $this->connection->send($route, $argList);
   }
