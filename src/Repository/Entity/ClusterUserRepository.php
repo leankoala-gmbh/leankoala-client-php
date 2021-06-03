@@ -9,7 +9,7 @@ use Leankoala\ApiClient\Repository\Repository;
  *
  * All changes made in this file will be overwritten by the next create run.
  *
- * @created 2021-06-02
+ * @created 2021-06-03
  */
 class ClusterUserRepository extends Repository  {
 
@@ -198,6 +198,23 @@ class ClusterUserRepository extends Repository  {
   {
     $route = ['path' => 'user/users/find/all/{providerIdentifier}', 'method' => 'POST', 'version' =>  1];
     $argList = array_merge(['providerIdentifier' => $providerIdentifier], $args);
+
+    return $this->connection->send($route, $argList);
+  }
+
+  /**
+   * This endpoint updates an existing users master id.
+   *
+   * @param user
+   * @param {Object} args
+   * @param {Number} args.master_id The users master id.
+   */
+  public function updateMasterId($user, $args)
+  {
+    $route = ['path' => 'user/users/{user}/masterId', 'method' => 'PUT', 'version' =>  1];
+    $argList = array_merge(['user' => $user], $args);
+    $requiredArguments = ['master_id'];
+    $this->assertValidArguments($requiredArguments, $argList);
 
     return $this->connection->send($route, $argList);
   }
