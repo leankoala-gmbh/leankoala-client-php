@@ -9,7 +9,7 @@ use Leankoala\ApiClient\Repository\Repository;
  *
  * All changes made in this file will be overwritten by the next create run.
  *
- * @created 2021-05-25
+ * @created 2021-06-14
  */
 class ApplicationRepository extends Repository implements \Leankoala\ApiClient\Repository\MasterConnectionRepository {
 
@@ -34,7 +34,7 @@ class ApplicationRepository extends Repository implements \Leankoala\ApiClient\R
    */
   public function getPrimaryCluster($application, $args)
   {
-    $route = ['path' => '/{application}/cluster/primary', 'method' => 'POST', 'version' =>  1];
+    $route = ['path' => '/v1/{application}/cluster/primary', 'method' => 'POST', 'version' =>  1];
     $argList = array_merge(['application' => $application], $args);
 
     return $this->connection->send($route, $argList);

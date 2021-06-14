@@ -18,8 +18,9 @@ class BadRequestException extends \Exception
     private $method;
     private $data;
     private $response;
+    private $identifier;
 
-    public function __construct($message, $url, $method, $data, Response $response = null)
+    public function __construct($message, $url, $method, $data, Response $response = null, $identifier = null)
     {
         parent::__construct($message);
 
@@ -27,6 +28,7 @@ class BadRequestException extends \Exception
         $this->method = $method;
         $this->data = $data;
         $this->response = $response;
+        $this->identifier = $identifier;
     }
 
     /**
@@ -69,5 +71,18 @@ class BadRequestException extends \Exception
     public function getResponse()
     {
         return $this->response;
+    }
+
+    /**
+     * @return mixed|null
+     */
+    public function getIdentifier()
+    {
+        return $this->identifier;
+    }
+
+    public function hadIdentifier()
+    {
+        return is_null($this->identifier);
     }
 }

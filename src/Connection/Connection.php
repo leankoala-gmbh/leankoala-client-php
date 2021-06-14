@@ -223,7 +223,12 @@ class Connection
         }
 
         if ($responseData->status !== 'success') {
-            throw new BadRequestException($responseData->message . '(' . $url . ')', $url, $method, $data);
+            if (property_exists($responseData, 'identifier')) {
+                $identifier = $responseData->identifier;
+            } else {
+                $identifier = null;
+            }
+            throw new BadRequestException($responseData->message . ' (url: ' . $url . ')', $url, $method, $data, $response, $identifier);
         }
     }
 
