@@ -89,8 +89,8 @@ class Client
     private $servers = [
         self::ENVIRONMENT_DEV => 'http://localhost:8082/',
         self::ENVIRONMENT_LOCAL => 'http://localhost/',
-        self::ENVIRONMENT_STAGE => 'https://auth.stage.koalityengine.com',
-        self::ENVIRONMENT_PRODUCTION => 'https://auth.koalityengine.com'
+        self::ENVIRONMENT_STAGE => 'https://auth.stage.koalityengine.com/',
+        self::ENVIRONMENT_PRODUCTION => 'https://auth.koalityengine.com/'
     ];
 
     /**
@@ -188,7 +188,7 @@ class Client
         $this->masterUser = $user;
 
         $this->masterConnection = new Connection($this->client);
-        
+
         $this->masterConnection->setAccessToken($token);
         $this->masterConnection->setApiServer($this->servers[$this->environment]);
 
