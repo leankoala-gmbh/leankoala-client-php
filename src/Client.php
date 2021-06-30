@@ -188,7 +188,9 @@ class Client
         $this->masterUser = $user;
 
         $this->masterConnection = new Connection($this->client);
+        
         $this->masterConnection->setAccessToken($token);
+        $this->masterConnection->setApiServer($this->servers[$this->environment]);
 
         $this->repositoryCollection = new RepositoryCollection($this->masterConnection);
 
