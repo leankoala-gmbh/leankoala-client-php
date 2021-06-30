@@ -34,7 +34,7 @@ class ApplicationRepository extends Repository implements \Leankoala\ApiClient\R
    */
   public function getPrimaryCluster($application, $args)
   {
-    $route = ['path' => '/v1/{application}/cluster/primary', 'method' => 'POST', 'version' =>  1];
+    $route = ['path' => '{application}/cluster/primary', 'method' => 'POST', 'version' =>  1];
     $argList = array_merge(['application' => $application], $args);
 
     return $this->connection->send($route, $argList);

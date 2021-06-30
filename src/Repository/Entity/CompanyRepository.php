@@ -24,7 +24,7 @@ class CompanyRepository extends Repository implements \Leankoala\ApiClient\Repos
    */
   public function disconnectUser($application, $company, $user, $args)
   {
-    $route = ['path' => '/v1/{application}/company/{company}/disconnect/{user}', 'method' => 'PUT', 'version' =>  1];
+    $route = ['path' => '{application}/company/{company}/disconnect/{user}', 'method' => 'PUT', 'version' =>  1];
     $argList = array_merge(['application' => $application, 'company' => $company, 'user' => $user], $args);
 
     return $this->connection->send($route, $argList);

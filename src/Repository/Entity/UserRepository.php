@@ -18,9 +18,9 @@ class UserRepository extends Repository implements \Leankoala\ApiClient\Reposito
    *
    * @param application
    * @param {Object} args
-   * @param {String} args.userName 
-   * @param {String} args.email 
-   * @param {String} args.password 
+   * @param {String} args.userName
+   * @param {String} args.email
+   * @param {String} args.password
    * @param {Number} args.company  (optional)
    * @param {String} args.fullName The users full name. (optional)
    * @param {String} args.firstName The users first name. (optional)
@@ -29,7 +29,7 @@ class UserRepository extends Repository implements \Leankoala\ApiClient\Reposito
    */
   public function createUser($application, $args)
   {
-    $route = ['path' => '/v1/{application}/user', 'method' => 'POST', 'version' =>  1];
+    $route = ['path' => '{application}/user', 'method' => 'POST', 'version' =>  1];
     $argList = array_merge(['application' => $application], $args);
     $requiredArguments = ['userName', 'email', 'password'];
     $this->assertValidArguments($requiredArguments, $argList);
@@ -51,7 +51,7 @@ class UserRepository extends Repository implements \Leankoala\ApiClient\Reposito
    */
   public function updateUser($application, $user, $args)
   {
-    $route = ['path' => '/v1/{application}/user/{user}', 'method' => 'PUT', 'version' =>  1];
+    $route = ['path' => '{application}/user/{user}', 'method' => 'PUT', 'version' =>  1];
     $argList = array_merge(['application' => $application, 'user' => $user], $args);
 
     return $this->connection->send($route, $argList);
@@ -67,7 +67,7 @@ class UserRepository extends Repository implements \Leankoala\ApiClient\Reposito
    */
   public function setPreferredLanguage($application, $user, $args)
   {
-    $route = ['path' => '/v1/{application}/user/{user}/language', 'method' => 'PUT', 'version' =>  1];
+    $route = ['path' => '{application}/user/{user}/language', 'method' => 'PUT', 'version' =>  1];
     $argList = array_merge(['application' => $application, 'user' => $user], $args);
     $requiredArguments = ['language'];
     $this->assertValidArguments($requiredArguments, $argList);
@@ -81,12 +81,12 @@ class UserRepository extends Repository implements \Leankoala\ApiClient\Reposito
    * @param application
    * @param user
    * @param {Object} args
-   * @param {String} args.password_old 
-   * @param {String} args.password_new 
+   * @param {String} args.password_old
+   * @param {String} args.password_new
    */
   public function changePassword($application, $user, $args)
   {
-    $route = ['path' => '/v1/{application}/user/{user}/password', 'method' => 'PUT', 'version' =>  1];
+    $route = ['path' => '{application}/user/{user}/password', 'method' => 'PUT', 'version' =>  1];
     $argList = array_merge(['application' => $application, 'user' => $user], $args);
     $requiredArguments = ['password_old', 'password_new'];
     $this->assertValidArguments($requiredArguments, $argList);
@@ -104,7 +104,7 @@ class UserRepository extends Repository implements \Leankoala\ApiClient\Reposito
    */
   public function isDeletable($application, $user, $company, $args)
   {
-    $route = ['path' => '/v1/{application}/user/{user}/deletable/{company}', 'method' => 'POST', 'version' =>  1];
+    $route = ['path' => '{application}/user/{user}/deletable/{company}', 'method' => 'POST', 'version' =>  1];
     $argList = array_merge(['application' => $application, 'user' => $user, 'company' => $company], $args);
 
     return $this->connection->send($route, $argList);
@@ -120,7 +120,7 @@ class UserRepository extends Repository implements \Leankoala\ApiClient\Reposito
    */
   public function resetPassword($application, $user, $args)
   {
-    $route = ['path' => '/v1/{application}/user/{user}/password/reset', 'method' => 'PUT', 'version' =>  1];
+    $route = ['path' => '{application}/user/{user}/password/reset', 'method' => 'PUT', 'version' =>  1];
     $argList = array_merge(['application' => $application, 'user' => $user], $args);
     $requiredArguments = ['password'];
     $this->assertValidArguments($requiredArguments, $argList);
@@ -134,11 +134,11 @@ class UserRepository extends Repository implements \Leankoala\ApiClient\Reposito
    *
    * @param application
    * @param {Object} args
-   * @param {String} args.activation_key 
+   * @param {String} args.activation_key
    */
   public function activate($application, $args)
   {
-    $route = ['path' => '/v1/{application}/user/activate', 'method' => 'POST', 'version' =>  1];
+    $route = ['path' => '{application}/user/activate', 'method' => 'POST', 'version' =>  1];
     $argList = array_merge(['application' => $application], $args);
     $requiredArguments = ['activation_key'];
     $this->assertValidArguments($requiredArguments, $argList);
@@ -155,7 +155,7 @@ class UserRepository extends Repository implements \Leankoala\ApiClient\Reposito
    */
   public function find($application, $args)
   {
-    $route = ['path' => '/v1/{application}/user/find', 'method' => 'POST', 'version' =>  1];
+    $route = ['path' => '{application}/user/find', 'method' => 'POST', 'version' =>  1];
     $argList = array_merge(['application' => $application], $args);
     $requiredArguments = ['query'];
     $this->assertValidArguments($requiredArguments, $argList);
@@ -174,7 +174,7 @@ class UserRepository extends Repository implements \Leankoala\ApiClient\Reposito
    */
   public function connectAuthAccount($application, $user, $args)
   {
-    $route = ['path' => '/v1/{application}/user/{user}/connect', 'method' => 'POST', 'version' =>  1];
+    $route = ['path' => '{application}/user/{user}/connect', 'method' => 'POST', 'version' =>  1];
     $argList = array_merge(['application' => $application, 'user' => $user], $args);
     $requiredArguments = ['provider', 'providerUserId'];
     $this->assertValidArguments($requiredArguments, $argList);

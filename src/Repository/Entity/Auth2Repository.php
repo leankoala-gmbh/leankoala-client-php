@@ -22,7 +22,7 @@ class Auth2Repository extends Repository implements \Leankoala\ApiClient\Reposit
    */
   public function loginWithCredentials($application, $args)
   {
-    $route = ['path' => '/v1/{application}/auth/login', 'method' => 'POST', 'version' =>  1];
+    $route = ['path' => '{application}/auth/login', 'method' => 'POST', 'version' =>  1];
     $argList = array_merge(['application' => $application], $args);
     $requiredArguments = ['emailOrUserName', 'password'];
     $this->assertValidArguments($requiredArguments, $argList);
@@ -40,7 +40,7 @@ class Auth2Repository extends Repository implements \Leankoala\ApiClient\Reposit
    */
   public function createTokenByRefreshToken($application, $user, $args)
   {
-    $route = ['path' => '/v1/{application}/auth/refresh/{user}', 'method' => 'POST', 'version' =>  1];
+    $route = ['path' => '{application}/auth/refresh/{user}', 'method' => 'POST', 'version' =>  1];
     $argList = array_merge(['application' => $application, 'user' => $user], $args);
 
     return $this->connection->send($route, $argList);
@@ -56,7 +56,7 @@ class Auth2Repository extends Repository implements \Leankoala\ApiClient\Reposit
    */
   public function createToken($application, $user, $args)
   {
-    $route = ['path' => '/v1/{application}/auth/token/{user}', 'method' => 'POST', 'version' =>  1];
+    $route = ['path' => '{application}/auth/token/{user}', 'method' => 'POST', 'version' =>  1];
     $argList = array_merge(['application' => $application, 'user' => $user], $args);
 
     return $this->connection->send($route, $argList);
