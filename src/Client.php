@@ -265,6 +265,11 @@ class Client
     {
         return $this->masterUser;
     }
+    
+    public function setMasterUser($masterUser)
+    {
+        $this->masterUser = $masterUser;
+    }
 
     public function getClusterUser()
     {
