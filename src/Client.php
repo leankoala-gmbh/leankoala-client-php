@@ -265,7 +265,17 @@ class Client
     {
         return $this->masterUser;
     }
-    
+
+    /**
+     * Return the master connection.
+     *
+     * @return Connection
+     */
+    public function getMasterConnections()
+    {
+        return $this->masterConnection;
+    }
+
     public function setMasterUser($masterUser)
     {
         $this->masterUser = $masterUser;
