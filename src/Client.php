@@ -1,155 +1,356 @@
 <?php
 
-namespace Leankoala\LeankoalaClient;
+namespace Leankoala\ApiClient;
 
+use Exception;
 use GuzzleHttp\Client as GuzzleClient;
-use Leankoala\LeankoalaClient\Client\Connection;
-use Leankoala\LeankoalaClient\Repository\Repository;
+use GuzzleHttp\Exception\GuzzleException;
+use Leankoala\ApiClient\Connection\Connection;
+use Leankoala\ApiClient\Exception\BadRequestException;
+use Leankoala\ApiClient\Exception\CompanySelectionFailedException;
+use Leankoala\ApiClient\Exception\MissingArgumentException;
+use Leankoala\ApiClient\Exception\NotConnectedException;
+use Leankoala\ApiClient\Exception\UnknownRepositoryException;
+use Leankoala\ApiClient\Repository\Repository;
+use Leankoala\ApiClient\Repository\RepositoryCollection;
 
 /**
  * Class Client
  *
- * @package Leankoala\LeankoalaClient
+ * @package Leankoala\ApiClient
  *
- * @author Nils Langner (nils.langner@leankoala.com)
- * @created 2020-04-15
+ * @author Nils Langner <nils.langner@leankoala.com>
+ * created 2021-05-05
  */
 class Client
 {
-    /** List of all api servers */
-    const API_SERVER_PRODUCTION = 'https://api.leankoala.com/';
-    const API_SERVER_STAGE = 'https://api.stage.monitor.leankoala.com';
-    const API_SERVER_DEVELOPMENT = 'http://localhost:8081/kapi/';
-
-    /** List of all environments */
-    const ENVIRONMENT_CUSTOM = 'custom';
-    const ENVIRONMENT_PRODUCTION = 'production';
+    /**
+     * The environments
+     */
+    const ENVIRONMENT_DEV = 'dev';
+    const ENVIRONMENT_LOCAL = 'local';
     const ENVIRONMENT_STAGE = 'stage';
-    const ENVIRONMENT_DEVELOPMENT = 'develop';
-
-    private $registeredRepositories = [];
+    const ENVIRONMENT_PRODUCTION = 'prod';
 
     /**
-     * The open connection to the Leankoala API server.
-     *
+     * The connection statuses
+     */
+    const STATUS_CONNECTED = 'connected';
+    const STATUS_DISCONNECTED = 'disconnected';
+
+    /**
+     * The standard application
+     */
+    const APPLICATION_KOALITY = 'koality';
+    const APPLICATION_LEANKOALA = 'leankoala';
+    const APPLICATION_PLESK360 = 'plesk360';
+
+    /**
      * @var Connection
      */
-    private $connection;
+    private $masterConnection;
+
+    /**
+     * @var Connection
+     */
+    private $clusterConnection;
+
+    /**
+     * @var string
+     */
+    private $environment;
+
+    /**
+     * @var GuzzleClient
+     */
+    private $client;
+
+    private $companies;
+
+    /**
+     * @var int
+     */
+    private $connectedCompany;
+
+    /**
+     * @var int
+     */
+    private $connectedCluster;
+
+    /**
+     * @var array
+     */
+    private $masterUser;
+
+    /**
+     * The possible servers.
+     *
+     * @var string[]
+     */
+    private $servers = [
+        self::ENVIRONMENT_DEV => 'http://localhost:8082/',
+        self::ENVIRONMENT_LOCAL => 'http://localhost/',
+        self::ENVIRONMENT_STAGE => 'https://auth.stage.koalityengine.com/',
+        self::ENVIRONMENT_PRODUCTION => 'https://auth.koalityengine.com/'
+    ];
+
+    /**
+     * The connection status.
+     *
+     * @var string
+     */
+    private $connectionStatus = self::STATUS_DISCONNECTED;
+
+    /**
+     * @var RepositoryCollection
+     */
+    private $repositoryCollection;
+
+    /**
+     * Mandatory routes that are needed before the repositories are initialized.
+     *
+     * @var array[]
+     */
+    private $routes = [
+        "authenticateByPassword" => [
+            "version" => 1,
+            "path" => '/{application}/auth/login',
+            "method" => 'POST'
+        ], "authenticateByToken" => [
+            "version" => 1,
+            "path" => '/{application}/auth/login/token',
+            "method" => 'POST'
+        ],
+        "authenticateAtCluster" => [
+            "version" => 1,
+            "path" => '/auth/tokens/token/{masterUserId}',
+            "method" => 'POST'
+        ]
+    ];
+
+    private $clusterUser;
 
     /**
      * Client constructor.
      *
-     * @param Connection $connection
-     */
-    private function __construct(Connection $connection)
-    {
-        $this->connection = $connection;
-    }
-
-    /**
-     * Return the corresponding repository for handling different aspects.
-     *
-     * @param string $repositoryName
-     * @return Repository
-     */
-    public function getRepository($repositoryName)
-    {
-        if (array_key_exists($repositoryName, $this->registeredRepositories)) {
-            $className = $this->registeredRepositories[$repositoryName];
-        } else {
-            $interfaceReflection = new \ReflectionClass(Repository::class);
-            $className = $interfaceReflection->getNamespaceName() . '\\' . $repositoryName . 'Repository';
-        }
-
-        if (!class_exists($className)) {
-            // @todo get a list of all possible repositories
-            throw new \RuntimeException('No repository found with name "' . $className . '". Did you forget to register it using the registerRepositoryByClass() method?');
-        }
-
-        /** @var Repository $repository */
-        $repository = new $className($this->connection);
-
-        if (!$repository instanceof Repository) {
-            throw new \RuntimeException('The class with name "' . $className . '" does not implement the Repository interface.');
-        }
-
-        return $repository;
-    }
-
-    /**
-     * Every user can register own repository classes to the client.
-     *
-     * This can be used to create easy to use wrapper that feel like native Leankoala API
-     * calls.
-     *
-     * @param string $name
-     * @param string $className
-     */
-    public function registerRepositoryByClass($name, $className)
-    {
-        $this->registeredRepositories[$name] = $className;
-    }
-
-    /**
-     * Get the API server for the current environment.
-     *
      * @param string $environment
-     * @param string $apiServer
-     *
-     * @return string
+     * @param GuzzleClient|null $client
      */
-    static private function getApiServer($environment, $apiServer = null)
+    public function __construct($environment, $client = null, $application = self::APPLICATION_KOALITY)
     {
-        switch ($environment) {
-            case self::ENVIRONMENT_CUSTOM:
-                if ($apiServer) {
-                    return $apiServer;
-                } else {
-                    throw new \RuntimeException('If the environment is set to custom the apiSever parameter must be set.');
-                }
-            case self::ENVIRONMENT_PRODUCTION:
-                return self::API_SERVER_PRODUCTION;
-            case self::ENVIRONMENT_STAGE:
-                return self::API_SERVER_STAGE;
-            case self::ENVIRONMENT_DEVELOPMENT:
-                return self::API_SERVER_DEVELOPMENT;
-            default:
-                throw new \RuntimeException('No API server for the environment "' . $environment . '" found.');
+        if (is_null($client)) {
+            $client = new GuzzleClient();
         }
+
+        if (!array_key_exists($environment, $this->servers)) {
+            throw new \RuntimeException('Unknown environment "' . $environment . '". Allowed environments are: ' . implode(', ', array_keys($this->servers)) . '.');
+        }
+
+        $this->environment = $environment;
+        $this->client = $client;
+        $this->application = $application;
+    }
+
+    /**
+     * Connect to the API server and retrieve the JWT for later requests.
+     *
+     * @param {Object} args
+     * @param {String} [args.username] the user name for the user that should be logged in
+     * @param {String} [args.password the password for the given user
+     * @param {String} [args.wakeUpToken] the wakeup token can be used to log in instead of username and pasword
+     * @param {Boolean} [args.withMemories] return the users memory on connect
+     * @param {String} [args.language] the preferred language (default: en; implemented: de, en)
+     * @param {Object} [args.axiosAdapter] the preferred language (default: en; implemented: de, en)
+     * @param {function} [args.axios] a predefined axios instance
+     *
+     * @throws Exception
+     * @throws GuzzleException
+     */
+    public function connect($username, $password, $autoSelectCompany = false)
+    {
+        $this->initConnection($username, $password);
+
+        $this->repositoryCollection = new RepositoryCollection($this->masterConnection);
+
+        if ($autoSelectCompany) {
+            $this->autoSelectCompany();
+        }
+    }
+
+    /**
+     * @return Connection
+     */
+    public function getClusterConnection(): Connection
+    {
+        return $this->clusterConnection;
+    }
+
+    public function connectByToken($user, $token)
+    {
+        $this->masterUser = $user;
+
+        $this->masterConnection = new Connection($this->client);
+
+        $this->masterConnection->setAccessToken($token);
+        $this->masterConnection->setApiServer($this->servers[$this->environment]);
+
+        $this->repositoryCollection = new RepositoryCollection($this->masterConnection);
+
+        $this->connectionStatus = self::STATUS_CONNECTED;
+    }
+
+    /**
+     *
+     * @throws CompanySelectionFailedException
+     */
+    private function autoSelectCompany()
+    {
+        if (count($this->companies) == 0) {
+            throw new CompanySelectionFailedException('The user is not connected to a company yet');
+        }
+
+        $company = $this->companies[0];
+        $this->switchCompany($company['id']);
+    }
+
+    /**
+     * @throws CompanySelectionFailedException
+     */
+    public function switchCompany($companyId)
+    {
+        foreach ($this->companies as $company) {
+            if ($company['id'] === $companyId) {
+                $this->connectedCompany = $companyId;
+                $cluster = $company['cluster'];
+                $this->switchCluster($cluster);
+
+                return true;
+            }
+        }
+
+        throw new CompanySelectionFailedException('No company with ID ' . $companyId . 'found.');
+    }
+
+    public function switchCluster($cluster)
+    {
+        $this->connectedCluster = $cluster['id'];
+
+        $this->clusterConnection = new Connection($this->client);
+        $this->clusterConnection->setApiServer($cluster['apiEndpoint']);
+
+        // login into cluster
+        $tokens = $this->clusterConnection->send($this->routes['authenticateAtCluster'], [
+            'access_token' => $this->masterConnection->getAccessToken(),
+            'masterUserId' => $this->getMasterUser()['id']
+        ]);
+
+        $this->clusterUser = $tokens['user'];
+
+        $this->clusterConnection->setAccessToken($tokens['token']);
+
+        $this->repositoryCollection->setClusterConnection($this->clusterConnection);
+    }
+
+    /**
+     * @param Connection $clusterConnection
+     */
+    public function setClusterConnection(Connection $clusterConnection): void
+    {
+        $this->connectionStatus = self::STATUS_CONNECTED;
+        $this->clusterConnection = $clusterConnection;
+    }
+
+    /**
+     * @return array
+     */
+    public function getMasterUser()
+    {
+        return $this->masterUser;
+    }
+
+    /**
+     * Return the master connection.
+     *
+     * @return Connection
+     */
+    public function getMasterConnections()
+    {
+        return $this->masterConnection;
+    }
+
+    public function setMasterUser($masterUser)
+    {
+        $this->masterUser = $masterUser;
+    }
+
+    public function getClusterUser()
+    {
+        return $this->clusterUser;
     }
 
     /**
      * @param string $username
      * @param string $password
-     * @param string $environment
-     * @param static $apiServer
      *
-     * @return Client
-     *
-     * @throws Client\ApiError
+     * @throws BadRequestException
+     * @throws MissingArgumentException
+     * @throws GuzzleException
      */
-    static public function createByCredentials($username, $password, $environment = self::ENVIRONMENT_PRODUCTION, $apiServer = null)
+    private function initConnection($username = null, $password = null, $token = null)
     {
-        $connection = new Connection(new GuzzleClient(), self::getApiServer($environment, $apiServer), $username, $password);
-        return new self($connection);
+        $this->masterConnection = new Connection(
+            $this->client,
+            ['application' => $this->application]
+        );
+
+        $this->masterConnection->setApiServer($this->servers[$this->environment]);
+
+        if ($username) {
+            $route = $this->routes['authenticateByPassword'];
+        } else if ($token) {
+            $route = $this->routes['authenticateByToken'];
+        } else {
+            throw new \BadMethodCallException('Nether user name nor token is set. At least one of them is mandatory.');
+        }
+
+        $result = $this->masterConnection->send(
+            $route,
+            [
+                'emailOrUserName' => $username,
+                'password' => $password,
+                'withMemories' => true,
+                'token' => $token
+            ]
+        );
+
+        $accessToken = $result['token'];
+
+        $this->masterUser = $result['user'];
+        $this->companies = $result['companies'];
+
+        $this->masterConnection->setAccessToken($accessToken);
+
+        $this->connectionStatus = self::STATUS_CONNECTED;
     }
 
     /**
-     * @param string $token
-     * @param string $environment
-     * @param static $apiServer
+     * Return the repository by the given name.
      *
-     * @return Client
+     * Throws an exception if the repository is not known.
      *
-     * @throws Client\ApiError
+     * @param string entityType
+     *
+     * @return Repository
+     *
+     * @throws NotConnectedException
+     * @throws UnknownRepositoryException
      */
-    static public function createByJwt($token, $environment = self::ENVIRONMENT_PRODUCTION, $apiServer = null)
+    public function getRepository($entityType)
     {
-        if (!$token) {
-            throw new \RuntimeException("The token must not be null.");
+        if ($this->connectionStatus === self::STATUS_DISCONNECTED) {
+            throw new NotConnectedException('Please connect the client before running this method.');
         }
 
-        $connection = new Connection(new GuzzleClient(), self::getApiServer($environment, $apiServer), $token);
-        return new self($connection);
+        return $this->repositoryCollection->getRepository($entityType);
     }
 }
