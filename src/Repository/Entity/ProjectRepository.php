@@ -9,7 +9,7 @@ use Leankoala\ApiClient\Repository\Repository;
  *
  * All changes made in this file will be overwritten by the next create run.
  *
- * @created 2021-05-06
+ * @created 2021-09-14
  */
 class ProjectRepository extends Repository  {
 
@@ -107,6 +107,20 @@ class ProjectRepository extends Repository  {
   {
     $route = ['path' => 'project/{project}/onboarding/status', 'method' => 'POST', 'version' =>  1];
     $argList = array_merge(['project' => $project], $args);
+
+    return $this->connection->send($route, $argList);
+  }
+
+  /**
+   * Return all projects and the user roles for a given user.
+   *
+   * @param providerIdentifier
+   * @param {Object} args
+   */
+  public function searchAll($providerIdentifier, $args)
+  {
+    $route = ['path' => 'project/{providerIdentifier}/all', 'method' => 'GET', 'version' =>  1];
+    $argList = array_merge(['providerIdentifier' => $providerIdentifier], $args);
 
     return $this->connection->send($route, $argList);
   }
