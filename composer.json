@@ -1,4 +1,5 @@
 {
+  "name": "leankoala/leankoalaclient",
   "autoload": {
     "psr-4": {
       "Leankoala\\ApiClient\\": "src/"
