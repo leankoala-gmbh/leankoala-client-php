@@ -43,6 +43,7 @@ class Client
      */
     const APPLICATION_KOALITY = 'koality';
     const APPLICATION_LEANKOALA = 'leankoala';
+    const APPLICATION_PLESK360 = 'plesk360';
 
     /**
      * @var Connection
@@ -135,7 +136,7 @@ class Client
      * @param string $environment
      * @param GuzzleClient|null $client
      */
-    public function __construct($environment, $client = null)
+    public function __construct($environment, $client = null, $application = self::APPLICATION_KOALITY)
     {
         if (is_null($client)) {
             $client = new GuzzleClient();
@@ -147,6 +148,7 @@ class Client
 
         $this->environment = $environment;
         $this->client = $client;
+        $this->application = $application;
     }
 
     /**
@@ -298,7 +300,7 @@ class Client
     {
         $this->masterConnection = new Connection(
             $this->client,
-            ['application' => self::APPLICATION_KOALITY]
+            ['application' => $this->application]
         );
 
         $this->masterConnection->setApiServer($this->servers[$this->environment]);
