@@ -20,7 +20,7 @@ class ClusterRepository extends Repository implements \Leankoala\ApiClient\Repos
      */
     public function getCluster($application, $args)
     {
-        $route = ['path' => '/api/{application}/cluster', 'method' => 'GET', 'version' =>  1];
+        $route = ['path' => '{application}/cluster', 'method' => 'GET', 'version' =>  1];
         $argList = array_merge(['application' => $application], $args);
         $requiredArguments = ['identifier'];
         $this->assertValidArguments($requiredArguments, $argList);
