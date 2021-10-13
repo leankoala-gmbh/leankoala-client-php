@@ -231,22 +231,32 @@ class Client
         throw new CompanySelectionFailedException('No company with ID ' . $companyId . 'found.');
     }
 
-    public function switchCluster($cluster)
+    /**
+     * Switch the cluster.
+     *
+     * @param array $cluster
+     * @param bool $connect
+     *
+     * @throws BadRequestException
+     * @throws GuzzleException
+     * @throws MissingArgumentException
+     */
+    public function switchCluster($cluster, $connect = true)
     {
         $this->connectedCluster = $cluster['id'];
 
         $this->clusterConnection = new Connection($this->client);
         $this->clusterConnection->setApiServer($cluster['apiEndpoint']);
 
-        // login into cluster
-        $tokens = $this->clusterConnection->send($this->routes['authenticateAtCluster'], [
-            'access_token' => $this->masterConnection->getAccessToken(),
-            'masterUserId' => $this->getMasterUser()['id']
-        ]);
-
-        $this->clusterUser = $tokens['user'];
-
-        $this->clusterConnection->setAccessToken($tokens['token']);
+        if ($connect) {
+            // login into cluster
+            $tokens = $this->clusterConnection->send($this->routes['authenticateAtCluster'], [
+                'access_token' => $this->masterConnection->getAccessToken(),
+                'masterUserId' => $this->getMasterUser()['id']
+            ]);
+            $this->clusterUser = $tokens['user'];
+            $this->clusterConnection->setAccessToken($tokens['token']);
+        }
 
         $this->repositoryCollection->setClusterConnection($this->clusterConnection);
     }
