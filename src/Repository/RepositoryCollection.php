@@ -23,6 +23,7 @@ use Leankoala\ApiClient\Repository\Entity\CheckLighthouseRepository;
 use Leankoala\ApiClient\Repository\Entity\CheckMobileFriendlyRepository;
 use Leankoala\ApiClient\Repository\Entity\CheckRepository;
 use Leankoala\ApiClient\Repository\Entity\CheckSitemapRepository;
+use Leankoala\ApiClient\Repository\Entity\ClusterRepository;
 use Leankoala\ApiClient\Repository\Entity\CompanyRepository;
 use Leankoala\ApiClient\Repository\Entity\ComponentRepository;
 use Leankoala\ApiClient\Repository\Entity\CrawlerRepository;
@@ -121,6 +122,7 @@ class RepositoryCollection
         $this->repositories['checkdeadlinks'] = new CheckDeadLinksRepository();
         $this->repositories['checkhealthcheck'] = new CheckHealthCheckRepository();
         $this->repositories['incident'] = new IncidentRepository();
+        $this->repositories['cluster'] = new ClusterRepository();
     }
 
     /**
