@@ -27,6 +27,23 @@ class ToolRepository extends Repository  {
     return $this->connection->send($route, $argList);
   }
 
+    /**
+     * Get the tool configurations for all tools that changed.
+     *
+     * @param {Object} args
+     * @param {Number} args.newerThan
+     * @param {Boolean} args.minifyOutput  (default: false)
+     */
+    public function getChangedConfiguration($args)
+    {
+        $route = ['path' => 'check/tools/changed', 'method' => 'POST', 'version' =>  1];
+        $argList = array_merge([], $args);
+        $requiredArguments = ['newerThan'];
+        $this->assertValidArguments($requiredArguments, $argList);
+
+        return $this->connection->send($route, $argList);
+    }
+
   /**
    * Get the tool configuration.
    *
