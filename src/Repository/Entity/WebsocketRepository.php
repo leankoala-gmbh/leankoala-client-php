@@ -9,7 +9,7 @@ use Leankoala\ApiClient\Repository\Repository;
  *
  * All changes made in this file will be overwritten by the next create run.
  *
- * @created 2021-05-06
+ * @created 2021-11-13
  */
 class WebsocketRepository extends Repository  {
 
@@ -20,6 +20,18 @@ class WebsocketRepository extends Repository  {
   public function getRooms($args)
   {
     $route = ['path' => 'websockets/rooms', 'method' => 'POST', 'version' =>  1];
+    $argList = array_merge([], $args);
+
+    return $this->connection->send($route, $argList);
+  }
+
+  /**
+   * Return all websocket server with the room names.
+   * @param {Object} args
+   */
+  public function getAllRooms($args)
+  {
+    $route = ['path' => 'websockets/rooms/all', 'method' => 'POST', 'version' =>  1];
     $argList = array_merge([], $args);
 
     return $this->connection->send($route, $argList);
