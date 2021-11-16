@@ -9,7 +9,7 @@ use Leankoala\ApiClient\Repository\Repository;
  *
  * All changes made in this file will be overwritten by the next create run.
  *
- * @created 2021-05-06
+ * @created 2021-11-16
  */
 class CrawlerRepository extends Repository  {
 
@@ -20,7 +20,8 @@ class CrawlerRepository extends Repository  {
    * @param {Object} args
    * @param {Number} args.user The user (id) that starts the crawl and gets informed when the crawl
    *                            finishes
-   * @param {String} args.checklist_name The check lists name
+   * @param {String} args.checklist_name The check lists name (optional)
+   * @param {Array} args.collections The additional collections (optional)
    * @param {String} args.name The crawls name
    * @param {Number} args.system The systems id
    * @param {Number} args.depth Number of URLs to be crawled (default: 5)
@@ -31,7 +32,7 @@ class CrawlerRepository extends Repository  {
   {
     $route = ['path' => 'crawler/crawl/{project}', 'method' => 'POST', 'version' =>  1];
     $argList = array_merge(['project' => $project], $args);
-    $requiredArguments = ['user', 'checklist_name', 'name', 'system'];
+    $requiredArguments = ['user', 'name', 'system'];
     $this->assertValidArguments($requiredArguments, $argList);
 
     return $this->connection->send($route, $argList);
@@ -93,6 +94,20 @@ class CrawlerRepository extends Repository  {
   public function getCrawlerStatus($project, $args)
   {
     $route = ['path' => 'crawler/status/{project}', 'method' => 'GET', 'version' =>  1];
+    $argList = array_merge(['project' => $project], $args);
+
+    return $this->connection->send($route, $argList);
+  }
+
+  /**
+   * Get all collections that can be crawled.
+   *
+   * @param project
+   * @param {Object} args
+   */
+  public function getCrawlableCollections($project, $args)
+  {
+    $route = ['path' => 'crawler/collections/{project}', 'method' => 'POST', 'version' =>  1];
     $argList = array_merge(['project' => $project], $args);
 
     return $this->connection->send($route, $argList);
