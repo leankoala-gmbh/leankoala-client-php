@@ -152,7 +152,7 @@ class Connection
         $responseJson = (string)$response->getBody();
         $responseObject = json_decode($responseJson, true);
 
-        if(!array_key_exists('data', $responseObject)) {
+        if (!array_key_exists('data', $responseObject)) {
             return true;
         }
 
@@ -206,11 +206,11 @@ class Connection
      *
      * @throws BadRequestException
      */
-    private function assertValidResponse($response, $url, $method, $data)
+    private function assertValidResponse(Response $response, $url, $method, $data)
     {
         $responseData = json_decode((string)$response->getBody());
 
-        if($response->getStatusCode() === 500) {
+        if ($response->getStatusCode() === 500) {
             throw new BadRequestException(
                 "The servers responded with an internal server error (HTTP 500)). \n\n" . substr((string)$response->getBody(), 0, 200),
                 $url, $method, $data, $response);
@@ -228,8 +228,44 @@ class Connection
             } else {
                 $identifier = null;
             }
-            throw new BadRequestException($responseData->message . ' (url: ' . $url . ')', $url, $method, $data, $response, $identifier);
+
+            $message = $this->getMessageFromResponseData($responseData, $data);
+
+            throw new BadRequestException($message . ' (url: ' . $url . ')', $url, $method, $data, $response, $identifier);
         }
+    }
+
+    /**
+     * Some error messages are created by Symfony. This function tries to translate those.
+     *
+     * @param $responseData
+     * @param array $data
+     *
+     * @return string
+     */
+    private function getMessageFromResponseData($responseData, array $data)
+    {
+        if (property_exists($responseData, 'actual_response')) {
+            $actualMessage = $responseData->actual_response->message;
+            if (str_contains($actualMessage, ' object not found')) {
+                $elements = explode('\\', $actualMessage);
+                $lastElement = $elements[count($elements) - 1];
+                $elements = explode(' ', $lastElement);
+                $class = $elements[0];
+
+                if ($class) {
+                    $message = 'No ' . strtolower($class) . ' with the given ID found.';
+                } else {
+                    $message = $responseData->actual_response->message;
+                }
+            } else {
+                $message = $responseData->actual_response->message;
+            }
+        } else {
+            $message = $responseData->message;
+        }
+
+        return $message;
     }
 
     /**
