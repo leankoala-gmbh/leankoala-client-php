@@ -46,7 +46,7 @@ class UserRepository extends Repository implements \Leankoala\ApiClient\Reposito
    */
   public function deleteUser($application, $user, $args = [])
   {
-      $route = ['path' => '/v1/{application}/user/{user}', 'method' => 'DELETE', 'version' =>  1];
+      $route = ['path' => '{application}/user/{user}', 'method' => 'DELETE', 'version' =>  1];
       $argList = array_merge(['application' => $application, 'user' => $user], $args);
 
       return $this->connection->send($route, $argList, false);
