@@ -38,6 +38,21 @@ class UserRepository extends Repository implements \Leankoala\ApiClient\Reposito
   }
 
   /**
+   * This endpoint deletes a user.
+   *
+   * @param $application
+   * @param $user
+   * @param array $args
+   */
+  public function deleteUser($application, $user, $args = [])
+  {
+      $route = ['path' => '/v1/{application}/user/{user}', 'method' => 'DELETE', 'version' =>  1];
+      $argList = array_merge(['application' => $application, 'user' => $user], $args);
+
+      return $this->connection->send($route, $argList, false);
+  }
+
+  /**
    * This endpoint updates an existing user.
    *
    * @param application
