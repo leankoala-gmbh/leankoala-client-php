@@ -211,9 +211,12 @@ class Connection
         $responseData = json_decode((string)$response->getBody());
 
         if ($response->getStatusCode() === 500) {
-            throw new BadRequestException(
-                "The servers responded with an internal server error (HTTP 500)). \n\n" . substr((string)$response->getBody(), 0, 200),
-                $url, $method, $data, $response);
+            if (str_contains((string)$response->getBody(), 'object not found by the @ParamConverter annotation')) {
+                $message = $this->getMessageFromResponseData($responseData, $data);
+            } else {
+                $message = "The servers responded with an internal server error (HTTP 500)). \n\n" . substr((string)$response->getBody(), 0, 200);
+            }
+            throw new BadRequestException($message, $url, $method, $data, $response);
         }
 
         if (is_null($responseData)) {
@@ -245,24 +248,34 @@ class Connection
      */
     private function getMessageFromResponseData($responseData, array $data)
     {
-        if (property_exists($responseData, 'actual_response')) {
+        if (str_contains($responseData->message, 'object not found by the @ParamConverter annotation')) {
+            $actualMessage = $responseData->message;
+            $message = $this->extractClassMessage($actualMessage);
+        } else if (property_exists($responseData, 'actual_response')) {
             $actualMessage = $responseData->actual_response->message;
             if (str_contains($actualMessage, ' object not found')) {
-                $elements = explode('\\', $actualMessage);
-                $lastElement = $elements[count($elements) - 1];
-                $elements = explode(' ', $lastElement);
-                $class = $elements[0];
-
-                if ($class) {
-                    $message = 'No ' . strtolower($class) . ' with the given ID found.';
-                } else {
-                    $message = $responseData->actual_response->message;
-                }
+                $message = $this->extractClassMessage($actualMessage);
             } else {
                 $message = $responseData->actual_response->message;
             }
         } else {
             $message = $responseData->message;
+        }
+
+        return $message;
+    }
+
+    private function extractClassMessage(string $actualMessage): string
+    {
+        $elements = explode('\\', $actualMessage);
+        $lastElement = $elements[count($elements) - 1];
+        $elements = explode(' ', $lastElement);
+        $class = $elements[0];
+
+        if ($class) {
+            $message = 'No ' . strtolower($class) . ' with the given ID found.';
+        } else {
+            $message = $message;
         }
 
         return $message;
