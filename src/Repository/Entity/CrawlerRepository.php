@@ -9,7 +9,7 @@ use Leankoala\ApiClient\Repository\Repository;
  *
  * All changes made in this file will be overwritten by the next create run.
  *
- * @created 2021-11-21
+ * @created 2021-12-10
  */
 class CrawlerRepository extends Repository  {
 
@@ -18,17 +18,17 @@ class CrawlerRepository extends Repository  {
    *
    * @param $project
    * @param array $args
-   * @param {Integer} args.user The user (id) that starts the crawl and gets informed when the crawl
-   *                            finishes
-   * @param {String} args.checklist_name The check lists name (optional)
-   * @param {Array} args.collections The additional collections (optional)
-   * @param {String} args.name The crawls name
-   * @param {Integer} args.system The systems id
-   * @param {Integer} args.depth Number of URLs to be crawled (default: 5)
-   * @param {String} args.path The URL the crawler starts to crawl (default: /)
-   * @param {Integer} args.parallel_requests Number of parallel requests that can be done (default: 8)
+   * @param Integer args.user The user (id) that starts the crawl and gets informed when the crawl
+   *                          finishes
+   * @param String args.checklist_name The check lists name (optional)
+   * @param List args.collections The additional collections (optional)
+   * @param String args.name The crawls name
+   * @param Integer args.system The systems id
+   * @param Integer args.depth Number of URLs to be crawled (default: 5)
+   * @param String args.path The URL the crawler starts to crawl (default: /)
+   * @param Integer args.parallel_requests Number of parallel requests that can be done (default: 8)
    */
-  public function runCrawl($project, array $args)
+  public function runCrawl($project, array $args = [])
   {
     $route = ['path' => 'crawler/crawl/{project}', 'method' => 'POST', 'version' =>  1];
     $argList = array_merge(['project' => $project], $args);
@@ -43,20 +43,20 @@ class CrawlerRepository extends Repository  {
    *
    * @param $company
    * @param array $args
-   * @param {Integer} args.user The user (id) that starts the crawl and gets informed when the crawl
-   *                            finishes
-   * @param {String} args.checklist_name The check lists name (optional)
-   * @param {Array} args.collections The additional collections (optional)
-   * @param {String} args.name The crawls name
-   * @param {Integer} args.depth Number of URLs to be crawled (default: 5)
-   * @param {String} args.path The URL the crawler starts to crawl (default: /)
-   * @param {Integer} args.parallel_requests Number of parallel requests that can be done (default: 8)
+   * @param Integer args.user The user (id) that starts the crawl and gets informed when the crawl
+   *                          finishes
+   * @param String args.checklist_name The check lists name (optional)
+   * @param List args.collections The additional collections (optional)
+   * @param String args.name The crawls name
+   * @param Integer args.depth Number of URLs to be crawled (default: 50)
+   * @param String args.path The URL the crawler starts to crawl
+   * @param Integer args.parallel_requests Number of parallel requests that can be done (default: 8)
    */
-  public function runCompanyCrawl($company, array $args)
+  public function runCompanyCrawl($company, array $args = [])
   {
     $route = ['path' => 'crawler/crawl/company/{company}', 'method' => 'POST', 'version' =>  1];
     $argList = array_merge(['company' => $company], $args);
-    $requiredArguments = ['user', 'name'];
+    $requiredArguments = ['user', 'name', 'path'];
     $this->assertValidArguments($requiredArguments, $argList);
 
     return $this->connection->send($route, $argList);
@@ -67,10 +67,10 @@ class CrawlerRepository extends Repository  {
    *
    * @param $project
    * @param array $args
-   * @param {String} args.checklist_name The check lists name (optional)
-   * @param {Integer} args.system The systems id
+   * @param String args.checklist_name The check lists name (optional)
+   * @param Integer args.system The systems id
    */
-  public function listCrawls($project, array $args)
+  public function listCrawls($project, array $args = [])
   {
     $route = ['path' => 'crawler/crawl/{project}/crawls', 'method' => 'POST', 'version' =>  1];
     $argList = array_merge(['project' => $project], $args);
@@ -86,7 +86,7 @@ class CrawlerRepository extends Repository  {
    * @param $company
    * @param array $args
    */
-  public function listCompanyCrawls($company, array $args)
+  public function listCompanyCrawls($company, array $args = [])
   {
     $route = ['path' => 'crawler/crawl/company/{company}/crawls', 'method' => 'POST', 'version' =>  1];
     $argList = array_merge(['company' => $company], $args);
@@ -101,7 +101,7 @@ class CrawlerRepository extends Repository  {
    * @param $crawl
    * @param array $args
    */
-  public function abortCrawl($project, $crawl, array $args)
+  public function abortCrawl($project, $crawl, array $args = [])
   {
     $route = ['path' => 'crawler/crawl/{project}/{crawl}', 'method' => 'PUT', 'version' =>  1];
     $argList = array_merge(['project' => $project, 'crawl' => $crawl], $args);
@@ -115,10 +115,25 @@ class CrawlerRepository extends Repository  {
    * @param $crawl
    * @param array $args
    */
-  public function getCrawl($crawl, array $args)
+  public function getCrawl($crawl, array $args = [])
   {
-    $route = ['path' => 'crawler/crawl/{crawl}', 'method' => 'GET', 'version' =>  1];
+    $route = ['path' => 'crawler/crawl/detail/{crawl}', 'method' => 'POST', 'version' =>  1];
     $argList = array_merge(['crawl' => $crawl], $args);
+
+    return $this->connection->send($route, $argList);
+  }
+
+  /**
+   * Return the detailed information for a given crawl with all results (as CSV).
+   *
+   * @param $crawl
+   * @param $downloadSecret
+   * @param array $args
+   */
+  public function getCrawlCsv($crawl, $downloadSecret, array $args = [])
+  {
+    $route = ['path' => 'crawler/crawl/detail/csv/{crawl}/{downloadSecret}', 'method' => 'GET', 'version' =>  1];
+    $argList = array_merge(['crawl' => $crawl, 'downloadSecret' => $downloadSecret], $args);
 
     return $this->connection->send($route, $argList);
   }
@@ -129,7 +144,7 @@ class CrawlerRepository extends Repository  {
    * @param $project
    * @param array $args
    */
-  public function getCrawlerStatus($project, array $args)
+  public function getCrawlerStatus($project, array $args = [])
   {
     $route = ['path' => 'crawler/status/{project}', 'method' => 'GET', 'version' =>  1];
     $argList = array_merge(['project' => $project], $args);
@@ -143,7 +158,7 @@ class CrawlerRepository extends Repository  {
    * @param $company
    * @param array $args
    */
-  public function getCompanyCrawlerStatus($company, array $args)
+  public function getCompanyCrawlerStatus($company, array $args = [])
   {
     $route = ['path' => 'crawler/status/company/{company}', 'method' => 'POST', 'version' =>  1];
     $argList = array_merge(['company' => $company], $args);
@@ -155,7 +170,7 @@ class CrawlerRepository extends Repository  {
    * Get all collections that can be crawled.
    * @param array $args
    */
-  public function getCrawlableCollections(array $args)
+  public function getCrawlableCollections(array $args = [])
   {
     $route = ['path' => 'crawler/collections', 'method' => 'POST', 'version' =>  1];
     $argList = array_merge([], $args);
