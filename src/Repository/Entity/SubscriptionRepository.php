@@ -9,17 +9,17 @@ use Leankoala\ApiClient\Repository\Repository;
  *
  * All changes made in this file will be overwritten by the next create run.
  *
- * @created 2021-06-15
+ * @created 2021-12-10
  */
 class SubscriptionRepository extends Repository  {
 
   /**
    * Get the companies subscription information.
    *
-   * @param company
-   * @param {Object} args
+   * @param $company
+   * @param array $args
    */
-  public function getCompanySubscription($company, $args)
+  public function getCompanySubscription($company, array $args = [])
   {
     $route = ['path' => 'subscription/company/{company}/', 'method' => 'GET', 'version' =>  1];
     $argList = array_merge(['company' => $company], $args);
@@ -30,11 +30,11 @@ class SubscriptionRepository extends Repository  {
   /**
    * Set the companies credit card plans.
    *
-   * @param company
-   * @param {Object} args
-   * @param {Number} args.quantity The number of packets to be used
+   * @param $company
+   * @param array $args
+   * @param Integer args.quantity The number of packets to be used
    */
-  public function setCompanyCreditCardPlans($company, $args)
+  public function setCompanyCreditCardPlans($company, array $args = [])
   {
     $route = ['path' => 'subscription/company/{company}/plans/creditcard', 'method' => 'POST', 'version' =>  1];
     $argList = array_merge(['company' => $company], $args);
@@ -47,11 +47,11 @@ class SubscriptionRepository extends Repository  {
   /**
    * Set the companies free plans.
    *
-   * @param company
-   * @param {Object} args
-   * @param {Number} args.quantity The number of packets to be used
+   * @param $company
+   * @param array $args
+   * @param Integer args.quantity The number of packets to be used
    */
-  public function setCompanyFreePlans($company, $args)
+  public function setCompanyFreePlans($company, array $args = [])
   {
     $route = ['path' => 'subscription/company/{company}/plans/free', 'method' => 'POST', 'version' =>  1];
     $argList = array_merge(['company' => $company], $args);
@@ -64,13 +64,13 @@ class SubscriptionRepository extends Repository  {
   /**
    * Set the companies credit card.
    *
-   * @param company
-   * @param {Object} args
-   * @param {*} args.stripe_cc_source The stripe credit card id
-   * @param {String} args.last_digits The last 4 digits of the credit card
-   * @param {String} args.brand The credit cards brand
+   * @param $company
+   * @param array $args
+   * @param Mixed args.stripe_cc_source The stripe credit card id
+   * @param String args.last_digits The last 4 digits of the credit card
+   * @param String args.brand The credit cards brand
    */
-  public function setCreditCard($company, $args)
+  public function setCreditCard($company, array $args = [])
   {
     $route = ['path' => 'subscription/company/{company}/creditcard', 'method' => 'POST', 'version' =>  1];
     $argList = array_merge(['company' => $company], $args);
@@ -83,17 +83,17 @@ class SubscriptionRepository extends Repository  {
   /**
    * Set the billing address information for the given company.
    *
-   * @param company
-   * @param {Object} args
-   * @param {String} args.company_name The companies name.
-   * @param {String} args.country The companies billing address country.
-   * @param {String} args.postal_code The companies billing address postal code.
-   * @param {String} args.city The companies billing address city.
-   * @param {String} args.street The companies billing address street.
-   * @param {String} args.usident The companies "Umsatzsteuer-Identifikationsnummer". (optional)
-   * @param {String} args.email The email address the invoice information gets send to. (optional)
+   * @param $company
+   * @param array $args
+   * @param String args.company_name The companies name.
+   * @param String args.country The companies billing address country.
+   * @param String args.postal_code The companies billing address postal code.
+   * @param String args.city The companies billing address city.
+   * @param String args.street The companies billing address street.
+   * @param String args.usident The companies "Umsatzsteuer-Identifikationsnummer". (optional)
+   * @param String args.email The email address the invoice information gets send to. (optional)
    */
-  public function setBillingAddress($company, $args)
+  public function setBillingAddress($company, array $args = [])
   {
     $route = ['path' => 'subscription/company/{company}/billingaddress', 'method' => 'POST', 'version' =>  1];
     $argList = array_merge(['company' => $company], $args);
@@ -106,10 +106,10 @@ class SubscriptionRepository extends Repository  {
   /**
    * Get the billing address information for the given company.
    *
-   * @param company
-   * @param {Object} args
+   * @param $company
+   * @param array $args
    */
-  public function getBillingAddress($company, $args)
+  public function getBillingAddress($company, array $args = [])
   {
     $route = ['path' => 'subscription/company/{company}/billingaddress', 'method' => 'GET', 'version' =>  1];
     $argList = array_merge(['company' => $company], $args);
@@ -120,10 +120,10 @@ class SubscriptionRepository extends Repository  {
   /**
    * Get a list of features that are active.
    *
-   * @param company
-   * @param {Object} args
+   * @param $company
+   * @param array $args
    */
-  public function getSubscribedFeatures($company, $args)
+  public function getSubscribedFeatures($company, array $args = [])
   {
     $route = ['path' => 'subscription/company/{company}/features', 'method' => 'GET', 'version' =>  1];
     $argList = array_merge(['company' => $company], $args);
@@ -132,12 +132,12 @@ class SubscriptionRepository extends Repository  {
   }
 
   /**
-   * Get a list invoices.
+   * Get a list invoices for the given company.
    *
-   * @param company
-   * @param {Object} args
+   * @param $company
+   * @param array $args
    */
-  public function getCompanyInvoices($company, $args)
+  public function getCompanyInvoices($company, array $args = [])
   {
     $route = ['path' => 'subscription/company/{company}/invoices', 'method' => 'GET', 'version' =>  1];
     $argList = array_merge(['company' => $company], $args);
@@ -146,12 +146,29 @@ class SubscriptionRepository extends Repository  {
   }
 
   /**
+   * Set the subscription plan of the a given user.
+   *
+   * @param $user
+   * @param array $args
+   * @param String args.identifier
+   */
+  public function setSubscriptionPlan($user, array $args = [])
+  {
+    $route = ['path' => 'subscription/user/{user}/plan', 'method' => 'POST', 'version' =>  1];
+    $argList = array_merge(['user' => $user], $args);
+    $requiredArguments = ['identifier'];
+    $this->assertValidArguments($requiredArguments, $argList);
+
+    return $this->connection->send($route, $argList);
+  }
+
+  /**
    * End all trials.
    *
-   * @param providerIdentifier
-   * @param {Object} args
+   * @param $providerIdentifier
+   * @param array $args
    */
-  public function endTrials($providerIdentifier, $args)
+  public function endTrials($providerIdentifier, array $args = [])
   {
     $route = ['path' => 'subscription/trial/{providerIdentifier}/end', 'method' => 'POST', 'version' =>  1];
     $argList = array_merge(['providerIdentifier' => $providerIdentifier], $args);
