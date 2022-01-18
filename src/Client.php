@@ -43,7 +43,7 @@ class Client implements ClientInterface
      */
     const APPLICATION_KOALITY = 'koality';
     const APPLICATION_LEANKOALA = 'leankoala';
-    const APPLICATION_PLESK360 = 'plesk360';
+    const APPLICATION_PLESK360 = '360';
 
     /**
      * @var Connection
