@@ -9,7 +9,7 @@ use Leankoala\ApiClient\Repository\Repository;
  *
  * All changes made in this file will be overwritten by the next create run.
  *
- * @created 2021-12-10
+ * @created 2022-10-19
  */
 class SubscriptionRepository extends Repository  {
 
@@ -55,6 +55,23 @@ class SubscriptionRepository extends Repository  {
   {
     $route = ['path' => 'subscription/company/{company}/plans/free', 'method' => 'POST', 'version' =>  1];
     $argList = array_merge(['company' => $company], $args);
+    $requiredArguments = ['quantity'];
+    $this->assertValidArguments($requiredArguments, $argList);
+
+    return $this->connection->send($route, $argList);
+  }
+
+  /**
+   * Set the companies free plans by user.
+   *
+   * @param $user
+   * @param array $args
+   * @param Integer args.quantity The number of packets to be used
+   */
+  public function setCompanyFreePlansByUser($user, array $args = [])
+  {
+    $route = ['path' => 'subscription/user/{user}/plans/free', 'method' => 'POST', 'version' =>  1];
+    $argList = array_merge(['user' => $user], $args);
     $requiredArguments = ['quantity'];
     $this->assertValidArguments($requiredArguments, $argList);
 
@@ -146,11 +163,11 @@ class SubscriptionRepository extends Repository  {
   }
 
   /**
-   * Set the subscription plan of the a given user.
+   * Set the subscription plan of the given user.
    *
    * @param $user
    * @param array $args
-   * @param String args.identifier
+   * @param String args.identifier 
    */
   public function setSubscriptionPlan($user, array $args = [])
   {
@@ -172,6 +189,20 @@ class SubscriptionRepository extends Repository  {
   {
     $route = ['path' => 'subscription/trial/{providerIdentifier}/end', 'method' => 'POST', 'version' =>  1];
     $argList = array_merge(['providerIdentifier' => $providerIdentifier], $args);
+
+    return $this->connection->send($route, $argList);
+  }
+
+  /**
+   * Get current quota for the company.
+   *
+   * @param $company
+   * @param array $args
+   */
+  public function getQuota($company, array $args = [])
+  {
+    $route = ['path' => 'subscription/company/{company}/quota', 'method' => 'GET', 'version' =>  1];
+    $argList = array_merge(['company' => $company], $args);
 
     return $this->connection->send($route, $argList);
   }
