@@ -51,7 +51,7 @@ class SubscriptionRepository extends Repository  {
    * @param array $args
    * @param Integer args.quantity The number of packets to be used
    */
-  public function setCompanyFreePlans($company, array $args = [])
+      public function setCompanyFreePlans($company, array $args = [])
   {
     $route = ['path' => 'subscription/company/{company}/plans/free', 'method' => 'POST', 'version' =>  1];
     $argList = array_merge(['company' => $company], $args);

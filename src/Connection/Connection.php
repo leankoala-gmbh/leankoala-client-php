@@ -296,4 +296,9 @@ class Connection
 
         return $this->user;
     }
+
+    public function refreshAccessToken()
+    {
+
+    }
 }
