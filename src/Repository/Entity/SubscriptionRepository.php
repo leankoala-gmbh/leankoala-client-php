@@ -9,7 +9,7 @@ use Leankoala\ApiClient\Repository\Repository;
  *
  * All changes made in this file will be overwritten by the next create run.
  *
- * @created 2022-10-19
+ * @created 2023-05-15
  */
 class SubscriptionRepository extends Repository  {
 
@@ -33,6 +33,7 @@ class SubscriptionRepository extends Repository  {
    * @param $company
    * @param array $args
    * @param Integer args.quantity The number of packets to be used
+   * @param Integer args.system_size The system size id (optional)
    */
   public function setCompanyCreditCardPlans($company, array $args = [])
   {
@@ -50,12 +51,13 @@ class SubscriptionRepository extends Repository  {
    * @param $company
    * @param array $args
    * @param Integer args.quantity The number of packets to be used
+   * @param Integer args.system_size The system size id
    */
-      public function setCompanyFreePlans($company, array $args = [])
+  public function setCompanyFreePlans($company, array $args = [])
   {
     $route = ['path' => 'subscription/company/{company}/plans/free', 'method' => 'POST', 'version' =>  1];
     $argList = array_merge(['company' => $company], $args);
-    $requiredArguments = ['quantity'];
+    $requiredArguments = ['quantity', 'system_size'];
     $this->assertValidArguments($requiredArguments, $argList);
 
     return $this->connection->send($route, $argList);
@@ -67,12 +69,13 @@ class SubscriptionRepository extends Repository  {
    * @param $user
    * @param array $args
    * @param Integer args.quantity The number of packets to be used
+   * @param Integer args.system_size The system size id
    */
   public function setCompanyFreePlansByUser($user, array $args = [])
   {
     $route = ['path' => 'subscription/user/{user}/plans/free', 'method' => 'POST', 'version' =>  1];
     $argList = array_merge(['user' => $user], $args);
-    $requiredArguments = ['quantity'];
+    $requiredArguments = ['quantity', 'system_size'];
     $this->assertValidArguments($requiredArguments, $argList);
 
     return $this->connection->send($route, $argList);
@@ -180,20 +183,6 @@ class SubscriptionRepository extends Repository  {
   }
 
   /**
-   * End all trials.
-   *
-   * @param $providerIdentifier
-   * @param array $args
-   */
-  public function endTrials($providerIdentifier, array $args = [])
-  {
-    $route = ['path' => 'subscription/trial/{providerIdentifier}/end', 'method' => 'POST', 'version' =>  1];
-    $argList = array_merge(['providerIdentifier' => $providerIdentifier], $args);
-
-    return $this->connection->send($route, $argList);
-  }
-
-  /**
    * Get current quota for the company.
    *
    * @param $company
@@ -203,6 +192,20 @@ class SubscriptionRepository extends Repository  {
   {
     $route = ['path' => 'subscription/company/{company}/quota', 'method' => 'GET', 'version' =>  1];
     $argList = array_merge(['company' => $company], $args);
+
+    return $this->connection->send($route, $argList);
+  }
+
+  /**
+   * End all trials.
+   *
+   * @param $providerIdentifier
+   * @param array $args
+   */
+  public function endTrials($providerIdentifier, array $args = [])
+  {
+    $route = ['path' => 'subscription/trial/{providerIdentifier}/end', 'method' => 'POST', 'version' =>  1];
+    $argList = array_merge(['providerIdentifier' => $providerIdentifier], $args);
 
     return $this->connection->send($route, $argList);
   }
