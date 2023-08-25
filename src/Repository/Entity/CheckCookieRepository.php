@@ -9,7 +9,7 @@ use Leankoala\ApiClient\Repository\Repository;
  *
  * All changes made in this file will be overwritten by the next create run.
  *
- * @created 2021-05-06
+ * @created 2023-08-25
  */
 class CheckCookieRepository extends Repository  {
 
@@ -21,9 +21,9 @@ class CheckCookieRepository extends Repository  {
    * @param system
    * @param {Object} args
    */
-  public function getDomains($system, $args)
+  public function getDomains($system, array $args = [])
   {
-    $route = ['path' => 'check/checks/{system}/cookies/domains', 'method' => 'GET', 'version' =>  1];
+    $route = ['path' => '/kapi/v1/check/checks/{system}/cookies/domains', 'method' => 'GET', 'version' =>  1];
     $argList = array_merge(['system' => $system], $args);
 
     return $this->connection->send($route, $argList);

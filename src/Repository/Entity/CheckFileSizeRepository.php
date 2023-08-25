@@ -9,7 +9,7 @@ use Leankoala\ApiClient\Repository\Repository;
  *
  * All changes made in this file will be overwritten by the next create run.
  *
- * @created 2021-05-06
+ * @created 2023-08-25
  */
 class CheckFileSizeRepository extends Repository  {
 
@@ -17,9 +17,9 @@ class CheckFileSizeRepository extends Repository  {
    * @param system
    * @param {Object} args
    */
-  public function getResults($system, $args)
+  public function getResults($system, array $args = [])
   {
-    $route = ['path' => 'check/checks/{system}/performance/big', 'method' => 'GET', 'version' =>  1];
+    $route = ['path' => '/kapi/v1/check/checks/{system}/performance/big', 'method' => 'GET', 'version' =>  1];
     $argList = array_merge(['system' => $system], $args);
 
     return $this->connection->send($route, $argList);
@@ -32,9 +32,9 @@ class CheckFileSizeRepository extends Repository  {
    * @param {Object} args
    * @param {Array} args.patterns List of URLs (strings) that will be excluded from the dead link crawl
    */
-  public function ignorePattern($system, $args)
+  public function ignorePattern($system, array $args = [])
   {
-    $route = ['path' => 'check/checks/{system}/siteinfo/ignore', 'method' => 'POST', 'version' =>  1];
+    $route = ['path' => '/kapi/v1/check/checks/{system}/siteinfo/ignore', 'method' => 'POST', 'version' =>  1];
     $argList = array_merge(['system' => $system], $args);
     $requiredArguments = ['patterns'];
     $this->assertValidArguments($requiredArguments, $argList);

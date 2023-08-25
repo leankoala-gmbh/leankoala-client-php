@@ -9,23 +9,9 @@ use Leankoala\ApiClient\Repository\Repository;
  *
  * All changes made in this file will be overwritten by the next create run.
  *
- * @created 2021-05-06
+ * @created 2023-08-25
  */
 class ScreenshotRepository extends Repository  {
-
-  /**
-   * Return the screenshots for a single component.
-   *
-   * @param system
-   * @param {Object} args
-   */
-  public function getScreenshot($system, $args)
-  {
-    $route = ['path' => 'project/screenshot/{system}', 'method' => 'POST', 'version' =>  1];
-    $argList = array_merge(['system' => $system], $args);
-
-    return $this->connection->send($route, $argList);
-  }
 
   /**
    * Return the screenshots for all components in the given project.
@@ -33,9 +19,23 @@ class ScreenshotRepository extends Repository  {
    * @param system
    * @param {Object} args
    */
-  public function getSystemScreenshots($system, $args)
+  public function getSystemScreenshots($system, array $args = [])
   {
-    $route = ['path' => 'project/screenshots/{system}', 'method' => 'POST', 'version' =>  1];
+    $route = ['path' => '/kapi/v1/project/screenshots/{system}', 'method' => 'POST', 'version' =>  1];
+    $argList = array_merge(['system' => $system], $args);
+
+    return $this->connection->send($route, $argList);
+  }
+
+  /**
+   * Return the screenshots for a single component.
+   *
+   * @param system
+   * @param {Object} args
+   */
+  public function getScreenshot($system, array $args = [])
+  {
+    $route = ['path' => '/kapi/v1/project/screenshot/{system}', 'method' => 'POST', 'version' =>  1];
     $argList = array_merge(['system' => $system], $args);
 
     return $this->connection->send($route, $argList);

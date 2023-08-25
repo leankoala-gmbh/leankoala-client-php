@@ -11,16 +11,16 @@ use Leankoala\ApiClient\Repository\Repository;
  *
  * @created 2023-08-25
  */
-class CheckHealthCheckRepository extends Repository  {
+class LocationRepository extends Repository  {
 
   /**
-   * @param system
+   * Return the maximum number of components that can be added to the given system.
    * @param {Object} args
    */
-  public function getResults($system, array $args = [])
+  public function list(array $args = [])
   {
-    $route = ['path' => '/kapi/v1/check/checks/{system}/healthchecks', 'method' => 'GET', 'version' =>  1];
-    $argList = array_merge(['system' => $system], $args);
+    $route = ['path' => '/kapi/v1/project/location/list', 'method' => 'GET', 'version' =>  1];
+    $argList = array_merge([], $args);
 
     return $this->connection->send($route, $argList);
   }

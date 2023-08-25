@@ -9,7 +9,7 @@ use Leankoala\ApiClient\Repository\Repository;
  *
  * All changes made in this file will be overwritten by the next create run.
  *
- * @created 2021-06-03
+ * @created 2023-08-25
  */
 class ClusterCompanyRepository extends Repository  {
 
@@ -21,12 +21,28 @@ class ClusterCompanyRepository extends Repository  {
    * @param {String} args.name The companies name
    * @param {Number} args.master_id The master id from the auth2 server
    */
-  public function create($providerIdentifier, $args)
+  public function create($providerIdentifier, array $args = [])
   {
-    $route = ['path' => 'user/companies/{providerIdentifier}', 'method' => 'POST', 'version' =>  1];
+    $route = ['path' => '/kapi/v1/user/companies/{providerIdentifier}', 'method' => 'POST', 'version' =>  1];
     $argList = array_merge(['providerIdentifier' => $providerIdentifier], $args);
     $requiredArguments = ['name', 'master_id'];
     $this->assertValidArguments($requiredArguments, $argList);
+
+    return $this->connection->send($route, $argList);
+  }
+
+  /**
+   * Connect a given user to a company
+   *
+   * @param company
+   * @param user
+   * @param {Object} args
+   * @param {Number} args.user_role The users company role (default: 1000)
+   */
+  public function connectUser($company, $user, array $args = [])
+  {
+    $route = ['path' => '/kapi/v1/user/companies/connect/{company}/{user}', 'method' => 'POST', 'version' =>  1];
+    $argList = array_merge(['company' => $company, 'user' => $user], $args);
 
     return $this->connection->send($route, $argList);
   }
@@ -37,9 +53,9 @@ class ClusterCompanyRepository extends Repository  {
    * @param {Object} args
    * @param {String} args.company_name The companies name
    */
-  public function exists($args)
+  public function exists(array $args = [])
   {
-    $route = ['path' => 'user/companies/exists', 'method' => 'GET', 'version' =>  1];
+    $route = ['path' => '/kapi/v1/user/companies/exists', 'method' => 'GET', 'version' =>  1];
     $argList = array_merge([], $args);
     $requiredArguments = ['company_name'];
     $this->assertValidArguments($requiredArguments, $argList);
@@ -54,9 +70,9 @@ class ClusterCompanyRepository extends Repository  {
    * @param {Object} args
    * @param {String} args.company_name The companies name
    */
-  public function search($providerIdentifier, $args)
+  public function search($providerIdentifier, array $args = [])
   {
-    $route = ['path' => 'user/companies/search/{providerIdentifier}', 'method' => 'POST', 'version' =>  1];
+    $route = ['path' => '/kapi/v1/user/companies/search/{providerIdentifier}', 'method' => 'POST', 'version' =>  1];
     $argList = array_merge(['providerIdentifier' => $providerIdentifier], $args);
     $requiredArguments = ['company_name'];
     $this->assertValidArguments($requiredArguments, $argList);
@@ -70,26 +86,10 @@ class ClusterCompanyRepository extends Repository  {
    * @param providerIdentifier
    * @param {Object} args
    */
-  public function findAll($providerIdentifier, $args)
+  public function findAll($providerIdentifier, array $args = [])
   {
-    $route = ['path' => 'user/companies/findall/{providerIdentifier}', 'method' => 'POST', 'version' =>  1];
+    $route = ['path' => '/kapi/v1/user/companies/findall/{providerIdentifier}', 'method' => 'POST', 'version' =>  1];
     $argList = array_merge(['providerIdentifier' => $providerIdentifier], $args);
-
-    return $this->connection->send($route, $argList);
-  }
-
-  /**
-   * Connect a given user to a company
-   *
-   * @param company
-   * @param user
-   * @param {Object} args
-   * @param {Number} args.user_role The users company role (default: 1000)
-   */
-  public function connectUser($company, $user, $args)
-  {
-    $route = ['path' => 'user/companies/connect/{company}/{user}', 'method' => 'POST', 'version' =>  1];
-    $argList = array_merge(['company' => $company, 'user' => $user], $args);
 
     return $this->connection->send($route, $argList);
   }
@@ -101,9 +101,9 @@ class ClusterCompanyRepository extends Repository  {
    * @param {Object} args
    * @param {Number} args.master_id The users master id.
    */
-  public function updateMasterId($company, $args)
+  public function updateMasterId($company, array $args = [])
   {
-    $route = ['path' => 'user/companies/{company}/masterId', 'method' => 'PUT', 'version' =>  1];
+    $route = ['path' => '/kapi/v1/user/companies/{company}/masterId', 'method' => 'PUT', 'version' =>  1];
     $argList = array_merge(['company' => $company], $args);
     $requiredArguments = ['master_id'];
     $this->assertValidArguments($requiredArguments, $argList);

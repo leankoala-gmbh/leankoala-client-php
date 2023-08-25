@@ -9,7 +9,7 @@ use Leankoala\ApiClient\Repository\Repository;
  *
  * All changes made in this file will be overwritten by the next create run.
  *
- * @created 2021-05-06
+ * @created 2023-08-25
  */
 class CustomerHaendlerbundRepository extends Repository  {
 
@@ -23,9 +23,9 @@ class CustomerHaendlerbundRepository extends Repository  {
    * @param {*} args.size The shop size. It determines if the checks are done on a daily or hourly
    *                          base. (default: large)
    */
-  public function createShop($args)
+  public function createShop(array $args = [])
   {
-    $route = ['path' => 'customers/haendlerbund/shops', 'method' => 'POST', 'version' =>  1];
+    $route = ['path' => '/kapi/v1/customers/haendlerbund/shops', 'method' => 'POST', 'version' =>  1];
     $argList = array_merge([], $args);
     $requiredArguments = ['name', 'base_url', 'owner'];
     $this->assertValidArguments($requiredArguments, $argList);
@@ -42,9 +42,9 @@ class CustomerHaendlerbundRepository extends Repository  {
    * @param {Url} args.base_url The shops base url with scheme, subdomain and domain. When changing the
    *                            base url all shop pages will change their base as well. (optional)
    */
-  public function updateShop($system, $args)
+  public function updateShop($system, array $args = [])
   {
-    $route = ['path' => 'customers/haendlerbund/shops/{system}', 'method' => 'PUT', 'version' =>  1];
+    $route = ['path' => '/kapi/v1/customers/haendlerbund/shops/{system}', 'method' => 'PUT', 'version' =>  1];
     $argList = array_merge(['system' => $system], $args);
 
     return $this->connection->send($route, $argList);

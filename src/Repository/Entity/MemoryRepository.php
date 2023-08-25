@@ -9,26 +9,36 @@ use Leankoala\ApiClient\Repository\Repository;
  *
  * All changes made in this file will be overwritten by the next create run.
  *
- * @created 2021-05-25
+ * @created 2023-08-25
  */
 class MemoryRepository extends Repository  {
 
   /**
-   * Write something to the memory
-   *
-   * @param application
    * @param objectType
    * @param objectId
    * @param {Object} args
    * @param {String} args.key 
    * @param {String} args.value 
    */
-  public function set($application, $objectType, $objectId, $args)
+  public function set($objectType, $objectId, array $args = [])
   {
-    $route = ['path' => '/{application}/memory/{objectType}/{objectId}', 'method' => 'PUT', 'version' =>  1];
-    $argList = array_merge(['application' => $application, 'objectType' => $objectType, 'objectId' => $objectId], $args);
+    $route = ['path' => '/kapi/v1/memory/{objectType}/{objectId}', 'method' => 'POST', 'version' =>  1];
+    $argList = array_merge(['objectType' => $objectType, 'objectId' => $objectId], $args);
     $requiredArguments = ['key', 'value'];
     $this->assertValidArguments($requiredArguments, $argList);
+
+    return $this->connection->send($route, $argList);
+  }
+
+  /**
+   * @param objectType
+   * @param objectId
+   * @param {Object} args
+   */
+  public function getAll($objectType, $objectId, array $args = [])
+  {
+    $route = ['path' => '/kapi/v1/memory/{objectType}/{objectId}', 'method' => 'GET', 'version' =>  1];
+    $argList = array_merge(['objectType' => $objectType, 'objectId' => $objectId], $args);
 
     return $this->connection->send($route, $argList);
   }
