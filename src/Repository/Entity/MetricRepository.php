@@ -9,7 +9,7 @@ use Leankoala\ApiClient\Repository\Repository;
  *
  * All changes made in this file will be overwritten by the next create run.
  *
- * @created 2021-05-06
+ * @created 2023-08-25
  */
 class MetricRepository extends Repository  {
 
@@ -30,9 +30,9 @@ class MetricRepository extends Repository  {
    * @param {Number} args.min_value Replace all values that are smaller than the min value with the min
    *                                 value. (default: 0)
    */
-  public function findBySystem($system, $args)
+  public function findBySystem($system, array $args = [])
   {
-    $route = ['path' => 'metric/eventidentifier/{system}/search', 'method' => 'POST', 'version' =>  1];
+    $route = ['path' => '/kapi/v1/metric/eventidentifier/{system}/search', 'method' => 'POST', 'version' =>  1];
     $argList = array_merge(['system' => $system], $args);
 
     return $this->connection->send($route, $argList);

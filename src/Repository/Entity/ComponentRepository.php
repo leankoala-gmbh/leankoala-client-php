@@ -9,23 +9,9 @@ use Leankoala\ApiClient\Repository\Repository;
  *
  * All changes made in this file will be overwritten by the next create run.
  *
- * @created 2021-05-06
+ * @created 2023-08-25
  */
 class ComponentRepository extends Repository  {
-
-  /**
-   * Show all existing component types.
-   *
-   * @param project
-   * @param {Object} args
-   */
-  public function showComponentTypes($project, $args)
-  {
-    $route = ['path' => 'project/components/componenttypes/{project}', 'method' => 'GET', 'version' =>  1];
-    $argList = array_merge(['project' => $project], $args);
-
-    return $this->connection->send($route, $argList);
-  }
 
   /**
    * Get all information about the given component.
@@ -33,9 +19,9 @@ class ComponentRepository extends Repository  {
    * @param component
    * @param {Object} args
    */
-  public function showComponents($component, $args)
+  public function showComponents($component, array $args = [])
   {
-    $route = ['path' => 'project/components/{component}', 'method' => 'GET', 'version' =>  1];
+    $route = ['path' => '/kapi/v1/project/components/{component}', 'method' => 'GET', 'version' =>  1];
     $argList = array_merge(['component' => $component], $args);
 
     return $this->connection->send($route, $argList);
@@ -48,9 +34,9 @@ class ComponentRepository extends Repository  {
    * @param {Number} args.system 
    * @param {Boolean} args.enableToolsBySystem  (default: true)
    */
-  public function createComponent($args)
+  public function createComponent(array $args = [])
   {
-    $route = ['path' => 'project/components', 'method' => 'POST', 'version' =>  1];
+    $route = ['path' => '/kapi/v1/project/components', 'method' => 'POST', 'version' =>  1];
     $argList = array_merge([], $args);
     $requiredArguments = ['system'];
     $this->assertValidArguments($requiredArguments, $argList);
@@ -69,9 +55,9 @@ class ComponentRepository extends Repository  {
    *                                                         updated. (default: false)
    * @param {Array} args.components List of components that should be created/updated.
    */
-  public function createComponents($args)
+  public function createComponents(array $args = [])
   {
-    $route = ['path' => 'project/components/many', 'method' => 'POST', 'version' =>  1];
+    $route = ['path' => '/kapi/v1/project/components/many', 'method' => 'POST', 'version' =>  1];
     $argList = array_merge([], $args);
     $requiredArguments = ['system', 'components'];
     $this->assertValidArguments($requiredArguments, $argList);
@@ -85,9 +71,9 @@ class ComponentRepository extends Repository  {
    * @param component
    * @param {Object} args
    */
-  public function updateComponent($component, $args)
+  public function updateComponent($component, array $args = [])
   {
-    $route = ['path' => 'project/components/{component}', 'method' => 'PUT', 'version' =>  1];
+    $route = ['path' => '/kapi/v1/project/components/{component}', 'method' => 'PUT', 'version' =>  1];
     $argList = array_merge(['component' => $component], $args);
 
     return $this->connection->send($route, $argList);
@@ -99,10 +85,24 @@ class ComponentRepository extends Repository  {
    * @param component
    * @param {Object} args
    */
-  public function deleteComponent($component, $args)
+  public function deleteComponent($component, array $args = [])
   {
-    $route = ['path' => 'project/components/{component}', 'method' => 'DELETE', 'version' =>  1];
+    $route = ['path' => '/kapi/v1/project/components/{component}', 'method' => 'DELETE', 'version' =>  1];
     $argList = array_merge(['component' => $component], $args);
+
+    return $this->connection->send($route, $argList);
+  }
+
+  /**
+   * Show all existing component types.
+   *
+   * @param project
+   * @param {Object} args
+   */
+  public function showComponentTypes($project, array $args = [])
+  {
+    $route = ['path' => '/kapi/v1/project/components/componenttypes/{project}', 'method' => 'GET', 'version' =>  1];
+    $argList = array_merge(['project' => $project], $args);
 
     return $this->connection->send($route, $argList);
   }

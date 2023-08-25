@@ -9,7 +9,7 @@ use Leankoala\ApiClient\Repository\Repository;
  *
  * All changes made in this file will be overwritten by the next create run.
  *
- * @created 2021-05-06
+ * @created 2023-08-25
  */
 class CheckLighthouseRepository extends Repository  {
 
@@ -22,9 +22,9 @@ class CheckLighthouseRepository extends Repository  {
    * @param {*} args.targetGroup The target group. It can be either an integer or a string. (default: 2000)
    * @param {Boolean} args.use_cache Use the cache for json document fetch (default: true)
    */
-  public function getResults($system, $category, $args)
+  public function getResults($system, $category, array $args = [])
   {
-    $route = ['path' => 'check/checks/{system}/lighthouse/results/{category}', 'method' => 'GET', 'version' =>  1];
+    $route = ['path' => '/kapi/v1/check/checks/{system}/lighthouse/results/{category}', 'method' => 'GET', 'version' =>  1];
     $argList = array_merge(['system' => $system, 'category' => $category], $args);
 
     return $this->connection->send($route, $argList);

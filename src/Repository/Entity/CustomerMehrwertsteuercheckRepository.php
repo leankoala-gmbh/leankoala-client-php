@@ -9,7 +9,7 @@ use Leankoala\ApiClient\Repository\Repository;
  *
  * All changes made in this file will be overwritten by the next create run.
  *
- * @created 2021-05-06
+ * @created 2023-08-25
  */
 class CustomerMehrwertsteuercheckRepository extends Repository  {
 
@@ -21,9 +21,9 @@ class CustomerMehrwertsteuercheckRepository extends Repository  {
    * @param {String} args.email_address The email address the crawl result is send to.
    * @param {Url} args.start_url The url the crawler should start with.
    */
-  public function runMwstCrawl($args)
+  public function runMwstCrawl(array $args = [])
   {
-    $route = ['path' => 'customers/mehrwertsteuer/crawl', 'method' => 'POST', 'version' =>  1];
+    $route = ['path' => '/kapi/v1/customers/mehrwertsteuer/crawl', 'method' => 'POST', 'version' =>  1];
     $argList = array_merge([], $args);
     $requiredArguments = ['email_address', 'start_url'];
     $this->assertValidArguments($requiredArguments, $argList);
@@ -38,9 +38,9 @@ class CustomerMehrwertsteuercheckRepository extends Repository  {
    * @param crawlIdentifier
    * @param {Object} args
    */
-  public function showCrawlResult($crawlIdentifier, $args)
+  public function showCrawlResult($crawlIdentifier, array $args = [])
   {
-    $route = ['path' => 'customers/mehrwertsteuer/crawl/{crawlIdentifier}', 'method' => 'GET', 'version' =>  1];
+    $route = ['path' => '/kapi/v1/customers/mehrwertsteuer/crawl/{crawlIdentifier}', 'method' => 'GET', 'version' =>  1];
     $argList = array_merge(['crawlIdentifier' => $crawlIdentifier], $args);
 
     return $this->connection->send($route, $argList);

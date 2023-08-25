@@ -9,7 +9,7 @@ use Leankoala\ApiClient\Repository\Repository;
  *
  * All changes made in this file will be overwritten by the next create run.
  *
- * @created 2021-05-06
+ * @created 2023-08-25
  */
 class IncidentRepository extends Repository  {
 
@@ -20,9 +20,9 @@ class IncidentRepository extends Repository  {
    * @param {Object} args
    * @param {Number} args.system the system filter (optional)
    */
-  public function search($project, $args)
+  public function search($project, array $args = [])
   {
-    $route = ['path' => 'incident/incidents/{project}/search', 'method' => 'POST', 'version' =>  1];
+    $route = ['path' => '/kapi/v1/incident/incidents/{project}/search', 'method' => 'POST', 'version' =>  1];
     $argList = array_merge(['project' => $project], $args);
 
     return $this->connection->send($route, $argList);
@@ -35,9 +35,9 @@ class IncidentRepository extends Repository  {
    * @param {Object} args
    * @param {Number} args.days The number of days the incidents can old
    */
-  public function since($project, $args)
+  public function since($project, array $args = [])
   {
-    $route = ['path' => 'incident/incidents/{project}/since', 'method' => 'POST', 'version' =>  1];
+    $route = ['path' => '/kapi/v1/incident/incidents/{project}/since', 'method' => 'POST', 'version' =>  1];
     $argList = array_merge(['project' => $project], $args);
     $requiredArguments = ['days'];
     $this->assertValidArguments($requiredArguments, $argList);
@@ -52,10 +52,24 @@ class IncidentRepository extends Repository  {
    * @param incident
    * @param {Object} args
    */
-  public function find($project, $incident, $args)
+  public function find($project, $incident, array $args = [])
   {
-    $route = ['path' => 'incident/incidents/{project}/{incident}', 'method' => 'GET', 'version' =>  1];
+    $route = ['path' => '/kapi/v1/incident/incidents/{project}/{incident}', 'method' => 'GET', 'version' =>  1];
     $argList = array_merge(['project' => $project, 'incident' => $incident], $args);
+
+    return $this->connection->send($route, $argList);
+  }
+
+  /**
+   * Find all open incidents for the given company.
+   *
+   * @param company
+   * @param {Object} args
+   */
+  public function findByCompany($company, array $args = [])
+  {
+    $route = ['path' => '/kapi/v1/incident/incidents/company/{company}/search', 'method' => 'POST', 'version' =>  1];
+    $argList = array_merge(['company' => $company], $args);
 
     return $this->connection->send($route, $argList);
   }
@@ -67,9 +81,9 @@ class IncidentRepository extends Repository  {
    * @param project
    * @param {Object} args
    */
-  public function getConfig($project, $args)
+  public function getConfig($project, array $args = [])
   {
-    $route = ['path' => 'incident/tools/{project}', 'method' => 'GET', 'version' =>  1];
+    $route = ['path' => '/kapi/v1/incident/tools/{project}', 'method' => 'GET', 'version' =>  1];
     $argList = array_merge(['project' => $project], $args);
 
     return $this->connection->send($route, $argList);

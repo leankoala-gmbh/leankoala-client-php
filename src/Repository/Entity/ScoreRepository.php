@@ -9,7 +9,7 @@ use Leankoala\ApiClient\Repository\Repository;
  *
  * All changes made in this file will be overwritten by the next create run.
  *
- * @created 2021-05-06
+ * @created 2023-08-25
  */
 class ScoreRepository extends Repository  {
 
@@ -23,9 +23,9 @@ class ScoreRepository extends Repository  {
    *                                       score will be provided. (default: false)
    * @param {Boolean} args.filter_empty_projects If true the only projects with systems are returned (default: false)
    */
-  public function getScoresByUser($user, $args)
+  public function getScoresByUser($user, array $args = [])
   {
-    $route = ['path' => 'score/scores/user/{user}', 'method' => 'POST', 'version' =>  1];
+    $route = ['path' => '/kapi/v1/score/scores/user/{user}', 'method' => 'POST', 'version' =>  1];
     $argList = array_merge(['user' => $user], $args);
     $requiredArguments = ['scores'];
     $this->assertValidArguments($requiredArguments, $argList);
@@ -40,9 +40,9 @@ class ScoreRepository extends Repository  {
    * @param scoreName
    * @param {Object} args
    */
-  public function getScore($system, $scoreName, $args)
+  public function getScore($system, $scoreName, array $args = [])
   {
-    $route = ['path' => 'score/scores/{system}/{scoreName}', 'method' => 'POST', 'version' =>  1];
+    $route = ['path' => '/kapi/v1/score/scores/{system}/{scoreName}', 'method' => 'POST', 'version' =>  1];
     $argList = array_merge(['system' => $system, 'scoreName' => $scoreName], $args);
 
     return $this->connection->send($route, $argList);
@@ -55,9 +55,9 @@ class ScoreRepository extends Repository  {
    * @param {Object} args
    * @param {Array} args.scores list of score names
    */
-  public function getScores($system, $args)
+  public function getScores($system, array $args = [])
   {
-    $route = ['path' => 'score/scores/{system}', 'method' => 'POST', 'version' =>  1];
+    $route = ['path' => '/kapi/v1/score/scores/{system}', 'method' => 'POST', 'version' =>  1];
     $argList = array_merge(['system' => $system], $args);
     $requiredArguments = ['scores'];
     $this->assertValidArguments($requiredArguments, $argList);

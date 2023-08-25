@@ -9,7 +9,7 @@ use Leankoala\ApiClient\Repository\Repository;
  *
  * All changes made in this file will be overwritten by the next create run.
  *
- * @created 2021-05-06
+ * @created 2023-08-25
  */
 class CheckInsecureContentRepository extends Repository  {
 
@@ -19,9 +19,9 @@ class CheckInsecureContentRepository extends Repository  {
    * @param system
    * @param {Object} args
    */
-  public function getInsecureElements($system, $args)
+  public function getInsecureElements($system, array $args = [])
   {
-    $route = ['path' => 'check/checks/{system}/insecure', 'method' => 'GET', 'version' =>  1];
+    $route = ['path' => '/kapi/v1/check/checks/{system}/insecure', 'method' => 'GET', 'version' =>  1];
     $argList = array_merge(['system' => $system], $args);
 
     return $this->connection->send($route, $argList);
