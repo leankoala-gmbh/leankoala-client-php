@@ -37,7 +37,7 @@ class ClusterUserRepository extends Repository  {
    * @param {Object} args
    * @param {Number} args.master_id The master_id user.
    */
-  public function provider_activate($provider, array $args = [])
+  public function providerActivate($provider, array $args = [])
   {
     $route = ['path' => 'user/users/{provider}/activate', 'method' => 'POST', 'version' =>  1];
     $argList = array_merge(['provider' => $provider], $args);
