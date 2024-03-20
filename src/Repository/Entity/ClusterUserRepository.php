@@ -9,7 +9,7 @@ use Leankoala\ApiClient\Repository\Repository;
  *
  * All changes made in this file will be overwritten by the next create run.
  *
- * @created 2023-08-28
+ * @created 2024-03-20
  */
 class ClusterUserRepository extends Repository  {
 
@@ -129,6 +129,20 @@ class ClusterUserRepository extends Repository  {
   }
 
   /**
+   * Return the users attributes.
+   *
+   * @param user
+   * @param {Object} args
+   */
+  public function getUserAttributes($user, array $args = [])
+  {
+    $route = ['path' => 'user/users/{user}/attributes', 'method' => 'GET', 'version' =>  1];
+    $argList = array_merge(['user' => $user], $args);
+
+    return $this->connection->send($route, $argList);
+  }
+
+  /**
    * This endpoint returns true if a user exists that matches the given search criteria.
    *
    * @param {Object} args
@@ -214,6 +228,7 @@ class ClusterUserRepository extends Repository  {
    * @param {Number} args.company_id The companies numeric id of the new user. (optional)
    * @param {String} args.first_name The users first name. (optional)
    * @param {String} args.last_name The users last name. (optional)
+   * @param {Array} args._attributes Additional attributes for the user (default: [])
    */
   public function updateUser($user, array $args = [])
   {
