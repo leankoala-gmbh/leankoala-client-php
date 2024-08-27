@@ -13,9 +13,7 @@ use Leankoala\ApiClient\Exception\MissingArgumentException;
 use Leankoala\ApiClient\Exception\NotConnectedException;
 
 /**
- * Class Connection
- *
- * @package Leankoala\ApiClient\Connection
+ * Class Connection.
  *
  * @author Nils Langner <nils.langner@leankoala.com>
  * created 2021-05-05
@@ -63,9 +61,8 @@ class Connection
     private $defaultParameters = [];
 
     /**
-     * Init routes and set default values
+     * Init routes and set default values.
      *
-     * @param Client $httpClient
      * @param array $defaultParameters
      */
     public function __construct(Client $httpClient, $defaultParameters = [])
@@ -92,15 +89,12 @@ class Connection
 
     /**
      * Register the access token for JWT handling.
-     *
-     * @param $accessToken
      */
     public function setAccessToken($accessToken)
     {
         $this->accessToken = $accessToken;
         $this->addDefaultParameter('access_token', $accessToken);
     }
-
 
     /**
      * Get the access token for JWT handling.
@@ -113,11 +107,7 @@ class Connection
     }
 
     /**
-     * @param $route
-     * @param $data
      * @param bool $withoutToken
-     *
-     * @return mixed
      *
      * @throws BadRequestException
      * @throws GuzzleException
@@ -139,7 +129,7 @@ class Connection
         try {
             $response = $this->httpClient->request($method, $url, [
                 RequestOptions::HEADERS => $headers,
-                RequestOptions::JSON => $fullData
+                RequestOptions::JSON => $fullData,
             ]);
         } catch (ClientException $exception) {
             $response = $exception->getResponse();
@@ -149,7 +139,7 @@ class Connection
 
         $this->assertValidResponse($response, $url, $method, $fullData);
 
-        $responseJson = (string)$response->getBody();
+        $responseJson = (string) $response->getBody();
         $responseObject = json_decode($responseJson, true);
 
         if (!array_key_exists('data', $responseObject)) {
@@ -208,21 +198,25 @@ class Connection
      */
     private function assertValidResponse(Response $response, $url, $method, $data)
     {
-        $responseData = json_decode((string)$response->getBody());
+        $responseData = json_decode((string) $response->getBody());
 
         if ($response->getStatusCode() === 500) {
-            if (str_contains((string)$response->getBody(), 'object not found by the @ParamConverter annotation')) {
+            if (str_contains((string) $response->getBody(), 'object not found by the @ParamConverter annotation')) {
                 $message = $this->getMessageFromResponseData($responseData, $data);
             } else {
-                $message = "The servers responded with an internal server error (HTTP 500)). \n\n" . substr((string)$response->getBody(), 0, 200);
+                $message = "The servers responded with an internal server error (HTTP 500)). \n\n" . substr((string) $response->getBody(), 0, 200);
             }
             throw new BadRequestException($message, $url, $method, $data, $response);
         }
 
         if (is_null($responseData)) {
             throw new BadRequestException(
-                "The servers response is not valid JSON. \n\n" . substr((string)$response->getBody(), 0, 200),
-                $url, $method, $data, $response);
+                "The servers response is not valid JSON. \n\n" . substr((string) $response->getBody(), 0, 200),
+                $url,
+                $method,
+                $data,
+                $response
+            );
         }
 
         if ($responseData->status !== 'success') {
@@ -241,9 +235,6 @@ class Connection
     /**
      * Some error messages are created by Symfony. This function tries to translate those.
      *
-     * @param $responseData
-     * @param array $data
-     *
      * @return string
      */
     private function getMessageFromResponseData($responseData, array $data)
@@ -251,7 +242,7 @@ class Connection
         if (str_contains($responseData->message, 'object not found by the @ParamConverter annotation')) {
             $actualMessage = $responseData->message;
             $message = $this->extractClassMessage($actualMessage);
-        } else if (property_exists($responseData, 'actual_response')) {
+        } elseif (property_exists($responseData, 'actual_response')) {
             $actualMessage = $responseData->actual_response->message;
             if (str_contains($actualMessage, ' object not found')) {
                 $message = $this->extractClassMessage($actualMessage);
@@ -284,9 +275,9 @@ class Connection
     /**
      * Get the currently logged in user.
      *
-     * @return array
-     *
      * @throws NotConnectedException
+     *
+     * @return array
      */
     public function getUser()
     {
@@ -299,6 +290,5 @@ class Connection
 
     public function refreshAccessToken()
     {
-
     }
 }

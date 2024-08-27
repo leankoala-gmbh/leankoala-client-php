@@ -16,9 +16,7 @@ use Leankoala\ApiClient\Repository\Repository;
 use Leankoala\ApiClient\Repository\RepositoryCollection;
 
 /**
- * Class Client
- *
- * @package Leankoala\ApiClient
+ * Class Client.
  *
  * @author Nils Langner <nils.langner@leankoala.com>
  * created 2021-05-05
@@ -26,7 +24,7 @@ use Leankoala\ApiClient\Repository\RepositoryCollection;
 class Client implements ClientInterface
 {
     /**
-     * The environments
+     * The environments.
      */
     public const ENVIRONMENT_DEV = 'dev';
     public const ENVIRONMENT_LOCAL = 'local';
@@ -34,13 +32,13 @@ class Client implements ClientInterface
     public const ENVIRONMENT_PRODUCTION = 'prod';
 
     /**
-     * The connection statuses
+     * The connection statuses.
      */
-    const STATUS_CONNECTED = 'connected';
-    const STATUS_DISCONNECTED = 'disconnected';
+    public const STATUS_CONNECTED = 'connected';
+    public const STATUS_DISCONNECTED = 'disconnected';
 
     /**
-     * The standard application
+     * The standard application.
      */
     public const APPLICATION_KOALITY = 'koality';
     public const APPLICATION_LEANKOALA = 'leankoala';
@@ -86,7 +84,7 @@ class Client implements ClientInterface
         self::ENVIRONMENT_DEV => 'http://localhost:8082/',
         self::ENVIRONMENT_LOCAL => 'http://localhost/',
         self::ENVIRONMENT_STAGE => 'https://auth.stage.koalityengine.com/',
-        self::ENVIRONMENT_PRODUCTION => 'https://auth.koalityengine.com/'
+        self::ENVIRONMENT_PRODUCTION => 'https://auth.koalityengine.com/',
     ];
 
     /**
@@ -107,20 +105,20 @@ class Client implements ClientInterface
      * @var array[]
      */
     private $routes = [
-        "authenticateByPassword" => [
-            "version" => 1,
-            "path" => '/{application}/auth/login',
-            "method" => 'POST'
-        ], "authenticateByToken" => [
-            "version" => 1,
-            "path" => '/{application}/auth/login/token',
-            "method" => 'POST'
+        'authenticateByPassword' => [
+            'version' => 1,
+            'path' => '/{application}/auth/login',
+            'method' => 'POST',
+        ], 'authenticateByToken' => [
+            'version' => 1,
+            'path' => '/{application}/auth/login/token',
+            'method' => 'POST',
         ],
-        "authenticateAtCluster" => [
-            "version" => 1,
-            "path" => '/auth/tokens/token/{masterUserId}',
-            "method" => 'POST'
-        ]
+        'authenticateAtCluster' => [
+            'version' => 1,
+            'path' => '/auth/tokens/token/{masterUserId}',
+            'method' => 'POST',
+        ],
     ];
 
     private $clusterUser;
@@ -154,7 +152,7 @@ class Client implements ClientInterface
      * @param {Object} [args.axiosAdapter] the preferred language (default: en; implemented: de, en)
      * @param {function} [args.axios] a predefined axios instance
      *
-     * @throws Exception
+     * @throws \Exception
      * @throws GuzzleException
      */
     public function connect($username, $password, $autoSelectCompany = false)
@@ -168,9 +166,6 @@ class Client implements ClientInterface
         }
     }
 
-    /**
-     * @return Connection
-     */
     public function getClusterConnection(): Connection
     {
         return $this->clusterConnection;
@@ -191,7 +186,6 @@ class Client implements ClientInterface
     }
 
     /**
-     *
      * @throws CompanySelectionFailedException
      */
     private function autoSelectCompany()
@@ -226,7 +220,7 @@ class Client implements ClientInterface
      * Switch the cluster.
      *
      * @param array $cluster
-     * @param bool $connect
+     * @param bool  $connect
      *
      * @throws BadRequestException
      * @throws GuzzleException
@@ -243,7 +237,7 @@ class Client implements ClientInterface
             // login into cluster
             $tokens = $this->clusterConnection->send($this->routes['authenticateAtCluster'], [
                 'access_token' => $this->masterConnection->getAccessToken(),
-                'masterUserId' => $this->getMasterUser()['id']
+                'masterUserId' => $this->getMasterUser()['id'],
             ]);
             $this->clusterUser = $tokens['user'];
             $this->clusterConnection->setAccessToken($tokens['token']);
@@ -252,9 +246,6 @@ class Client implements ClientInterface
         $this->repositoryCollection->setClusterConnection($this->clusterConnection);
     }
 
-    /**
-     * @param Connection $clusterConnection
-     */
     public function setClusterConnection(Connection $clusterConnection): void
     {
         $this->connectionStatus = self::STATUS_CONNECTED;
@@ -308,7 +299,7 @@ class Client implements ClientInterface
 
         if ($username) {
             $route = $this->routes['authenticateByPassword'];
-        } else if ($token) {
+        } elseif ($token) {
             $route = $this->routes['authenticateByToken'];
         } else {
             throw new \BadMethodCallException('Nether user name nor token is set. At least one of them is mandatory.');
@@ -320,7 +311,7 @@ class Client implements ClientInterface
                 'emailOrUserName' => $username,
                 'password' => $password,
                 'withMemories' => true,
-                'token' => $token
+                'token' => $token,
             ]
         );
 
@@ -341,10 +332,10 @@ class Client implements ClientInterface
      *
      * @param string entityType
      *
-     * @return Repository
-     *
      * @throws NotConnectedException
      * @throws UnknownRepositoryException
+     *
+     * @return Repository
      */
     public function getRepository($entityType)
     {

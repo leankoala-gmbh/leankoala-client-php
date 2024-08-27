@@ -7,9 +7,7 @@ use Leankoala\ApiClient\Exception\UnknownRepositoryException;
 use Leankoala\ApiClient\Repository\Repository;
 
 /**
- * Interface ClientInterface
- *
- * @package Leankoala\ApiClient
+ * Interface ClientInterface.
  *
  * @author Nils Langner <nils.langner@leankoala.com>
  * created 2021-10-25
@@ -23,10 +21,10 @@ interface ClientInterface
      *
      * @param string entityType
      *
-     * @return Repository
-     *
      * @throws NotConnectedException
      * @throws UnknownRepositoryException
+     *
+     * @return Repository
      */
     public function getRepository($entityType);
 }
