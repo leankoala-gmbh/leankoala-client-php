@@ -1,4 +1,2 @@
-.idea
-vendor
-.env
-customers
+/composer.lock
+/vendor

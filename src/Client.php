@@ -4,6 +4,7 @@ namespace Leankoala\ApiClient;
 
 use Exception;
 use GuzzleHttp\Client as GuzzleClient;
+use GuzzleHttp\ClientInterface as GuzzleClientInterface;
 use GuzzleHttp\Exception\GuzzleException;
 use Leankoala\ApiClient\Connection\Connection;
 use Leankoala\ApiClient\Exception\BadRequestException;
@@ -27,10 +28,10 @@ class Client implements ClientInterface
     /**
      * The environments
      */
-    const ENVIRONMENT_DEV = 'dev';
-    const ENVIRONMENT_LOCAL = 'local';
-    const ENVIRONMENT_STAGE = 'stage';
-    const ENVIRONMENT_PRODUCTION = 'prod';
+    public const ENVIRONMENT_DEV = 'dev';
+    public const ENVIRONMENT_LOCAL = 'local';
+    public const ENVIRONMENT_STAGE = 'stage';
+    public const ENVIRONMENT_PRODUCTION = 'prod';
 
     /**
      * The connection statuses
@@ -41,9 +42,9 @@ class Client implements ClientInterface
     /**
      * The standard application
      */
-    const APPLICATION_KOALITY = 'koality';
-    const APPLICATION_LEANKOALA = 'leankoala';
-    const APPLICATION_PLESK360 = '360';
+    public const APPLICATION_KOALITY = 'koality';
+    public const APPLICATION_LEANKOALA = 'leankoala';
+    public const APPLICATION_PLESK360 = '360';
 
     /**
      * @var Connection
@@ -55,15 +56,9 @@ class Client implements ClientInterface
      */
     private $clusterConnection;
 
-    /**
-     * @var string
-     */
-    private $environment;
+    private string $environment;
 
-    /**
-     * @var GuzzleClient
-     */
-    private $client;
+    private GuzzleClientInterface $client;
 
     private $companies;
 
@@ -130,13 +125,9 @@ class Client implements ClientInterface
 
     private $clusterUser;
 
-    /**
-     * Client constructor.
-     *
-     * @param string $environment
-     * @param GuzzleClient|null $client
-     */
-    public function __construct($environment, $client = null, $application = self::APPLICATION_KOALITY)
+    private string $application;
+
+    public function __construct(string $environment, ?GuzzleClientInterface $client = null, string $application = self::APPLICATION_KOALITY)
     {
         if (is_null($client)) {
             $client = new GuzzleClient();

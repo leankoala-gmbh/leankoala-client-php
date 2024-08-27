@@ -1,12 +1,17 @@
 {
-  "name": "leankoala/leankoalaclient",
-  "autoload": {
-    "psr-4": {
-      "Leankoala\\ApiClient\\": "src/"
+    "name": "leankoala/leankoalaclient",
+    "description": "The library is used to communicate with the Koality Engine.",
+    "autoload": {
+        "psr-4": {
+            "Leankoala\\ApiClient\\": "src/"
+        }
+    },
+    "require": {
+        "php": ">=8.3",
+        "ext-json": "*",
+        "guzzlehttp/guzzle": "^7.3"
+    },
+    "config": {
+        "sort-packages": true
     }
-  },
-  "require": {
-    "guzzlehttp/guzzle": "^7.3",
-    "ext-json": "*"
-  }
 }

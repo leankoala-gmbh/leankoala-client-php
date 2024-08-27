@@ -275,7 +275,7 @@ class Connection
         if ($class) {
             $message = 'No ' . strtolower($class) . ' with the given ID found.';
         } else {
-            $message = $message;
+            $message = $actualMessage;
         }
 
         return $message;
