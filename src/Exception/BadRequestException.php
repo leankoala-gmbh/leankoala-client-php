@@ -4,12 +4,6 @@ namespace Leankoala\ApiClient\Exception;
 
 use GuzzleHttp\Psr7\Response;
 
-/**
- * Class BadRequestException.
- *
- * @author Nils Langner <nils.langner@leankoala.com>
- * created 2021-05-05
- */
 class BadRequestException extends \Exception
 {
     private $url;
@@ -54,10 +48,7 @@ class BadRequestException extends \Exception
         return !is_null($this->response);
     }
 
-    /**
-     * @return Response
-     */
-    public function getResponse()
+    public function getResponse(): ?Response
     {
         return $this->response;
     }
@@ -70,7 +61,16 @@ class BadRequestException extends \Exception
         return $this->identifier;
     }
 
-    public function hadIdentifier()
+    /**
+     * @deprecated Use hasIdentifier() instead
+     */
+    #[\Deprecated(message: 'Use hasIdentifier() instead')]
+    public function hadIdentifier(): bool
+    {
+        return $this->hasIdentifier();
+    }
+
+    public function hasIdentifier(): bool
     {
         return is_null($this->identifier);
     }
