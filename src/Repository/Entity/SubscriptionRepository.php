@@ -9,7 +9,7 @@ use Leankoala\ApiClient\Repository\Repository;
  *
  * All changes made in this file will be overwritten by the next create run.
  *
- * @created 2026-03-10
+ * @created 2026-03-20
  */
 class SubscriptionRepository extends Repository {
 
@@ -186,7 +186,9 @@ class SubscriptionRepository extends Repository {
 
     /**
      * Get a list of subscriptions for current user.
-     * @param array $args
+   *
+   * @param array $args
+   * @param String args.user The user id (optional)
      */
     public function getUserSubscriptions(array $args = [])
     {
