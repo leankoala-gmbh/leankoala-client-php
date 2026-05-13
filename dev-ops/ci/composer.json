@@ -7,11 +7,11 @@
         "php": ">=8.3",
         "friendsofphp/php-cs-fixer": "^3.63",
         "phpstan/extension-installer": "^1.4",
-        "phpstan/phpstan": "^1.12",
-        "phpstan/phpstan-beberlei-assert": "^1.1",
-        "phpstan/phpstan-deprecation-rules": "^1.2",
-        "phpstan/phpstan-strict-rules": "^1.6",
-        "phpstan/phpstan-symfony": "^1.4"
+        "phpstan/phpstan": "^2",
+        "phpstan/phpstan-beberlei-assert": "^2",
+        "phpstan/phpstan-deprecation-rules": "^2",
+        "phpstan/phpstan-strict-rules": "^2",
+        "phpstan/phpstan-symfony": "^2"
     },
     "config": {
         "platform": {

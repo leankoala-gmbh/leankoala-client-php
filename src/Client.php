@@ -190,7 +190,7 @@ class Client implements ClientInterface
      */
     private function autoSelectCompany()
     {
-        if (count($this->companies) == 0) {
+        if (count($this->companies) === 0) {
             throw new CompanySelectionFailedException('The user is not connected to a company yet');
         }
 
