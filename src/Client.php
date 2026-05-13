@@ -61,16 +61,6 @@ class Client implements ClientInterface
     private $companies;
 
     /**
-     * @var int
-     */
-    private $connectedCompany;
-
-    /**
-     * @var int
-     */
-    private $connectedCluster;
-
-    /**
      * @var array
      */
     private $masterUser;
@@ -143,14 +133,9 @@ class Client implements ClientInterface
     /**
      * Connect to the API server and retrieve the JWT for later requests.
      *
-     * @param {Object} args
-     * @param {String} [args.username] the user name for the user that should be logged in
-     * @param {String} [args.password the password for the given user
-     * @param {String} [args.wakeUpToken] the wakeup token can be used to log in instead of username and pasword
-     * @param {Boolean} [args.withMemories] return the users memory on connect
-     * @param {String} [args.language] the preferred language (default: en; implemented: de, en)
-     * @param {Object} [args.axiosAdapter] the preferred language (default: en; implemented: de, en)
-     * @param {function} [args.axios] a predefined axios instance
+     * @param string $username          the user name for the user that should be logged in
+     * @param string $password          the password for the given user
+     * @param bool   $autoSelectCompany
      *
      * @throws \Exception
      * @throws GuzzleException
@@ -205,7 +190,6 @@ class Client implements ClientInterface
     {
         foreach ($this->companies as $company) {
             if ($company['id'] === $companyId) {
-                $this->connectedCompany = $companyId;
                 $cluster = $company['cluster'];
                 $this->switchCluster($cluster);
 
@@ -228,8 +212,6 @@ class Client implements ClientInterface
      */
     public function switchCluster($cluster, $connect = true)
     {
-        $this->connectedCluster = $cluster['id'];
-
         $this->clusterConnection = new Connection($this->client);
         $this->clusterConnection->setApiServer($cluster['apiEndpoint']);
 
@@ -297,7 +279,7 @@ class Client implements ClientInterface
 
         $this->masterConnection->setApiServer($this->servers[$this->environment]);
 
-        if ($username) {
+        if ($username !== null && $username !== '') {
             $route = $this->routes['authenticateByPassword'];
         } elseif ($token) {
             $route = $this->routes['authenticateByToken'];
@@ -330,7 +312,7 @@ class Client implements ClientInterface
      *
      * Throws an exception if the repository is not known.
      *
-     * @param string entityType
+     * @param string $entityType
      *
      * @throws NotConnectedException
      * @throws UnknownRepositoryException

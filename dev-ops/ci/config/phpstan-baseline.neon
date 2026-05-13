@@ -1,0 +1,2688 @@
+parameters:
+	ignoreErrors:
+		-
+			message: '#^PHPDoc tag @param has invalid value \(channel\)\: Unexpected token "\\n   \* ", expected variable at offset 79 on line 5$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/AlertingChannelRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(channel\)\: Unexpected token "\\n   \* ", expected variable at offset 94 on line 5$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/AlertingChannelRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(project\)\: Unexpected token "\\n   \* ", expected variable at offset 107 on line 4$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/AlertingChannelRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(project\)\: Unexpected token "\\n   \* ", expected variable at offset 59 on line 4$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/AlertingChannelRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(project\)\: Unexpected token "\\n   \* ", expected variable at offset 74 on line 4$#'
+			identifier: phpDoc.parseError
+			count: 2
+			path: ../../../src/Repository/Entity/AlertingChannelRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{\*\} args\.type\)\: Unexpected token "\{", expected type at offset 176 on line 8$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/AlertingChannelRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{\*\} args\.type\)\: Unexpected token "\{", expected type at offset 207 on line 7$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/AlertingChannelRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{Array\} args\.options  \(optional\)\)\: Unexpected token "\{", expected type at offset 203 on line 9$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/AlertingChannelRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{Array\} args\.options\)\: Unexpected token "\{", expected type at offset 234 on line 8$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/AlertingChannelRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{Object\} args\)\: Unexpected token "\{", expected type at offset 107 on line 6$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/AlertingChannelRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{Object\} args\)\: Unexpected token "\{", expected type at offset 120 on line 5$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/AlertingChannelRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{Object\} args\)\: Unexpected token "\{", expected type at offset 87 on line 5$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/AlertingChannelRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{Object\} args\)\: Unexpected token "\{", expected type at offset 92 on line 6$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/AlertingChannelRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{String\} args\.language The language the alert should be send in \(optional\)\)\: Unexpected token "\{", expected type at offset 248 on line 10$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/AlertingChannelRepository.php
+
+		-
+			message: '''
+				#^PHPDoc tag @param has invalid value \(\{String\} args\.language The language the alert should be send in\. If not value is set the
+				                              default provider language is taken\. \(optional\)\)\: Unexpected token "\{", expected type at offset 268 on line 9$#
+			'''
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/AlertingChannelRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{String\} args\.name  \(optional\)\)\: Unexpected token "\{", expected type at offset 133 on line 7$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/AlertingChannelRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{String\} args\.name The name of the alert channel\)\: Unexpected token "\{", expected type at offset 146 on line 6$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/AlertingChannelRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(policy\)\: Unexpected token "\\n   \* ", expected variable at offset 42 on line 3$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/AlertingPolicyRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(policy\)\: Unexpected token "\\n   \* ", expected variable at offset 76 on line 5$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/AlertingPolicyRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(project\)\: Unexpected token "\\n   \* ", expected variable at offset 23 on line 2$#'
+			identifier: phpDoc.parseError
+			count: 2
+			path: ../../../src/Repository/Entity/AlertingPolicyRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(project\)\: Unexpected token "\\n   \* ", expected variable at offset 57 on line 4$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/AlertingPolicyRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(project\)\: Unexpected token "\\n   \* ", expected variable at offset 73 on line 4$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/AlertingPolicyRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{Array\} args\.severities  \(optional\)\)\: Unexpected token "\{", expected type at offset 153 on line 6$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/AlertingPolicyRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{Array\} args\.severities  \(optional\)\)\: Unexpected token "\{", expected type at offset 171 on line 7$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/AlertingPolicyRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{Number\} args\.channels  \(optional\)\)\: Unexpected token "\{", expected type at offset 201 on line 7$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/AlertingPolicyRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{Number\} args\.channels  \(optional\)\)\: Unexpected token "\{", expected type at offset 219 on line 8$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/AlertingPolicyRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{Object\} args\)\: Unexpected token "\{", expected type at offset 36 on line 3$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/AlertingPolicyRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{Object\} args\)\: Unexpected token "\{", expected type at offset 55 on line 4$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/AlertingPolicyRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{Object\} args\)\: Unexpected token "\{", expected type at offset 86 on line 5$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/AlertingPolicyRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{Object\} args\)\: Unexpected token "\{", expected type at offset 89 on line 6$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/AlertingPolicyRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{String\} args\.interval  \(default\: immediately\)\)\: Unexpected token "\{", expected type at offset 94 on line 5$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/AlertingPolicyRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{String\} args\.interval  \(optional\)\)\: Unexpected token "\{", expected type at offset 124 on line 6$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/AlertingPolicyRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{String\} args\.name  \(optional\)\)\: Unexpected token "\{", expected type at offset 81 on line 5$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/AlertingPolicyRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{String\} args\.name\)\: Unexpected token "\{", expected type at offset 62 on line 4$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/AlertingPolicyRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(application\)\: Unexpected token "\\n   \* ", expected variable at offset 27 on line 2$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/ApplicationRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{Object\} args\)\: Unexpected token "\{", expected type at offset 16 on line 2$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/ApplicationRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{Object\} args\)\: Unexpected token "\{", expected type at offset 40 on line 3$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/ApplicationRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{String\} args\.identifier\)\: Unexpected token "\{", expected type at offset 74 on line 4$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/ApplicationRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{String\} args\.name\)\: Unexpected token "\{", expected type at offset 42 on line 3$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/ApplicationRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(application\)\: Unexpected token "\\n   \* ", expected variable at offset 27 on line 2$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/Auth2Repository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(application\)\: Unexpected token "\\n   \* ", expected variable at offset 66 on line 4$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/Auth2Repository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(application\)\: Unexpected token "\\n   \* ", expected variable at offset 93 on line 4$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/Auth2Repository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(user\)\: Unexpected token "\\n   \* ", expected variable at offset 110 on line 5$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/Auth2Repository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(user\)\: Unexpected token "\\n   \* ", expected variable at offset 83 on line 5$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/Auth2Repository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{Boolean\} args\.withMemories If true all Memory entities will be attached in the answer\. \(default\: false\)\)\: Unexpected token "\{", expected type at offset 145 on line 6$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/Auth2Repository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{Boolean\} args\.with_memories If true all Memory entities will be attached in the answer\. \(default\: false\)\)\: Unexpected token "\{", expected type at offset 122 on line 7$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/Auth2Repository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{Boolean\} args\.with_memories If true all Memory entities will be attached in the answer\. \(default\: false\)\)\: Unexpected token "\{", expected type at offset 149 on line 7$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/Auth2Repository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{Object\} args\)\: Unexpected token "\{", expected type at offset 123 on line 6$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/Auth2Repository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{Object\} args\)\: Unexpected token "\{", expected type at offset 40 on line 3$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/Auth2Repository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{Object\} args\)\: Unexpected token "\{", expected type at offset 96 on line 6$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/Auth2Repository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{String\} args\.emailOrUserName\)\: Unexpected token "\{", expected type at offset 66 on line 4$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/Auth2Repository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{String\} args\.password\)\: Unexpected token "\{", expected type at offset 109 on line 5$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/Auth2Repository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(user\)\: Unexpected token "\\n   \* ", expected variable at offset 20 on line 2$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/AuthRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{Boolean\} args\.expire  \(default\: true\)\)\: Unexpected token "\{", expected type at offset 114 on line 5$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/AuthRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{Boolean\} args\.with_memories If true all Memory entities will be attached in the answer\. \(default\: false\)\)\: Unexpected token "\{", expected type at offset 165 on line 6$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/AuthRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{Boolean\} args\.with_memories If true all Memory entities will be attached in the answer\. \(default\: false\)\)\: Unexpected token "\{", expected type at offset 59 on line 4$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/AuthRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{Object\} args\)\: Unexpected token "\{", expected type at offset 16 on line 2$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/AuthRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{Object\} args\)\: Unexpected token "\{", expected type at offset 33 on line 3$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/AuthRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{String\} args\.password\)\: Unexpected token "\{", expected type at offset 78 on line 4$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/AuthRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{String\} args\.username\)\: Unexpected token "\{", expected type at offset 42 on line 3$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/AuthRepository.php
+
+		-
+			message: '#^PHPDoc tag @return has invalid value \(\{createTokenByCredentialsResult\}\)\: Unexpected token "\{", expected type at offset 289 on line 8$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/AuthRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(system\)\: Unexpected token "\\n   \* ", expected variable at offset 113 on line 4$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/CheckA11yRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{Object\} args\)\: Unexpected token "\{", expected type at offset 126 on line 5$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/CheckA11yRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(system\)\: Unexpected token "\\n   \* ", expected variable at offset 22 on line 2$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/CheckBrokenResourceRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{Object\} args\)\: Unexpected token "\{", expected type at offset 35 on line 3$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/CheckBrokenResourceRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(system\)\: Unexpected token "\\n   \* ", expected variable at offset 22 on line 2$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/CheckCertificateRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{Object\} args\)\: Unexpected token "\{", expected type at offset 35 on line 3$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/CheckCertificateRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(system\)\: Unexpected token "\\n   \* ", expected variable at offset 339 on line 6$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/CheckCookieRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{Object\} args\)\: Unexpected token "\{", expected type at offset 352 on line 7$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/CheckCookieRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(company\)\: Unexpected token "\\n     \* ", expected variable at offset 126 on line 4$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/CheckDeadLinksRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(system\)\: Unexpected token "\\n     \* ", expected variable at offset 101 on line 4$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/CheckDeadLinksRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(system\)\: Unexpected token "\\n     \* ", expected variable at offset 116 on line 4$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/CheckDeadLinksRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(system\)\: Unexpected token "\\n     \* ", expected variable at offset 85 on line 4$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/CheckDeadLinksRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(system\)\: Unexpected token "\\n     \* ", expected variable at offset 87 on line 4$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/CheckDeadLinksRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{Array\} args\.patterns List of URLs \(strings\) that will be excluded from the dead link crawl\)\: Unexpected token "\{", expected type at offset 128 on line 6$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/CheckDeadLinksRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{Number\} args\.pattern_id Single URL that will not be excluded anymore in the dead link crawl\)\: Unexpected token "\{", expected type at offset 130 on line 6$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/CheckDeadLinksRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{Object\} args\)\: Unexpected token "\{", expected type at offset 100 on line 5$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/CheckDeadLinksRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{Object\} args\)\: Unexpected token "\{", expected type at offset 102 on line 5$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/CheckDeadLinksRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{Object\} args\)\: Unexpected token "\{", expected type at offset 116 on line 5$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/CheckDeadLinksRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{Object\} args\)\: Unexpected token "\{", expected type at offset 131 on line 5$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/CheckDeadLinksRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{Object\} args\)\: Unexpected token "\{", expected type at offset 141 on line 5$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/CheckDeadLinksRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(system\)\: Unexpected token "\\n   \* ", expected variable at offset 22 on line 2$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/CheckFileSizeRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(system\)\: Unexpected token "\\n   \* ", expected variable at offset 79 on line 4$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/CheckFileSizeRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{Array\} args\.patterns List of URLs \(strings\) that will be excluded from the dead link crawl\)\: Unexpected token "\{", expected type at offset 118 on line 6$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/CheckFileSizeRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{Object\} args\)\: Unexpected token "\{", expected type at offset 35 on line 3$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/CheckFileSizeRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{Object\} args\)\: Unexpected token "\{", expected type at offset 92 on line 5$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/CheckFileSizeRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(system\)\: Unexpected token "\\n   \* ", expected variable at offset 22 on line 2$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/CheckHealthCheckRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{Object\} args\)\: Unexpected token "\{", expected type at offset 35 on line 3$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/CheckHealthCheckRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(system\)\: Unexpected token "\\n   \* ", expected variable at offset 93 on line 4$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/CheckInsecureContentRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{Object\} args\)\: Unexpected token "\{", expected type at offset 106 on line 5$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/CheckInsecureContentRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(system\)\: Unexpected token "\\n   \* ", expected variable at offset 22 on line 2$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/CheckJavaScriptErrorsRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{Object\} args\)\: Unexpected token "\{", expected type at offset 35 on line 3$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/CheckJavaScriptErrorsRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(category\)\: Unexpected token "\\n   \* ", expected variable at offset 125 on line 5$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/CheckLighthouseRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(system\)\: Unexpected token "\\n   \* ", expected variable at offset 104 on line 4$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/CheckLighthouseRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{\*\} args\.targetGroup The target group\. It can be either an integer or a string\. \(default\: 2000\)\)\: Unexpected token "\{", expected type at offset 164 on line 7$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/CheckLighthouseRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{Boolean\} args\.use_cache Use the cache for json document fetch \(default\: true\)\)\: Unexpected token "\{", expected type at offset 272 on line 8$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/CheckLighthouseRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{Object\} args\)\: Unexpected token "\{", expected type at offset 138 on line 6$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/CheckLighthouseRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(system\)\: Unexpected token "\\n   \* ", expected variable at offset 140 on line 5$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/CheckMobileFriendlyRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{Object\} args\)\: Unexpected token "\{", expected type at offset 153 on line 6$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/CheckMobileFriendlyRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(project\)\: Unexpected token "\\n   \* ", expected variable at offset 85 on line 4$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/CheckRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(system\)\: Unexpected token "\\n   \* ", expected variable at offset 109 on line 4$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/CheckRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(system\)\: Unexpected token "\\n   \* ", expected variable at offset 128 on line 4$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/CheckRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(system\)\: Unexpected token "\\n   \* ", expected variable at offset 22 on line 2$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/CheckRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(system\)\: Unexpected token "\\n   \* ", expected variable at offset 90 on line 4$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/CheckRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(toolIdentifier\)\: Unexpected token "\\n   \* ", expected variable at offset 112 on line 5$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/CheckRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(toolIdentifier\)\: Unexpected token "\\n   \* ", expected variable at offset 117 on line 5$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/CheckRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(toolIdentifier\)\: Unexpected token "\\n   \* ", expected variable at offset 136 on line 5$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/CheckRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{\*\} args\.checklist\)\: Unexpected token "\{", expected type at offset 61 on line 4$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/CheckRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{Array\} args\.collections  \(optional\)\)\: Unexpected token "\{", expected type at offset 167 on line 6$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/CheckRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{Boolean\} args\.activate_checks  \(default\: false\)\)\: Unexpected token "\{", expected type at offset 150 on line 6$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/CheckRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{Boolean\} args\.clear_before  \(default\: true\)\)\: Unexpected token "\{", expected type at offset 93 on line 5$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/CheckRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{Number\} args\.component\)\: Unexpected token "\{", expected type at offset 42 on line 3$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/CheckRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{Number\} args\.cookbook\)\: Unexpected token "\{", expected type at offset 79 on line 4$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/CheckRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{Object\} args\)\: Unexpected token "\{", expected type at offset 125 on line 6$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/CheckRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{Object\} args\)\: Unexpected token "\{", expected type at offset 130 on line 6$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/CheckRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{Object\} args\)\: Unexpected token "\{", expected type at offset 141 on line 5$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/CheckRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{Object\} args\)\: Unexpected token "\{", expected type at offset 149 on line 6$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/CheckRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{Object\} args\)\: Unexpected token "\{", expected type at offset 16 on line 2$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/CheckRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{Object\} args\)\: Unexpected token "\{", expected type at offset 35 on line 3$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/CheckRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{String\} args\.group The collection group\. It is used to specify the collections\. \(default\: \)\)\: Unexpected token "\{", expected type at offset 151 on line 7$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/CheckRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{String\} args\.group The collection group\. It is used to specify the collections\. \(default\: \)\)\: Unexpected token "\{", expected type at offset 156 on line 7$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/CheckRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{String\} args\.group The collection group\. It is used to specify the collections\. \(default\: \)\)\: Unexpected token "\{", expected type at offset 216 on line 7$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/CheckRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(system\)\: Unexpected token "\\n   \* ", expected variable at offset 22 on line 2$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/CheckSitemapRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{Object\} args\)\: Unexpected token "\{", expected type at offset 35 on line 3$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/CheckSitemapRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(company\)\: Unexpected token "\\n   \* ", expected variable at offset 67 on line 4$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/ClusterCompanyRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(company\)\: Unexpected token "\\n   \* ", expected variable at offset 88 on line 4$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/ClusterCompanyRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(providerIdentifier\)\: Unexpected token "\\n   \* ", expected variable at offset 65 on line 4$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/ClusterCompanyRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(providerIdentifier\)\: Unexpected token "\\n   \* ", expected variable at offset 92 on line 4$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/ClusterCompanyRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(providerIdentifier\)\: Unexpected token "\\n   \* ", expected variable at offset 99 on line 4$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/ClusterCompanyRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(user\)\: Unexpected token "\\n   \* ", expected variable at offset 84 on line 5$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/ClusterCompanyRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{Number\} args\.master_id The master id from the auth2 server\)\: Unexpected token "\{", expected type at offset 154 on line 7$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/ClusterCompanyRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{Number\} args\.master_id The users master id\.\)\: Unexpected token "\{", expected type at offset 127 on line 6$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/ClusterCompanyRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{Number\} args\.user_role The users company role \(default\: 1000\)\)\: Unexpected token "\{", expected type at offset 123 on line 7$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/ClusterCompanyRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{Object\} args\)\: Unexpected token "\{", expected type at offset 101 on line 5$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/ClusterCompanyRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{Object\} args\)\: Unexpected token "\{", expected type at offset 105 on line 5$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/ClusterCompanyRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{Object\} args\)\: Unexpected token "\{", expected type at offset 112 on line 5$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/ClusterCompanyRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{Object\} args\)\: Unexpected token "\{", expected type at offset 73 on line 4$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/ClusterCompanyRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{Object\} args\)\: Unexpected token "\{", expected type at offset 78 on line 5$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/ClusterCompanyRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{Object\} args\)\: Unexpected token "\{", expected type at offset 97 on line 6$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/ClusterCompanyRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{String\} args\.company_name The companies name\)\: Unexpected token "\{", expected type at offset 131 on line 6$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/ClusterCompanyRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{String\} args\.company_name The companies name\)\: Unexpected token "\{", expected type at offset 99 on line 5$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/ClusterCompanyRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{String\} args\.name The companies name\)\: Unexpected token "\{", expected type at offset 104 on line 6$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/ClusterCompanyRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(application\)\: Unexpected token "\\n     \* ", expected variable at offset 29 on line 2$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/ClusterRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{Object\} args\)\: Unexpected token "\{", expected type at offset 44 on line 3$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/ClusterRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{String\} args\.identifier\)\: Unexpected token "\{", expected type at offset 72 on line 4$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/ClusterRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(provider\)\: Unexpected token "\\n   \* ", expected variable at offset 117 on line 4$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/ClusterUserRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(provider\)\: Unexpected token "\\n   \* ", expected variable at offset 77 on line 4$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/ClusterUserRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(providerIdentifier\)\: Unexpected token "\\n   \* ", expected variable at offset 94 on line 4$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/ClusterUserRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(user\)\: Unexpected token "\\n   \* ", expected variable at offset 101 on line 4$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/ClusterUserRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(user\)\: Unexpected token "\\n   \* ", expected variable at offset 50 on line 4$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/ClusterUserRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(user\)\: Unexpected token "\\n   \* ", expected variable at offset 59 on line 4$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/ClusterUserRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(user\)\: Unexpected token "\\n   \* ", expected variable at offset 65 on line 4$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/ClusterUserRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(user\)\: Unexpected token "\\n   \* ", expected variable at offset 67 on line 4$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/ClusterUserRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(user\)\: Unexpected token "\\n   \* ", expected variable at offset 70 on line 4$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/ClusterUserRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(user\)\: Unexpected token "\\n   \* ", expected variable at offset 76 on line 4$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/ClusterUserRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(user\)\: Unexpected token "\\n   \* ", expected variable at offset 81 on line 4$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/ClusterUserRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(user\)\: Unexpected token "\\n   \* ", expected variable at offset 94 on line 4$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/ClusterUserRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{\*\} args\.provider The OAuth provider\.\)\: Unexpected token "\{", expected type at offset 133 on line 6$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/ClusterUserRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{Array\} args\._attributes Additional attributes for the user \(default\: \[\]\)\)\: Unexpected token "\{", expected type at offset 1098 on line 18$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/ClusterUserRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{Array\} args\._attributes Additional attributes for the user \(default\: \[\]\)\)\: Unexpected token "\{", expected type at offset 511 on line 11$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/ClusterUserRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{Array\} args\.query The key value pairs for the search\.\)\: Unexpected token "\{", expected type at offset 121 on line 5$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/ClusterUserRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{Array\} args\.query The key value pairs for the search\.\)\: Unexpected token "\{", expected type at offset 136 on line 5$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/ClusterUserRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{Boolean\} args\.activate If true no activation mail will be send\.\. \(default\: true\)\)\: Unexpected token "\{", expected type at offset 413 on line 9$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/ClusterUserRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{Boolean\} args\.create_company Create a new company if none exists\. \(default\: false\)\)\: Unexpected token "\{", expected type at offset 760 on line 13$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/ClusterUserRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{Boolean\} args\.suppress_activation If true no activation mail will be send\.\. \(default\: false\)\)\: Unexpected token "\{", expected type at offset 307 on line 8$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/ClusterUserRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{Number\} args\.company_id The companies numeric id of the new user\. \(optional\)\)\: Unexpected token "\{", expected type at offset 283 on line 8$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/ClusterUserRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{Number\} args\.company_id The companies numeric id of the new user\. \(optional\)\)\: Unexpected token "\{", expected type at offset 670 on line 12$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/ClusterUserRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{Number\} args\.master_id The master_id user\.\)\: Unexpected token "\{", expected type at offset 116 on line 6$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/ClusterUserRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{Number\} args\.master_id The users id on the master server\. \(default\: \-1\)\)\: Unexpected token "\{", expected type at offset 222 on line 7$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/ClusterUserRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{Number\} args\.master_id The users master id\.\)\: Unexpected token "\{", expected type at offset 120 on line 6$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/ClusterUserRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{Object\} args\)\: Unexpected token "\{", expected type at offset 107 on line 5$#'
+			identifier: phpDoc.parseError
+			count: 2
+			path: ../../../src/Repository/Entity/ClusterUserRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{Object\} args\)\: Unexpected token "\{", expected type at offset 110 on line 4$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/ClusterUserRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{Object\} args\)\: Unexpected token "\{", expected type at offset 114 on line 5$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/ClusterUserRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{Object\} args\)\: Unexpected token "\{", expected type at offset 130 on line 5$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/ClusterUserRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{Object\} args\)\: Unexpected token "\{", expected type at offset 187 on line 5$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/ClusterUserRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{Object\} args\)\: Unexpected token "\{", expected type at offset 58 on line 4$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/ClusterUserRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{Object\} args\)\: Unexpected token "\{", expected type at offset 63 on line 5$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/ClusterUserRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{Object\} args\)\: Unexpected token "\{", expected type at offset 72 on line 5$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/ClusterUserRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{Object\} args\)\: Unexpected token "\{", expected type at offset 77 on line 4$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/ClusterUserRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{Object\} args\)\: Unexpected token "\{", expected type at offset 78 on line 5$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/ClusterUserRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{Object\} args\)\: Unexpected token "\{", expected type at offset 80 on line 5$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/ClusterUserRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{Object\} args\)\: Unexpected token "\{", expected type at offset 83 on line 5$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/ClusterUserRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{Object\} args\)\: Unexpected token "\{", expected type at offset 89 on line 5$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/ClusterUserRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{Object\} args\)\: Unexpected token "\{", expected type at offset 90 on line 5$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/ClusterUserRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{Object\} args\)\: Unexpected token "\{", expected type at offset 94 on line 5$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/ClusterUserRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{Object\} args\)\: Unexpected token "\{", expected type at offset 95 on line 4$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/ClusterUserRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{String\} args\.activation_key\)\: Unexpected token "\{", expected type at offset 213 on line 6$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/ClusterUserRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{String\} args\.email The email address of the new user\. \(optional\)\)\: Unexpected token "\{", expected type at offset 109 on line 6$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/ClusterUserRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{String\} args\.email The email address of the new user\.\)\: Unexpected token "\{", expected type at offset 507 on line 10$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/ClusterUserRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{String\} args\.email The users email address\)\: Unexpected token "\{", expected type at offset 103 on line 5$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/ClusterUserRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{String\} args\.email The users email address\)\: Unexpected token "\{", expected type at offset 84 on line 5$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/ClusterUserRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{String\} args\.first_name The users first name\. \(optional\)\)\: Unexpected token "\{", expected type at offset 373 on line 9$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/ClusterUserRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{String\} args\.first_name The users first name\. \(optional\)\)\: Unexpected token "\{", expected type at offset 924 on line 15$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/ClusterUserRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{String\} args\.full_name The users full name\. \(optional\)\)\: Unexpected token "\{", expected type at offset 856 on line 14$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/ClusterUserRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{String\} args\.language The users preferred interface language\.\)\: Unexpected token "\{", expected type at offset 106 on line 6$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/ClusterUserRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{String\} args\.last_name The users last name\. \(optional\)\)\: Unexpected token "\{", expected type at offset 443 on line 10$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/ClusterUserRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{String\} args\.last_name The users last name\. \(optional\)\)\: Unexpected token "\{", expected type at offset 994 on line 16$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/ClusterUserRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{String\} args\.password The new password\)\: Unexpected token "\{", expected type at offset 89 on line 6$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/ClusterUserRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{String\} args\.password\)\: Unexpected token "\{", expected type at offset 1062 on line 17$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/ClusterUserRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{String\} args\.password_new\)\: Unexpected token "\{", expected type at offset 140 on line 6$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/ClusterUserRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{String\} args\.preferred_language The users preferred interface language\. \(optional\)\)\: Unexpected token "\{", expected type at offset 187 on line 7$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/ClusterUserRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{String\} args\.preferred_language The users preferred interface language\. \(optional\)\)\: Unexpected token "\{", expected type at offset 574 on line 11$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/ClusterUserRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{String\} args\.provider_user_id The OAuth provider user id\.\)\: Unexpected token "\{", expected type at offset 183 on line 7$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/ClusterUserRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{String\} args\.username The new users name\. \(optional\)\)\: Unexpected token "\{", expected type at offset 156 on line 6$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/ClusterUserRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(application\)\: Unexpected token "\\n   \* ", expected variable at offset 27 on line 2$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/CompanyRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(application\)\: Unexpected token "\\n   \* ", expected variable at offset 75 on line 4$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/CompanyRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(company\)\: Unexpected token "\\n   \* ", expected variable at offset 47 on line 3$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/CompanyRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(company\)\: Unexpected token "\\n   \* ", expected variable at offset 95 on line 5$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/CompanyRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(user\)\: Unexpected token "\\n   \* ", expected variable at offset 112 on line 6$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/CompanyRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{Boolean\} args\.deleteIfNoCompany  \(default\: false\)\)\: Unexpected token "\{", expected type at offset 151 on line 8$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/CompanyRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{Number\} args\.cluster\)\: Unexpected token "\{", expected type at offset 86 on line 5$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/CompanyRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{Object\} args\)\: Unexpected token "\{", expected type at offset 125 on line 7$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/CompanyRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{Object\} args\)\: Unexpected token "\{", expected type at offset 60 on line 4$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/CompanyRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(component\)\: Unexpected token "\\n   \* ", expected variable at offset 63 on line 4$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/ComponentRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(component\)\: Unexpected token "\\n   \* ", expected variable at offset 72 on line 4$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/ComponentRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(component\)\: Unexpected token "\\n   \* ", expected variable at offset 82 on line 4$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/ComponentRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(project\)\: Unexpected token "\\n   \* ", expected variable at offset 68 on line 4$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/ComponentRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{Array\} args\.components List of components that should be created/updated\.\)\: Unexpected token "\{", expected type at offset 582 on line 10$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/ComponentRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{Boolean\} args\.enableToolsBySystem  \(default\: true\)\)\: Unexpected token "\{", expected type at offset 110 on line 6$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/ComponentRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{Boolean\} args\.enableToolsBySystem If true all checks from the parent system are inherited\. \(default\: true\)\)\: Unexpected token "\{", expected type at offset 175 on line 6$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/ComponentRepository.php
+
+		-
+			message: '''
+				#^PHPDoc tag @param has invalid value \(\{Boolean\} args\.updateIfComponentSuggestionExists If true and a component with the same
+				                                                        suggestion id already exists it will be
+				                                                        updated\. \(default\: false\)\)\: Unexpected token "\{", expected type at offset 295 on line 7$#
+			'''
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/ComponentRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{Number\} args\.system The system the components are part of,\)\: Unexpected token "\{", expected type at offset 103 on line 5$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/ComponentRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{Number\} args\.system\)\: Unexpected token "\{", expected type at offset 76 on line 5$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/ComponentRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{Object\} args\)\: Unexpected token "\{", expected type at offset 50 on line 4$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/ComponentRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{Object\} args\)\: Unexpected token "\{", expected type at offset 76 on line 5$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/ComponentRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{Object\} args\)\: Unexpected token "\{", expected type at offset 77 on line 4$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/ComponentRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{Object\} args\)\: Unexpected token "\{", expected type at offset 81 on line 5$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/ComponentRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{Object\} args\)\: Unexpected token "\{", expected type at offset 85 on line 5$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/ComponentRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{Object\} args\)\: Unexpected token "\{", expected type at offset 95 on line 5$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/ComponentRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(Integer args\.depth Number of URLs to be crawled \(default\: 5\)\)\: Unexpected token "args", expected variable at offset 486 on line 12$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/CrawlerRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(Integer args\.depth Number of URLs to be crawled \(default\: 50\)\)\: Unexpected token "args", expected variable at offset 439 on line 11$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/CrawlerRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(Integer args\.parallel_requests Number of parallel requests that can be done \(default\: 8\)\)\: Unexpected token "args", expected variable at offset 578 on line 13$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/CrawlerRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(Integer args\.parallel_requests Number of parallel requests that can be done \(default\: 8\)\)\: Unexpected token "args", expected variable at offset 637 on line 14$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/CrawlerRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(Integer args\.system The systems id\)\: Unexpected token "args", expected variable at offset 191 on line 7$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/CrawlerRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(Integer args\.system The systems id\)\: Unexpected token "args", expected variable at offset 439 on line 11$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/CrawlerRepository.php
+
+		-
+			message: '''
+				#^PHPDoc tag @param has invalid value \(Integer args\.user The user \(id\) that starts the crawl and gets informed when the crawl
+				                         finishes\)\: Unexpected token "args", expected variable at offset 113 on line 6$#
+			'''
+			identifier: phpDoc.parseError
+			count: 2
+			path: ../../../src/Repository/Entity/CrawlerRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(List args\.collections The additional collections \(optional\)\)\: Unexpected token "args", expected variable at offset 319 on line 9$#'
+			identifier: phpDoc.parseError
+			count: 2
+			path: ../../../src/Repository/Entity/CrawlerRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(String args\.checklist_name The check lists name \(optional\)\)\: Unexpected token "args", expected variable at offset 119 on line 6$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/CrawlerRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(String args\.checklist_name The check lists name \(optional\)\)\: Unexpected token "args", expected variable at offset 250 on line 8$#'
+			identifier: phpDoc.parseError
+			count: 2
+			path: ../../../src/Repository/Entity/CrawlerRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(String args\.name The crawls name\)\: Unexpected token "args", expected variable at offset 393 on line 10$#'
+			identifier: phpDoc.parseError
+			count: 2
+			path: ../../../src/Repository/Entity/CrawlerRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(String args\.path The URL the crawler starts to crawl \(default\: /\)\)\: Unexpected token "args", expected variable at offset 558 on line 13$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/CrawlerRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(String args\.path The URL the crawler starts to crawl\)\: Unexpected token "args", expected variable at offset 512 on line 12$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/CrawlerRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(system\)\: Unexpected token "\\n   \* ", expected variable at offset 143 on line 5$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/CustomerHaendlerbundMetricRepository.php
+
+		-
+			message: '''
+				#^PHPDoc tag @param has invalid value \(\{\*\} args\.metric_type The engine stores to kinds of metrics\. Status and Value\. The status
+				                                is the ratio between successful checks and failed in percent, the
+				                                value is the average value of the checks result\. \(default\: value\)\)\: Unexpected token "\{", expected type at offset 381 on line 9$#
+			'''
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/CustomerHaendlerbundMetricRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{\*\} args\.tool A single tool id or the identifier of a tool\. \(optional\)\)\: Unexpected token "\{", expected type at offset 182 on line 7$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/CustomerHaendlerbundMetricRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{Array\} args\.tools A list of tool ids\. For every tool there will be a metric array returned\. \(optional\)\)\: Unexpected token "\{", expected type at offset 265 on line 8$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/CustomerHaendlerbundMetricRepository.php
+
+		-
+			message: '''
+				#^PHPDoc tag @param has invalid value \(\{Boolean\} args\.filter_trailing_nulls Remove null values from the metric if they are at the
+				                                            beginning\. Trailing nulls are used of the metric does
+				                                            not provide values for a given time spam\. \(default\: true\)\)\: Unexpected token "\{", expected type at offset 688 on line 12$#
+			'''
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/CustomerHaendlerbundMetricRepository.php
+
+		-
+			message: '''
+				#^PHPDoc tag @param has invalid value \(\{Number\} args\.min_value Replace all values that are smaller than the min value with the min
+				                                value\. \(default\: 0\)\)\: Unexpected token "\{", expected type at offset 1001 on line 15$#
+			'''
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/CustomerHaendlerbundMetricRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{Object\} args\)\: Unexpected token "\{", expected type at offset 156 on line 6$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/CustomerHaendlerbundMetricRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(system\)\: Unexpected token "\\n   \* ", expected variable at offset 90 on line 4$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/CustomerHaendlerbundRepository.php
+
+		-
+			message: '''
+				#^PHPDoc tag @param has invalid value \(\{\*\} args\.size The shop size\. It determines if the checks are done on a daily or hourly
+				                         base\. \(default\: large\)\)\: Unexpected token "\{", expected type at offset 297 on line 8$#
+			'''
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/CustomerHaendlerbundRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{Number\} args\.owner The shops owner \(id\)\.\)\: Unexpected token "\{", expected type at offset 243 on line 7$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/CustomerHaendlerbundRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{Object\} args\)\: Unexpected token "\{", expected type at offset 103 on line 5$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/CustomerHaendlerbundRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{Object\} args\)\: Unexpected token "\{", expected type at offset 84 on line 4$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/CustomerHaendlerbundRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{String\} args\.name The shops name\. \(optional\)\)\: Unexpected token "\{", expected type at offset 129 on line 6$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/CustomerHaendlerbundRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{String\} args\.name The shops name\.\)\: Unexpected token "\{", expected type at offset 110 on line 5$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/CustomerHaendlerbundRepository.php
+
+		-
+			message: '''
+				#^PHPDoc tag @param has invalid value \(\{Url\} args\.base_url The shops base url with scheme, subdomain and domain\. When changing the
+				                           base url all shop pages will change their base as well\. \(optional\)\)\: Unexpected token "\{", expected type at offset 187 on line 7$#
+			'''
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/CustomerHaendlerbundRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{Url\} args\.base_url The shops base url with scheme, subdomain and domain\.\)\: Unexpected token "\{", expected type at offset 157 on line 6$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/CustomerHaendlerbundRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(crawlIdentifier\)\: Unexpected token "\\n   \* ", expected variable at offset 151 on line 5$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/CustomerMehrwertsteuercheckRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{Object\} args\)\: Unexpected token "\{", expected type at offset 154 on line 5$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/CustomerMehrwertsteuercheckRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{Object\} args\)\: Unexpected token "\{", expected type at offset 164 on line 6$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/CustomerMehrwertsteuercheckRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{String\} args\.email_address The email address the crawl result is send to\.\)\: Unexpected token "\{", expected type at offset 180 on line 6$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/CustomerMehrwertsteuercheckRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{Url\} args\.start_url The url the crawler should start with\.\)\: Unexpected token "\{", expected type at offset 267 on line 7$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/CustomerMehrwertsteuercheckRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(incident\)\: Unexpected token "\\n   \* ", expected variable at offset 83 on line 5$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/IncidentRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(project\)\: Unexpected token "\\n   \* ", expected variable at offset 121 on line 4$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/IncidentRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(project\)\: Unexpected token "\\n   \* ", expected variable at offset 187 on line 5$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/IncidentRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(project\)\: Unexpected token "\\n   \* ", expected variable at offset 62 on line 4$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/IncidentRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(project\)\: Unexpected token "\\n   \* ", expected variable at offset 86 on line 4$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/IncidentRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{Number\} args\.days The number of days the incidents can old\)\: Unexpected token "\{", expected type at offset 125 on line 6$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/IncidentRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{Number\} args\.system the system filter \(optional\)\)\: Unexpected token "\{", expected type at offset 160 on line 6$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/IncidentRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{Object\} args\)\: Unexpected token "\{", expected type at offset 134 on line 5$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/IncidentRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{Object\} args\)\: Unexpected token "\{", expected type at offset 200 on line 6$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/IncidentRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{Object\} args\)\: Unexpected token "\{", expected type at offset 96 on line 6$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/IncidentRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{Object\} args\)\: Unexpected token "\{", expected type at offset 99 on line 5$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/IncidentRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{Integer\} args\.user_role The projects role of the newly added user\. \(default\: 200\)\)\: Unexpected token "\{", expected type at offset 255 on line 8$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/InvitationRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{String\} args\.email The invitations e\-mail address\)\: Unexpected token "\{", expected type at offset 120 on line 6$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/InvitationRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{String\} args\.user_name The users company name\. \(default\: \)\)\: Unexpected token "\{", expected type at offset 183 on line 7$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/InvitationRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(company\)\: Unexpected token "\\n   \* ", expected variable at offset 142 on line 5$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/MarketplaceRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(company\)\: Unexpected token "\\n   \* ", expected variable at offset 72 on line 4$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/MarketplaceRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(company\)\: Unexpected token "\\n   \* ", expected variable at offset 84 on line 4$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/MarketplaceRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(company\)\: Unexpected token "\\n   \* ", expected variable at offset 86 on line 4$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/MarketplaceRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(featureIdentifier\)\: Unexpected token "\\n   \* ", expected variable at offset 114 on line 5$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/MarketplaceRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(featureIdentifier\)\: Unexpected token "\\n   \* ", expected variable at offset 116 on line 5$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/MarketplaceRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(featureIdentifier\)\: Unexpected token "\\n   \* ", expected variable at offset 132 on line 5$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/MarketplaceRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(featureIdentifier\)\: Unexpected token "\\n   \* ", expected variable at offset 136 on line 5$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/MarketplaceRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(project\)\: Unexpected token "\\n   \* ", expected variable at offset 92 on line 4$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/MarketplaceRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(project\)\: Unexpected token "\\n   \* ", expected variable at offset 95 on line 4$#'
+			identifier: phpDoc.parseError
+			count: 2
+			path: ../../../src/Repository/Entity/MarketplaceRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(providerIdentifier\)\: Unexpected token "\\n   \* ", expected variable at offset 104 on line 4$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/MarketplaceRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(providerIdentifier\)\: Unexpected token "\\n   \* ", expected variable at offset 122 on line 4$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/MarketplaceRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(suggestionIdentifier\)\: Unexpected token "\\n   \* ", expected variable at offset 119 on line 5$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/MarketplaceRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(system\)\: Unexpected token "\\n   \* ", expected variable at offset 102 on line 4$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/MarketplaceRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(system\)\: Unexpected token "\\n   \* ", expected variable at offset 106 on line 4$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/MarketplaceRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(system\)\: Unexpected token "\\n   \* ", expected variable at offset 86 on line 4$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/MarketplaceRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{Array\} args\.projects\)\: Unexpected token "\{", expected type at offset 153 on line 7$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/MarketplaceRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{Array\} args\.projects\)\: Unexpected token "\{", expected type at offset 155 on line 7$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/MarketplaceRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{Number\} args\.status  \(default\: 400\)\)\: Unexpected token "\{", expected type at offset 134 on line 6$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/MarketplaceRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{Object\} args\)\: Unexpected token "\{", expected type at offset 105 on line 5$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/MarketplaceRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{Object\} args\)\: Unexpected token "\{", expected type at offset 108 on line 5$#'
+			identifier: phpDoc.parseError
+			count: 2
+			path: ../../../src/Repository/Entity/MarketplaceRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{Object\} args\)\: Unexpected token "\{", expected type at offset 117 on line 5$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/MarketplaceRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{Object\} args\)\: Unexpected token "\{", expected type at offset 127 on line 6$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/MarketplaceRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{Object\} args\)\: Unexpected token "\{", expected type at offset 129 on line 6$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/MarketplaceRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{Object\} args\)\: Unexpected token "\{", expected type at offset 132 on line 6$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/MarketplaceRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{Object\} args\)\: Unexpected token "\{", expected type at offset 145 on line 6$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/MarketplaceRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{Object\} args\)\: Unexpected token "\{", expected type at offset 149 on line 6$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/MarketplaceRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{Object\} args\)\: Unexpected token "\{", expected type at offset 155 on line 6$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/MarketplaceRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{Object\} args\)\: Unexpected token "\{", expected type at offset 54 on line 3$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/MarketplaceRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{Object\} args\)\: Unexpected token "\{", expected type at offset 80 on line 3$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/MarketplaceRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{Object\} args\)\: Unexpected token "\{", expected type at offset 85 on line 5$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/MarketplaceRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{String\} args\.from  \(default\: \-1day\)\)\: Unexpected token "\{", expected type at offset 171 on line 7$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/MarketplaceRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{String\} args\.time  \(default\: 1h\)\)\: Unexpected token "\{", expected type at offset 220 on line 8$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/MarketplaceRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{String\} args\.url\)\: Unexpected token "\{", expected type at offset 158 on line 7$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/MarketplaceRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(application\)\: Unexpected token "\\n   \* ", expected variable at offset 67 on line 4$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/MemoryRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(objectId\)\: Unexpected token "\\n   \* ", expected variable at offset 111 on line 6$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/MemoryRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(objectType\)\: Unexpected token "\\n   \* ", expected variable at offset 90 on line 5$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/MemoryRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{Object\} args\)\: Unexpected token "\{", expected type at offset 124 on line 7$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/MemoryRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{String\} args\.key\)\: Unexpected token "\{", expected type at offset 150 on line 8$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/MemoryRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{String\} args\.value\)\: Unexpected token "\{", expected type at offset 181 on line 9$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/MemoryRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(system\)\: Unexpected token "\\n   \* ", expected variable at offset 143 on line 5$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/MetricRepository.php
+
+		-
+			message: '''
+				#^PHPDoc tag @param has invalid value \(\{\*\} args\.metric_type The engine stores to kinds of metrics\. Status and Value\. The status
+				                                is the ratio between successful checks and failed in percent, the
+				                                value is the average value of the checks result\. \(default\: value\)\)\: Unexpected token "\{", expected type at offset 381 on line 9$#
+			'''
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/MetricRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{\*\} args\.tool A single tool id or the identifier of a tool\. \(optional\)\)\: Unexpected token "\{", expected type at offset 182 on line 7$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/MetricRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{Array\} args\.tools A list of tool ids\. For every tool there will be a metric array returned\. \(optional\)\)\: Unexpected token "\{", expected type at offset 265 on line 8$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/MetricRepository.php
+
+		-
+			message: '''
+				#^PHPDoc tag @param has invalid value \(\{Boolean\} args\.filter_trailing_nulls Remove null values from the metric if they are at the
+				                                            beginning\. Trailing nulls are used of the metric does
+				                                            not provide values for a given time spam\. \(default\: true\)\)\: Unexpected token "\{", expected type at offset 688 on line 12$#
+			'''
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/MetricRepository.php
+
+		-
+			message: '''
+				#^PHPDoc tag @param has invalid value \(\{Number\} args\.min_value Replace all values that are smaller than the min value with the min
+				                                value\. \(default\: 0\)\)\: Unexpected token "\{", expected type at offset 1001 on line 15$#
+			'''
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/MetricRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{Object\} args\)\: Unexpected token "\{", expected type at offset 156 on line 6$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/MetricRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(Boolean args\.filter_empty_projects If true the only projects with systems are returned \(default\: false\)\)\: Unexpected token "args", expected variable at offset 830 on line 13$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/ProjectRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(Boolean args\.owned_by_user If true the only projects owned by this user are returned\. \(default\: false\)\)\: Unexpected token "args", expected variable at offset 715 on line 12$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/ProjectRepository.php
+
+		-
+			message: '''
+				#^PHPDoc tag @param has invalid value \(Boolean args\.with_features If true the projects marketplace features are added to the
+				                                  response\. \(default\: false\)\)\: Unexpected token "args", expected variable at offset 551 on line 10$#
+			'''
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/ProjectRepository.php
+
+		-
+			message: '''
+				#^PHPDoc tag @param has invalid value \(Boolean args\.with_next_full_run If true the next approximated hourly run will be returned;
+				                                       the value is the time in seconds till the next run \(default\: false\)\)\: Unexpected token "args", expected variable at offset 158 on line 6$#
+			'''
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/ProjectRepository.php
+
+		-
+			message: '''
+				#^PHPDoc tag @param has invalid value \(Boolean args\.with_onboarding_status If true the projects onboarding status is added to the
+				                                           response\. \(default\: false\)\)\: Unexpected token "args", expected variable at offset 373 on line 8$#
+			'''
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/ProjectRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(Integer args\.user The users id\)\: Unexpected token "args", expected variable at offset 115 on line 5$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/ProjectRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(String args\.location The location the project should be monitored from \(optional\)\)\: Unexpected token "args", expected variable at offset 134 on line 7$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/ProjectRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(String args\.name\)\: Unexpected token "args", expected variable at offset 104 on line 6$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/ProjectRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(scoreName\)\: Unexpected token "\\n   \* ", expected variable at offset 95 on line 5$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/ScoreRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(system\)\: Unexpected token "\\n   \* ", expected variable at offset 73 on line 4$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/ScoreRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(system\)\: Unexpected token "\\n   \* ", expected variable at offset 82 on line 4$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/ScoreRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(user\)\: Unexpected token "\\n   \* ", expected variable at offset 129 on line 4$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/ScoreRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{Array\} args\.scores List of score names\)\: Unexpected token "\{", expected type at offset 168 on line 6$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/ScoreRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{Array\} args\.scores list of score names\)\: Unexpected token "\{", expected type at offset 121 on line 6$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/ScoreRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{Boolean\} args\.filter_empty_projects If true the only projects with systems are returned \(default\: false\)\)\: Unexpected token "\{", expected type at offset 407 on line 9$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/ScoreRepository.php
+
+		-
+			message: '''
+				#^PHPDoc tag @param has invalid value \(\{Boolean\} args\.with_sub_scores NOT IMPLEMENTED YET\: If true detailed information about the
+				                                      score will be provided\. \(default\: false\)\)\: Unexpected token "\{", expected type at offset 220 on line 7$#
+			'''
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/ScoreRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{Object\} args\)\: Unexpected token "\{", expected type at offset 108 on line 6$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/ScoreRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{Object\} args\)\: Unexpected token "\{", expected type at offset 142 on line 5$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/ScoreRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{Object\} args\)\: Unexpected token "\{", expected type at offset 95 on line 5$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/ScoreRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(system\)\: Unexpected token "\\n   \* ", expected variable at offset 79 on line 4$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/ScreenshotRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(system\)\: Unexpected token "\\n   \* ", expected variable at offset 96 on line 4$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/ScreenshotRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{Object\} args\)\: Unexpected token "\{", expected type at offset 109 on line 5$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/ScreenshotRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{Object\} args\)\: Unexpected token "\{", expected type at offset 92 on line 5$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/ScreenshotRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(Integer args\.quantity The number of packets to be used\)\: Unexpected token "args", expected variable at offset 119 on line 6$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/SubscriptionRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(Integer args\.quantity The number of packets to be used\)\: Unexpected token "args", expected variable at offset 124 on line 6$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/SubscriptionRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(Integer args\.system_size The system size id \(optional\)\)\: Unexpected token "args", expected variable at offset 193 on line 7$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/SubscriptionRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(Integer args\.system_size The system size id\)\: Unexpected token "args", expected variable at offset 188 on line 7$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/SubscriptionRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(String args\.cancel_url\)\: Unexpected token "args", expected variable at offset 203 on line 7$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/SubscriptionRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(String args\.cancel_url\)\: Unexpected token "args", expected variable at offset 214 on line 8$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/SubscriptionRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(String args\.identifier  \(optional\)\)\: Unexpected token "args", expected variable at offset 261 on line 8$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/SubscriptionRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(String args\.identifier\)\: Unexpected token "args", expected variable at offset 130 on line 6$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/SubscriptionRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(String args\.price_id The product price id\)\: Unexpected token "args", expected variable at offset 109 on line 5$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/SubscriptionRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(String args\.price_id The product price id\)\: Unexpected token "args", expected variable at offset 120 on line 6$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/SubscriptionRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(String args\.return_url\)\: Unexpected token "args", expected variable at offset 116 on line 5$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/SubscriptionRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(String args\.success_url\)\: Unexpected token "args", expected variable at offset 165 on line 6$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/SubscriptionRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(String args\.success_url\)\: Unexpected token "args", expected variable at offset 176 on line 7$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/SubscriptionRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(String args\.two_factor_code  \(optional\)\)\: Unexpected token "args", expected variable at offset 240 on line 8$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/SubscriptionRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(String args\.two_factor_code  \(optional\)\)\: Unexpected token "args", expected variable at offset 251 on line 9$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/SubscriptionRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(String args\.user The user id \(optional\)\)\: Unexpected token "args", expected variable at offset 105 on line 5$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/SubscriptionRepository.php
+
+		-
+			message: '''
+				#^PHPDoc tag @param has invalid value \(Boolean args\.add_checklist_checks If true all checks of the checklist connected to the main
+				                                         system type are added\. \(default\: true\)\)\: Unexpected token "args", expected variable at offset 768 on line 14$#
+			'''
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/SystemRepository.php
+
+		-
+			message: '''
+				#^PHPDoc tag @param has invalid value \(Boolean args\.add_standard_alerting If true add a standard channel and alerting policy for the
+				                                          owner\. \(default\: false\)\)\: Unexpected token "args", expected variable at offset 277 on line 7$#
+			'''
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/SystemRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(Boolean args\.add_support_user Add the support user for support requests \(default\: true\)\)\: Unexpected token "args", expected variable at offset 957 on line 16$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/SystemRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(Integer args\.owner The shops owner \(id\)\.\)\: Unexpected token "args", expected variable at offset 583 on line 11$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/SystemRepository.php
+
+		-
+			message: '''
+				#^PHPDoc tag @param has invalid value \(Integer args\.project The project the system should be part of\. If the project is not set a
+				                            new project will be created with the systems name\. \(optional\)\)\: Unexpected token "args", expected variable at offset 79 on line 5$#
+			'''
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/SystemRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(Integer args\.system_size The system size id \(optional\)\)\: Unexpected token "args", expected variable at offset 158 on line 7$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/SystemRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(Integer args\.system_size The system size id \(optional\)\)\: Unexpected token "args", expected variable at offset 161 on line 7$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/SystemRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(Integer args\.system_size The system size id \(optional\)\)\: Unexpected token "args", expected variable at offset 701 on line 13$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/SystemRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(Integer args\.system_type The shops system type \(id\)\.\)\: Unexpected token "args", expected variable at offset 636 on line 12$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/SystemRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(String args\.location Connect the system to a location \(default\: koalamon\)\)\: Unexpected token "args", expected variable at offset 1056 on line 17$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/SystemRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(String args\.name The shops name\. \(optional\)\)\: Unexpected token "args", expected variable at offset 104 on line 6$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/SystemRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(String args\.name The shops name\.\)\: Unexpected token "args", expected variable at offset 453 on line 9$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/SystemRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(Url args\.base_url The shops base url with scheme, subdomain and domain\. \(optional\)\)\: Unexpected token "args", expected variable at offset 224 on line 8$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/SystemRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(Url args\.base_url The shops base url with scheme, subdomain and domain\.\)\: Unexpected token "args", expected variable at offset 495 on line 10$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/SystemRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(project\)\: Unexpected token "\\n   \* ", expected variable at offset 61 on line 4$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/ToolRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(project\)\: Unexpected token "\\n   \* ", expected variable at offset 63 on line 4$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/ToolRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(project\)\: Unexpected token "\\n   \* ", expected variable at offset 73 on line 4$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/ToolRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(toolIdentifier\)\: Unexpected token "\\n   \* ", expected variable at offset 88 on line 5$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/ToolRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(toolIdentifier\)\: Unexpected token "\\n   \* ", expected variable at offset 90 on line 5$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/ToolRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{Boolean\} args\.minifyOutput  \(default\: false\)\)\: Unexpected token "\{", expected type at offset 154 on line 6$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/ToolRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{Number\} args\.errors_in_a_row Number of errors in a row before marked as failure \(optional\)\)\: Unexpected token "\{", expected type at offset 129 on line 7$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/ToolRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{Number\} args\.newerThan\)\: Unexpected token "\{", expected type at offset 116 on line 5$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/ToolRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{Number\} args\.success_in_a_row Number of successes in a row before marked as passed \(optional\)\)\: Unexpected token "\{", expected type at offset 233 on line 8$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/ToolRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{Object\} args\)\: Unexpected token "\{", expected type at offset 101 on line 6$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/ToolRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{Object\} args\)\: Unexpected token "\{", expected type at offset 103 on line 6$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/ToolRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{Object\} args\)\: Unexpected token "\{", expected type at offset 86 on line 5$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/ToolRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{Object\} args\)\: Unexpected token "\{", expected type at offset 88 on line 4$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/ToolRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(application\)\: Unexpected token "\\n   \* ", expected variable at offset 101 on line 4$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/UserRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(application\)\: Unexpected token "\\n   \* ", expected variable at offset 106 on line 4$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/UserRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(application\)\: Unexpected token "\\n   \* ", expected variable at offset 198 on line 5$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/UserRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(application\)\: Unexpected token "\\n   \* ", expected variable at offset 57 on line 4$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/UserRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(application\)\: Unexpected token "\\n   \* ", expected variable at offset 64 on line 4$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/UserRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(application\)\: Unexpected token "\\n   \* ", expected variable at offset 71 on line 4$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/UserRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(application\)\: Unexpected token "\\n   \* ", expected variable at offset 72 on line 4$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/UserRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(application\)\: Unexpected token "\\n   \* ", expected variable at offset 74 on line 4$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/UserRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(application\)\: Unexpected token "\\n   \* ", expected variable at offset 77 on line 4$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/UserRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(company\)\: Unexpected token "\\n   \* ", expected variable at offset 109 on line 6$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/UserRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(user\)\: Unexpected token "\\n   \* ", expected variable at offset 118 on line 5$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/UserRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(user\)\: Unexpected token "\\n   \* ", expected variable at offset 74 on line 5$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/UserRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(user\)\: Unexpected token "\\n   \* ", expected variable at offset 81 on line 5$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/UserRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(user\)\: Unexpected token "\\n   \* ", expected variable at offset 89 on line 5$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/UserRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(user\)\: Unexpected token "\\n   \* ", expected variable at offset 91 on line 5$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/UserRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(user\)\: Unexpected token "\\n   \* ", expected variable at offset 94 on line 5$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/UserRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{\*\} args\.provider The OAuth provider\.\)\: Unexpected token "\{", expected type at offset 157 on line 7$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/UserRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{Array\} args\.query The key value pairs for the search\.\)\: Unexpected token "\{", expected type at offset 145 on line 6$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/UserRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{Boolean\} args\.suppressActivation  \(default\: false\)\)\: Unexpected token "\{", expected type at offset 461 on line 13$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/UserRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{Number\} args\.company  \(optional\)\)\: Unexpected token "\{", expected type at offset 212 on line 9$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/UserRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{Number\} args\.company_id The companies numeric id of the new user\. \(optional\)\)\: Unexpected token "\{", expected type at offset 307 on line 9$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/UserRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{Object\} args\)\: Unexpected token "\{", expected type at offset 104 on line 6$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/UserRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{Object\} args\)\: Unexpected token "\{", expected type at offset 107 on line 6$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/UserRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{Object\} args\)\: Unexpected token "\{", expected type at offset 119 on line 5$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/UserRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{Object\} args\)\: Unexpected token "\{", expected type at offset 122 on line 7$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/UserRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{Object\} args\)\: Unexpected token "\{", expected type at offset 131 on line 6$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/UserRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{Object\} args\)\: Unexpected token "\{", expected type at offset 211 on line 6$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/UserRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{Object\} args\)\: Unexpected token "\{", expected type at offset 84 on line 5$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/UserRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{Object\} args\)\: Unexpected token "\{", expected type at offset 87 on line 6$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/UserRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{Object\} args\)\: Unexpected token "\{", expected type at offset 94 on line 6$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/UserRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{String\} args\.activation_key\)\: Unexpected token "\{", expected type at offset 237 on line 7$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/UserRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{String\} args\.email The email address of the new user\. \(optional\)\)\: Unexpected token "\{", expected type at offset 133 on line 7$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/UserRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{String\} args\.email\)\: Unexpected token "\{", expected type at offset 145 on line 7$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/UserRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{String\} args\.firstName The users first name\. \(optional\)\)\: Unexpected token "\{", expected type at offset 325 on line 11$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/UserRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{String\} args\.first_name The users first name\. \(optional\)\)\: Unexpected token "\{", expected type at offset 397 on line 10$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/UserRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{String\} args\.fullName The users full name\. \(optional\)\)\: Unexpected token "\{", expected type at offset 258 on line 10$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/UserRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{String\} args\.language The users preferred interface language\.\)\: Unexpected token "\{", expected type at offset 130 on line 7$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/UserRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{String\} args\.lastName The users last name\. \(optional\)\)\: Unexpected token "\{", expected type at offset 394 on line 12$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/UserRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{String\} args\.last_name The users last name\. \(optional\)\)\: Unexpected token "\{", expected type at offset 467 on line 11$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/UserRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{String\} args\.password The new password\)\: Unexpected token "\{", expected type at offset 113 on line 7$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/UserRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{String\} args\.password\)\: Unexpected token "\{", expected type at offset 177 on line 8$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/UserRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{String\} args\.password_new\)\: Unexpected token "\{", expected type at offset 159 on line 8$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/UserRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{String\} args\.password_old\)\: Unexpected token "\{", expected type at offset 120 on line 7$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/UserRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{String\} args\.preferred_language The users preferred interface language\. \(optional\)\)\: Unexpected token "\{", expected type at offset 211 on line 8$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/UserRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{String\} args\.providerUserId The OAuth provider user id\.\)\: Unexpected token "\{", expected type at offset 207 on line 8$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/UserRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{String\} args\.userName\)\: Unexpected token "\{", expected type at offset 110 on line 6$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/UserRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{Object\} args\)\: Unexpected token "\{", expected type at offset 70 on line 3$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/WebsocketRepository.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\{Object\} args\)\: Unexpected token "\{", expected type at offset 87 on line 3$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: ../../../src/Repository/Entity/WebsocketRepository.php

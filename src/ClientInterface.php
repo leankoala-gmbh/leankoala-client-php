@@ -19,7 +19,7 @@ interface ClientInterface
      *
      * Throws an exception if the repository is not known.
      *
-     * @param string entityType
+     * @param string $entityType
      *
      * @throws NotConnectedException
      * @throws UnknownRepositoryException

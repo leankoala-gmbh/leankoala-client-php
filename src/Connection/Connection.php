@@ -2,7 +2,7 @@
 
 namespace Leankoala\ApiClient\Connection;
 
-use GuzzleHttp\Client;
+use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\Exception\GuzzleException;
 use GuzzleHttp\Exception\ServerException;
@@ -11,6 +11,7 @@ use GuzzleHttp\RequestOptions;
 use Leankoala\ApiClient\Exception\BadRequestException;
 use Leankoala\ApiClient\Exception\MissingArgumentException;
 use Leankoala\ApiClient\Exception\NotConnectedException;
+use Psr\Http\Message\ResponseInterface;
 
 /**
  * Class Connection.
@@ -51,7 +52,7 @@ class Connection
     /**
      * The HTTP client.
      *
-     * @var Client
+     * @var ClientInterface
      */
     private $httpClient;
 
@@ -65,7 +66,7 @@ class Connection
      *
      * @param array $defaultParameters
      */
-    public function __construct(Client $httpClient, $defaultParameters = [])
+    public function __construct(ClientInterface $httpClient, $defaultParameters = [])
     {
         $this->httpClient = $httpClient;
         $this->defaultParameters = $defaultParameters;
@@ -122,7 +123,7 @@ class Connection
 
         $headers = ['accept-language' => $this->preferredLanguage];
 
-        if ($withoutToken !== true && $this->accessToken) {
+        if ($withoutToken !== true && $this->accessToken !== '') {
             $headers['Authorization'] = 'Bearer ' . $this->accessToken;
         }
 
@@ -189,14 +190,13 @@ class Connection
     /**
      * Throw an exception if the response is not a valid or successful KoalityEngine response.
      *
-     * @param Response response
-     * @param string url
-     * @param string method
-     * @param array data
+     * @param string $url
+     * @param string $method
+     * @param array  $data
      *
      * @throws BadRequestException
      */
-    private function assertValidResponse(Response $response, $url, $method, $data)
+    private function assertValidResponse(ResponseInterface $response, $url, $method, $data)
     {
         $responseData = json_decode((string) $response->getBody());
 
@@ -263,7 +263,7 @@ class Connection
         $elements = explode(' ', $lastElement);
         $class = $elements[0];
 
-        if ($class) {
+        if ($class !== '') {
             $message = 'No ' . strtolower($class) . ' with the given ID found.';
         } else {
             $message = $actualMessage;
@@ -281,14 +281,14 @@ class Connection
      */
     public function getUser()
     {
-        if (!$this->accessToken) {
+        if ($this->accessToken === '') {
             throw new NotConnectedException('The connect() request was not done. No user data set.');
         }
 
         return $this->user;
     }
 
-    public function refreshAccessToken()
+    public function refreshAccessToken(bool $force = false): void
     {
     }
 }

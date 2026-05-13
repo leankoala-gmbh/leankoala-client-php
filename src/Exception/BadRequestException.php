@@ -2,7 +2,7 @@
 
 namespace Leankoala\ApiClient\Exception;
 
-use GuzzleHttp\Psr7\Response;
+use Psr\Http\Message\ResponseInterface;
 
 class BadRequestException extends \Exception
 {
@@ -12,7 +12,7 @@ class BadRequestException extends \Exception
     private $response;
     private $identifier;
 
-    public function __construct($message, $url, $method, $data, ?Response $response = null, $identifier = null)
+    public function __construct($message, $url, $method, $data, ?ResponseInterface $response = null, $identifier = null)
     {
         parent::__construct($message);
 
@@ -48,7 +48,7 @@ class BadRequestException extends \Exception
         return !is_null($this->response);
     }
 
-    public function getResponse(): ?Response
+    public function getResponse(): ?ResponseInterface
     {
         return $this->response;
     }

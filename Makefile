@@ -29,5 +29,9 @@ cs-fix: ## Run php-cs-fixer
 phpstan: ## Run phpstan
 	php -d memory_limit=-1 dev-ops/ci/vendor/bin/phpstan analyse -c dev-ops/ci/config/phpstan.neon
 
+.PHONY: phpstan-generate-baseline
+phpstan-generate-baseline: ## Run phpstan and generate baseline
+	php -d memory_limit=-1 dev-ops/ci/vendor/bin/phpstan analyse -c dev-ops/ci/config/phpstan.neon --generate-baseline=dev-ops/ci/config/phpstan-baseline.neon
+
 .PHONY: tests
 tests: cs-fix phpstan ## Run all tests

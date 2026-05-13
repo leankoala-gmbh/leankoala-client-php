@@ -67,7 +67,7 @@ class RepositoryCollection
     private $masterConnection;
 
     /**
-     * @var Connection
+     * @var Connection|null
      */
     private $clusterConnection;
 
