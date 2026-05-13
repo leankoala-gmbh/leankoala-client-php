@@ -1,5 +1,6 @@
 # Exclude non-essential files from dist
 /.gitattributes export-ignore
+/.github/ export-ignore
 /.gitignore export-ignore
 /dev-ops/ export-ignore
 /tests/ export-ignore
