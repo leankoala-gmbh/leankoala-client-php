@@ -72,6 +72,6 @@ class BadRequestException extends \Exception
 
     public function hasIdentifier(): bool
     {
-        return is_null($this->identifier);
+        return !is_null($this->identifier);
     }
 }
