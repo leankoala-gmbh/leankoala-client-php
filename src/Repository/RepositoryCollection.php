@@ -23,7 +23,9 @@ use Leankoala\ApiClient\Repository\Entity\CheckLighthouseRepository;
 use Leankoala\ApiClient\Repository\Entity\CheckMobileFriendlyRepository;
 use Leankoala\ApiClient\Repository\Entity\CheckRepository;
 use Leankoala\ApiClient\Repository\Entity\CheckSitemapRepository;
+use Leankoala\ApiClient\Repository\Entity\ClusterCompanyRepository;
 use Leankoala\ApiClient\Repository\Entity\ClusterRepository;
+use Leankoala\ApiClient\Repository\Entity\ClusterUserRepository;
 use Leankoala\ApiClient\Repository\Entity\CompanyRepository;
 use Leankoala\ApiClient\Repository\Entity\ComponentRepository;
 use Leankoala\ApiClient\Repository\Entity\CrawlerRepository;
@@ -43,13 +45,9 @@ use Leankoala\ApiClient\Repository\Entity\SystemRepository;
 use Leankoala\ApiClient\Repository\Entity\ToolRepository;
 use Leankoala\ApiClient\Repository\Entity\UserRepository;
 use Leankoala\ApiClient\Repository\Entity\WebsocketRepository;
-use Leankoala\ApiClient\Repository\Entity\ClusterUserRepository;
-use Leankoala\ApiClient\Repository\Entity\ClusterCompanyRepository;
 
 /**
- * Class RepositoryCollection
- *
- * @package Leankoala\ApiClient\Repository
+ * Class RepositoryCollection.
  *
  * @author Nils Langner <nils.langner@leankoala.com>
  * @author Sascha Fuchs <sascha.fuchs@leankoala.com>
@@ -127,8 +125,6 @@ class RepositoryCollection
 
     /**
      * Set the connection for the currently used cluster.
-     *
-     * @param Connection $connection
      */
     public function setClusterConnection(Connection $connection)
     {
@@ -139,10 +135,11 @@ class RepositoryCollection
      * Get the initialized repository that is already connected.
      *
      * @param string $entityType
-     * @return Repository
      *
      * @throws UnknownRepositoryException
      * @throws NotConnectedException
+     *
+     * @return Repository
      */
     public function getRepository($entityType)
     {

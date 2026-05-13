@@ -9,6 +9,9 @@ $finder = Finder::create()
     ->in([
         dirname(__DIR__, 3) . '/src',
     ])
+    ->notPath([
+        'Repository/Entity'
+    ])
 ;
 
 return (new Config())

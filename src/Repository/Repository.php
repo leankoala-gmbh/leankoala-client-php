@@ -6,8 +6,7 @@ use Leankoala\ApiClient\Connection\Connection;
 use Leankoala\ApiClient\Exception\MissingArgumentException;
 
 /**
- * Class Repository
- *
+ * Class Repository.
  *
  * @author Nils Langner <nils.langner@leankoala.com>
  * created 2021-05-05
@@ -20,9 +19,7 @@ abstract class Repository
     protected $connection;
 
     /**
-     * Initialize the repository
-     *
-     * @param $connection
+     * Initialize the repository.
      */
     public function init($connection)
     {
@@ -42,5 +39,4 @@ abstract class Repository
             }
         }
     }
-
 }
