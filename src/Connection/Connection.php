@@ -62,6 +62,12 @@ class Connection
     private $defaultParameters = [];
 
     /**
+     * Send the access token as "access_token" in the request body in addition to the
+     * Authorization header. Enabled by default for backwards compatibility.
+     */
+    private bool $sendAccessTokenInBody = true;
+
+    /**
      * Init routes and set default values.
      *
      * @param array $defaultParameters
@@ -94,7 +100,32 @@ class Connection
     public function setAccessToken($accessToken)
     {
         $this->accessToken = $accessToken;
-        $this->addDefaultParameter('access_token', $accessToken);
+
+        if ($this->sendAccessTokenInBody) {
+            $this->addDefaultParameter('access_token', $accessToken);
+        }
+    }
+
+    /**
+     * Define whether the access token is also sent as "access_token" in the request body.
+     *
+     * The token is always sent in the Authorization header. Disable the body copy only if
+     * every server this connection talks to reads the token from the header.
+     */
+    public function setSendAccessTokenInBody(bool $sendAccessTokenInBody): void
+    {
+        $this->sendAccessTokenInBody = $sendAccessTokenInBody;
+
+        if (!$sendAccessTokenInBody) {
+            unset($this->defaultParameters['access_token']);
+        } elseif ($this->accessToken !== '') {
+            $this->addDefaultParameter('access_token', $this->accessToken);
+        }
+    }
+
+    public function isSendingAccessTokenInBody(): bool
+    {
+        return $this->sendAccessTokenInBody;
     }
 
     /**

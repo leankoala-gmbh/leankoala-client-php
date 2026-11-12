@@ -45,12 +45,12 @@ class Client implements ClientInterface
     public const APPLICATION_PLESK360 = '360';
 
     /**
-     * @var Connection
+     * @var Connection|null
      */
     private $masterConnection;
 
     /**
-     * @var Connection
+     * @var Connection|null
      */
     private $clusterConnection;
 
@@ -115,6 +115,11 @@ class Client implements ClientInterface
 
     private string $application;
 
+    /**
+     * @see Connection::setSendAccessTokenInBody()
+     */
+    private bool $sendAccessTokenInBody = true;
+
     public function __construct(string $environment, ?GuzzleClientInterface $client = null, string $application = self::APPLICATION_KOALITY)
     {
         if (is_null($client)) {
@@ -151,6 +156,24 @@ class Client implements ClientInterface
         }
     }
 
+    /**
+     * Define whether the access token is also sent as "access_token" in the request body.
+     *
+     * The token is always sent in the Authorization header. The body copy is enabled by
+     * default for backwards compatibility. The setting applies to the master and the cluster
+     * connection, including connections that already exist, and to the cluster login in
+     * switchCluster(), which then sends the master token in the Authorization header.
+     *
+     * Request data passed explicitly to a repository call is sent unchanged.
+     */
+    public function setSendAccessTokenInBody(bool $sendAccessTokenInBody): void
+    {
+        $this->sendAccessTokenInBody = $sendAccessTokenInBody;
+
+        $this->masterConnection?->setSendAccessTokenInBody($sendAccessTokenInBody);
+        $this->clusterConnection?->setSendAccessTokenInBody($sendAccessTokenInBody);
+    }
+
     public function getClusterConnection(): Connection
     {
         return $this->clusterConnection;
@@ -160,7 +183,7 @@ class Client implements ClientInterface
     {
         $this->masterUser = $user;
 
-        $this->masterConnection = new Connection($this->client);
+        $this->masterConnection = $this->createConnection();
 
         $this->masterConnection->setAccessToken($token);
         $this->masterConnection->setApiServer($this->servers[$this->environment]);
@@ -212,15 +235,11 @@ class Client implements ClientInterface
      */
     public function switchCluster($cluster, $connect = true)
     {
-        $this->clusterConnection = new Connection($this->client);
+        $this->clusterConnection = $this->createConnection();
         $this->clusterConnection->setApiServer($cluster['apiEndpoint']);
 
         if ($connect) {
-            // login into cluster
-            $tokens = $this->clusterConnection->send($this->routes['authenticateAtCluster'], [
-                'access_token' => $this->masterConnection->getAccessToken(),
-                'masterUserId' => $this->getMasterUser()['id'],
-            ]);
+            $tokens = $this->authenticateAtCluster();
             $this->clusterUser = $tokens['user'];
             $this->clusterConnection->setAccessToken($tokens['token']);
         }
@@ -228,8 +247,55 @@ class Client implements ClientInterface
         $this->repositoryCollection->setClusterConnection($this->clusterConnection);
     }
 
+    /**
+     * Exchange the master token for a cluster token.
+     *
+     * By default the master token is sent as "access_token" in the request body. If the body
+     * copy is disabled, it is sent in the Authorization header instead, so the token does not
+     * end up in the request body (or in BadRequestException::getData() on failure).
+     *
+     * @throws BadRequestException
+     * @throws GuzzleException
+     * @throws MissingArgumentException
+     */
+    private function authenticateAtCluster(): array
+    {
+        $masterToken = $this->masterConnection->getAccessToken();
+        $route = $this->routes['authenticateAtCluster'];
+
+        if ($this->clusterConnection->isSendingAccessTokenInBody()) {
+            return $this->clusterConnection->send($route, [
+                'access_token' => $masterToken,
+                'masterUserId' => $this->getMasterUser()['id'],
+            ]);
+        }
+
+        // The cluster connection has no token of its own yet. Borrow the master token for this
+        // single request so it is sent in the Authorization header, and never leave it behind.
+        $this->clusterConnection->setAccessToken($masterToken);
+
+        try {
+            return $this->clusterConnection->send($route, [
+                'masterUserId' => $this->getMasterUser()['id'],
+            ]);
+        } finally {
+            $this->clusterConnection->setAccessToken('');
+        }
+    }
+
+    /**
+     * Use the given connection as cluster connection.
+     *
+     * If the body copy of the access token is disabled on this client, it is disabled on the
+     * injected connection too. The opposite direction is not applied: a connection that was
+     * configured to send the token only in the header keeps doing so.
+     */
     public function setClusterConnection(Connection $clusterConnection): void
     {
+        if (!$this->sendAccessTokenInBody) {
+            $clusterConnection->setSendAccessTokenInBody(false);
+        }
+
         $this->connectionStatus = self::STATUS_CONNECTED;
         $this->clusterConnection = $clusterConnection;
     }
@@ -272,10 +338,7 @@ class Client implements ClientInterface
      */
     private function initConnection($username = null, $password = null, $token = null)
     {
-        $this->masterConnection = new Connection(
-            $this->client,
-            ['application' => $this->application]
-        );
+        $this->masterConnection = $this->createConnection(['application' => $this->application]);
 
         $this->masterConnection->setApiServer($this->servers[$this->environment]);
 
@@ -305,6 +368,14 @@ class Client implements ClientInterface
         $this->masterConnection->setAccessToken($accessToken);
 
         $this->connectionStatus = self::STATUS_CONNECTED;
+    }
+
+    private function createConnection(array $defaultParameters = []): Connection
+    {
+        $connection = new Connection($this->client, $defaultParameters);
+        $connection->setSendAccessTokenInBody($this->sendAccessTokenInBody);
+
+        return $connection;
     }
 
     /**
